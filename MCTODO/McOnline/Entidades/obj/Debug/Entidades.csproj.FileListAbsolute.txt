@@ -1,0 +1,5 @@
+D:\Usuarios\Agustina\Mis Documentos\McOnline\Entidades\bin\Debug\Entidades.dll
+D:\Usuarios\Agustina\Mis Documentos\McOnline\Entidades\bin\Debug\Entidades.pdb
+D:\Usuarios\Agustina\Mis Documentos\McOnline\Entidades\obj\Debug\Entidades.dll
+D:\Usuarios\Agustina\Mis Documentos\McOnline\Entidades\obj\Debug\Entidades.pdb
+D:\Usuarios\Agustina\Mis Documentos\McOnline\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
