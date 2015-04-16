@@ -4,8 +4,8 @@
   <style type="text/css">
         .style4
         {
-            width: 766px;
-        }
+          width: 723px;
+      }
         .style5
         {
             width: 234px;
@@ -25,7 +25,8 @@
         <tr>
             <td class="style4">
                 <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" 
-                    CellPadding="4" ForeColor="#333333" Width="543px">
+                    CellPadding="4" ForeColor="#333333" Width="496px" 
+                    style="margin-right: 0px">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField HeaderText="PRODUCTO" />
