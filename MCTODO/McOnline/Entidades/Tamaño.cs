@@ -5,7 +5,18 @@ using System.Text;
 
 namespace Entidades
 {
-    class Tamaño
+    public class Tamaño
     {
+        public int id_tamaño { get; set; }
+        public string descripcion { get;set; }
+
+        public Tamaño()
+        { }
+
+        public Tamaño(int id_tamaño, string descripcion)
+        {
+            this.id_tamaño = id_tamaño;
+            this.descripcion = descripcion;
+        }
     }
 }
