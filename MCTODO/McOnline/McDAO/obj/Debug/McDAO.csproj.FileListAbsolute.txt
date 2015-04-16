@@ -12,3 +12,10 @@ D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\Mc
 D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\McDAO\obj\Debug\McDAO.csprojResolveAssemblyReference.cache
 D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\McDAO\obj\Debug\McDAO.dll
 D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\McDAO\obj\Debug\McDAO.pdb
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\McDAO\bin\Debug\McDAO.dll
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\McDAO\bin\Debug\McDAO.pdb
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\McDAO\bin\Debug\Entidades.dll
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\McDAO\bin\Debug\Entidades.pdb
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\McDAO\obj\Debug\McDAO.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\McDAO\obj\Debug\McDAO.dll
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\McDAO\obj\Debug\McDAO.pdb

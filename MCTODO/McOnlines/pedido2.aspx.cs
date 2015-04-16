@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using McDAO;
+using Entidades;
 
 
 public partial class pedido2 : System.Web.UI.Page
@@ -17,6 +18,15 @@ public partial class pedido2 : System.Web.UI.Page
 
     private void CargarGrilla()
     {
-        
+        try
+        {
+
+            gvProductos.DataSource = ProductoDAO.ObtenerTodo();
+            gvProductos.DataBind();
+        }
+        catch
+        {
+
+        }
     }
 }

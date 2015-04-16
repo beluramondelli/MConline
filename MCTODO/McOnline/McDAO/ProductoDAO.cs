@@ -5,13 +5,13 @@ using System.Text;
 using Entidades;
 using System.Data.SqlClient;
 using System.Data;
-using McDAO;
+
 
 namespace McDAO
 {
-    class ProductoDAO
+    public class ProductoDAO
     {
-        
+
         public static List<Producto> ObtenerTodo()
         {
             List<Producto> listProductos = new List<Producto>();
@@ -29,13 +29,13 @@ namespace McDAO
                     Producto prod = new Producto()
                     {
                         id = (int)dr["id_producto"],
-                        nombre= dr["nombre"].ToString()
+                        nombre = dr["nombre"].ToString()
                     };
                     listProductos.Add(prod);
                 }
                 dr.Close();
                 cn.Close();
-                
+
 
             }
             catch (SqlException ex)
@@ -46,7 +46,7 @@ namespace McDAO
             }
             return listProductos;
 
-            
+
         }
     }
 }

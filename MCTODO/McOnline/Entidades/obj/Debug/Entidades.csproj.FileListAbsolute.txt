@@ -8,3 +8,8 @@ D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\En
 D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
 D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.dll
 D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\Entidades\bin\Debug\Entidades.dll
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.dll
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.pdb
