@@ -3,3 +3,8 @@ D:\Usuarios\Agustina\Mis Documentos\McOnline\Entidades\bin\Debug\Entidades.pdb
 D:\Usuarios\Agustina\Mis Documentos\McOnline\Entidades\obj\Debug\Entidades.dll
 D:\Usuarios\Agustina\Mis Documentos\McOnline\Entidades\obj\Debug\Entidades.pdb
 D:\Usuarios\Agustina\Mis Documentos\McOnline\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\Entidades\bin\Debug\Entidades.dll
+D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\Entidades\bin\Debug\Entidades.pdb
+D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.dll
+D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.pdb
