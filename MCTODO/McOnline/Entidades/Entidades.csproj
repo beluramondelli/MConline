@@ -47,12 +47,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tamaño.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\McDAO\McDAO.csproj">
-      <Project>{5234BD9F-0100-4B52-AC56-7EE2ED8399CD}</Project>
-      <Name>McDAO</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
