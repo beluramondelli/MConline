@@ -5,6 +5,7 @@ using System.Text;
 using Entidades;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 
 namespace McDAO
@@ -15,7 +16,7 @@ namespace McDAO
         public static List<Producto> ObtenerTodo()
         {
             List<Producto> listProductos = new List<Producto>();
-            String sql = " select nombre from producto ";
+            string sql = " select * from producto ";
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = "workstation id=MCDonaldsBD.mssql.somee.com;packet size=4096;user id=belenramondelli_SQLLogin_1;pwd=co8hnc1axi;data source=MCDonaldsBD.mssql.somee.com;persist security info=False;initial catalog=MCDonaldsBD";
 
@@ -26,11 +27,11 @@ namespace McDAO
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    Producto prod = new Producto()
-                    {
-                        id = (int)dr["id_producto"],
-                        nombre = dr["nombre"].ToString()
-                    };
+                    Producto prod = new Producto();
+
+                    prod.id_producto = (int)dr["id_producto"];
+                    prod.nombre = dr["nombre"].ToString();
+
                     listProductos.Add(prod);
                 }
                 dr.Close();

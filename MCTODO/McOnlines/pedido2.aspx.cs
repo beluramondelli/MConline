@@ -22,7 +22,11 @@ public partial class pedido2 : System.Web.UI.Page
         {
 
             gvProductos.DataSource = ProductoDAO.ObtenerTodo();
+            gvProductos.DataKeyNames = new string[] { "id_producto", "nombre" };
             gvProductos.DataBind();
+            gvProductos.HeaderRow.Cells[0].Text = " ID ";
+            gvProductos.HeaderRow.Cells[1].Text = " Nombre";
+
         }
         catch
         {

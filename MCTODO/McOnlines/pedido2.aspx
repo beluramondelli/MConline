@@ -25,13 +25,12 @@
         <tr>
             <td class="style4">
                 <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" 
-                    CellPadding="4" ForeColor="#333333" Width="496px" 
-                    style="margin-right: 0px">
+                    CellPadding="4" ForeColor="#333333" style="margin-right: 0px" Width="496px">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:BoundField HeaderText="PRODUCTO" />
-                        <asp:BoundField HeaderText="DESCRIPCION" />
-                        <asp:BoundField HeaderText="PRECIO" />
+                        <asp:BoundField />
+                        <asp:BoundField />
+                        <asp:BoundField />
                         <asp:CommandField ShowSelectButton="True" />
                     </Columns>
                     <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
