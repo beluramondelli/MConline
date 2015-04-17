@@ -24,8 +24,9 @@
         style="position: static; visibility: visible">
         <tr>
             <td class="style4">
-                <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" 
-                    CellPadding="4" ForeColor="#333333" style="margin-right: 0px" Width="496px">
+                <asp:GridView ID="dgvProductos" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="4" ForeColor="#333333" style="margin-right: 0px" 
+                    Width="496px" onselectedindexchanged="gvProductos_SelectedIndexChanged">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField />
@@ -47,20 +48,30 @@
             <td class="style5" align="justify">
                 DETALLE<br />
                 <br />
-                Cantidad<asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
+                Cantidad<asp:TextBox ID="txtCantidad" 
+                    runat="server"  ></asp:TextBox>
                 <br />
-                Descripción<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                <br />
-                <br />
-                <br />
-                <br />
+                Descripción<asp:TextBox 
+                    ID="txtDescripcion" runat="server"></asp:TextBox>
                 <br />
                 <br />
-                <asp:Button ID="Button1" runat="server" Text="Agregar al carrito" />
+                <br />
+                <br />
+                <br />
+                <br />
+                <asp:Button ID="btnAgregarCarrito" runat="server" Text="Agregar al carrito" 
+                    onclick="btnAgregarCarrito_Click" />
+                <br />
+                <asp:CompareValidator ID="CompareValidator1" runat="server" 
+                    ErrorMessage="La cantidad debe ser un valor númerico" Operator="DataTypeCheck" 
+                    Type="Integer"></asp:CompareValidator>
+                <asp:RangeValidator ID="RangeValidator1" runat="server" 
+                    ErrorMessage="El valor ingresado no es correcto" MaximumValue="100" 
+                    MinimumValue="1"></asp:RangeValidator>
             </td>
             <td>
                 MI CARRITO<br />
-                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" 
+                <asp:GridView ID="dgvCarrito" runat="server" AutoGenerateColumns="False" 
                     CellPadding="4" ForeColor="#333333" GridLines="None" Height="124px" 
                     Width="148px">
                     <AlternatingRowStyle BackColor="White" />
