@@ -8,18 +8,22 @@ namespace Entidades
    public class ProductoXtamaño
     {
         public int id_producto { get; set; }
-        public int id_tamaño { get; set; }
-        public float precio { get; set; }
+        //public int id_tamaño { get; set; }
+        public string nombre { get; set; }
+        public string descripcion { get; set; }
+        public int precio { get; set; }
 
         public ProductoXtamaño()
         {
-    }
-        public ProductoXtamaño(int id_producto, int id_tamaño, float precio)
+        }
+        public ProductoXtamaño(int id_producto, int precio, string descrip, string nom)
         {
             this.id_producto = id_producto;
-            this.id_tamaño = id_tamaño;
+            this.nombre = nom;
             this.precio = precio;
+            this.descripcion = descrip;
         }
+
 
 
     }

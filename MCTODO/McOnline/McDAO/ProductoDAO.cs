@@ -14,13 +14,12 @@ namespace McDAO
     {
         public static string con = @"workstation id=MCDonaldsBD.mssql.somee.com;packet size=4096;user id=belenramondelli_SQLLogin_1;pwd=co8hnc1axi;data source=MCDonaldsBD.mssql.somee.com;persist security info=False;initial catalog=MCDonaldsBD";
 
-        public static List<Producto> ObtenerTodo()
+        public static List<ProductoXtamaño> ObtenerTodo()
         {
-            List<Producto> listProductos = new List<Producto>();
-            string sql = " select * from producto ";
+            List<ProductoXtamaño> listProductos = new List<ProductoXtamaño>();
+            string sql = " select prod.id_producto, prod.nombre, prodtam.descripcion, prodtam.precio from producto prod, productoXtamaño prodtam where prodtam.id_producto=prod.id_producto  ";
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = con;
-
             try
             {
                 cn.Open();
@@ -28,11 +27,13 @@ namespace McDAO
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    Producto prod = new Producto();
+                    ProductoXtamaño prod = new ProductoXtamaño();
 
                     prod.id_producto = (int)dr["id_producto"];
                     prod.nombre = dr["nombre"].ToString();
-
+                    prod.descripcion = dr["descripcion"].ToString();
+                    prod.precio = (int)dr["precio"];
+                    
                     listProductos.Add(prod);
                 }
                 dr.Close();
@@ -44,7 +45,7 @@ namespace McDAO
             {
                 if (cn.State == ConnectionState.Open)
                     cn.Close();
-                throw new ApplicationException("Error al buscar las provincias");
+                throw new ApplicationException("Error al buscar los prdocutos");
             }
             return listProductos;
             
@@ -54,10 +55,10 @@ namespace McDAO
 
 
 
-        public static Producto ObtenerProductoPorId(int id)
+        public static string ObtenerProductoPorId(int id)
         {
-            Producto prod= new Producto();
-            string sql = "select * from Producto where id_producto = @id";
+            string nom = "";
+            string sql = "select nombre from Producto where id_producto = @id";
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = con;
             try
@@ -68,8 +69,7 @@ namespace McDAO
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    prod.id_producto = (int)dr["id_producto"];
-                    prod.nombre = dr["nombre"].ToString();
+                    nom = dr["nombre"].ToString();
                 }
                 dr.Close();
                 cn.Close();
@@ -80,7 +80,7 @@ namespace McDAO
                     cn.Close();
                 throw new ApplicationException("Error al buscar el Producto");
             }
-            return prod;
+            return nom;
 
         }
 

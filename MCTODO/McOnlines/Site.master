@@ -51,7 +51,7 @@
                         <asp:MenuItem NavigateUrl="~/Principal.aspx" Text="Home" Value="Home"/>
                         <asp:MenuItem NavigateUrl="~/ubicacion.aspx" Text="Sucursales" 
                             Value="Sucursales"/>
-                        <asp:MenuItem NavigateUrl="pedido.aspx" Text="Pedido" Value="Pedido">
+                        <asp:MenuItem NavigateUrl="pedido2.aspx" Text="Pedido" Value="Pedido">
                         </asp:MenuItem>
                     </Items>
                     <StaticHoverStyle BackColor="#990000" ForeColor="White" />
