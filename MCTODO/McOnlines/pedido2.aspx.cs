@@ -58,8 +58,8 @@ public partial class pedido2 : System.Web.UI.Page
         pxp.cantidad = int.Parse(txtCantidad.Text);
         pxp.descripcion = txtDescripcion.Text;
 
-        prod.
-        nroItem = nroItem +1;
+        //prod.
+        //nroItem = nroItem +1;
         
     }
 
