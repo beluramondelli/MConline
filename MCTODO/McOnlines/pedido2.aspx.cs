@@ -22,7 +22,7 @@ public partial class pedido2 : System.Web.UI.Page
             dt=new DataTable();
             dt.Columns.Add("Nombre");
             dt.Columns.Add("Cantidad");
-            dt.Columns.Add("Subtotal");
+            dt.Columns.Add("Precio");
             listProdXped = new List<ProductoXpedido>();
 
             CargarGrilla();
@@ -30,7 +30,8 @@ public partial class pedido2 : System.Web.UI.Page
             txtDescripcion.Enabled = false;
             btnAgregarCarrito.Enabled = false;
             btnConfirmar.Enabled = false;
-        }
+            txtTotal.Enabled = false;
+         }
     }
 
     private void CargarGrilla()
@@ -66,7 +67,7 @@ public partial class pedido2 : System.Web.UI.Page
         ProductoXpedido pxp = new ProductoXpedido();
         pxp.cantidad = int.Parse(txtCantidad.Text);
         pxp.descripcion = txtDescripcion.Text;
-        pxp.precio = 0;
+        
 
         int id_producto = (int.Parse(gvProductos.SelectedDataKey.Value.ToString()));
         string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
@@ -74,6 +75,7 @@ public partial class pedido2 : System.Web.UI.Page
         int cantidad = (int.Parse(txtCantidad.Text.ToString()));
         int subtotal = (precio * cantidad);
 
+        pxp.precio = subtotal;
         pxp.id_producto = id_producto;
         pxp.id_tamaño = 3;
 
@@ -83,6 +85,11 @@ public partial class pedido2 : System.Web.UI.Page
         cargarGrilla(dgvCarrito, dt);
         CalcularTotal();
         btnConfirmar.Enabled = true;
+        txtCantidad.Text = "";
+        txtCantidad.Enabled = false;
+        txtDescripcion.Text = "";
+        txtDescripcion.Enabled = false;
+        btnAgregarCarrito.Enabled = false;
     }
 
     private void cargarGrilla(GridView gv, DataTable dt)
@@ -107,11 +114,12 @@ public partial class pedido2 : System.Web.UI.Page
         Pedido ped = new Pedido();
 
         ped.fecha=DateTime.Now;
-        ped.montoTotal = 0;
+        ped.montoTotal = int.Parse(txtTotal.Text);
         ped.id_pedido = 0;
         ped.horaPedido = DateTime.Now;
         ped.horaEntrega = DateTime.Now;
-        
+
+        McDAO.PedidoDAO.insertarPedido(ped, listProdXped);
 
     }
 
