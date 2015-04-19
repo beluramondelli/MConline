@@ -85,5 +85,34 @@ namespace McDAO
         }
 
 
+
+        public static int obtenerPrecioProducto(int id)
+        {
+            int preci = 0;
+            string sql = "select precio from productoXtamaño where id_producto = @id";
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = con;
+            try
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand(sql, cn);
+                cmd.Parameters.AddWithValue("@id", id);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    preci = (int)dr["precio"];
+                }
+                dr.Close();
+                cn.Close();
+            }
+            catch (SqlException ex)
+            {
+                if (cn.State == ConnectionState.Open)
+                    cn.Close();
+                throw new ApplicationException("Error al buscar el precio del producto");
+            }
+            return preci;
+        }
+
     }
 }

@@ -64,8 +64,7 @@
                 <br />
                 <%--<asp:CompareValidator ID="CompareValidator1" runat="server" 
                     ErrorMessage="La cantidad debe ser un valor númerico" Operator="DataTypeCheck" 
-                    Type="Integer"></asp:CompareValidator>--%>
-                <%--<asp:RangeValidator ID="RangeValidator1" runat="server" 
+                    Type="Integer"></asp:CompareValidator>--%>                <%--<asp:RangeValidator ID="RangeValidator1" runat="server" 
                     ErrorMessage="El valor ingresado no es correcto" MaximumValue="100" 
                     MinimumValue="1"></asp:RangeValidator>--%>
             </td>
@@ -88,6 +87,12 @@
                     <SortedDescendingCellStyle BackColor="#FCF6C0" />
                     <SortedDescendingHeaderStyle BackColor="#820000" />
                 </asp:GridView>
+                <br />
+                Total<asp:TextBox ID="txtTotal" runat="server"></asp:TextBox>
+                <br />
+                <br />
+                <asp:Button ID="btnConfirmar" runat="server" onclick="btnConfirmar_Click" 
+                    Text="Confirmar Pedido" />
             </td>
         </tr>
         <tr>

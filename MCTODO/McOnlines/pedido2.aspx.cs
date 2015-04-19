@@ -13,6 +13,7 @@ using System.Data.SqlClient;
 public partial class pedido2 : System.Web.UI.Page
 {
     public static DataTable dt;
+    public static List<ProductoXpedido> listProdXped;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,11 +22,14 @@ public partial class pedido2 : System.Web.UI.Page
             dt=new DataTable();
             dt.Columns.Add("Nombre");
             dt.Columns.Add("Cantidad");
+            dt.Columns.Add("Subtotal");
+            listProdXped = new List<ProductoXpedido>();
 
             CargarGrilla();
             txtCantidad.Enabled = false;
             txtDescripcion.Enabled = false;
             btnAgregarCarrito.Enabled = false;
+            btnConfirmar.Enabled = false;
         }
     }
 
@@ -59,20 +63,26 @@ public partial class pedido2 : System.Web.UI.Page
 
     protected void btnAgregarCarrito_Click(object sender, EventArgs e)
     {
-
-        //Producto prod = ProductoDAO.ObtenerProductoPorId(int.Parse(gvProductos.SelectedDataKey.Value.ToString()));
         ProductoXpedido pxp = new ProductoXpedido();
         pxp.cantidad = int.Parse(txtCantidad.Text);
         pxp.descripcion = txtDescripcion.Text;
+        pxp.precio = 0;
 
         int id_producto = (int.Parse(gvProductos.SelectedDataKey.Value.ToString()));
-
         string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
+        int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
+        int cantidad = (int.Parse(txtCantidad.Text.ToString()));
+        int subtotal = (precio * cantidad);
 
-        dt.Rows.Add(nom, pxp.cantidad);
+        pxp.id_producto = id_producto;
+        pxp.id_tamaño = 3;
 
-        dgvCarrito.DataSource = dt;
-        dgvCarrito.DataBind();
+        listProdXped.Add(pxp);
+
+        dt.Rows.Add(nom, pxp.cantidad, subtotal);
+        cargarGrilla(dgvCarrito, dt);
+        CalcularTotal();
+        btnConfirmar.Enabled = true;
     }
 
     private void cargarGrilla(GridView gv, DataTable dt)
@@ -92,4 +102,27 @@ public partial class pedido2 : System.Web.UI.Page
         gvProductos.PageIndex = e.NewPageIndex;
         CargarGrilla();
     }
+    protected void btnConfirmar_Click(object sender, EventArgs e)
+    {
+        Pedido ped = new Pedido();
+
+        ped.fecha=DateTime.Now;
+        ped.montoTotal = 0;
+        ped.id_pedido = 0;
+        ped.horaPedido = DateTime.Now;
+        ped.horaEntrega = DateTime.Now;
+        
+
+    }
+
+    public void CalcularTotal()
+    {
+        int total = 0;
+        for (int i = 0; i < dgvCarrito.Rows.Count; i++)
+        {
+            total = total + int.Parse(dgvCarrito.Rows[i].Cells[3].Text);
+        }
+        txtTotal.Text = total.ToString();
+    }
+
 }
