@@ -45,7 +45,7 @@
                     <SortedDescendingHeaderStyle BackColor="#820000" />
                 </asp:GridView>
             </td>
-            <td class="style5" align="justify">
+            <td class="style5" align="justify" style="color: #CC0000">
                 DETALLE<br />
                 <br />
                 Cantidad<asp:TextBox ID="txtCantidad" 
@@ -68,7 +68,7 @@
                     ErrorMessage="El valor ingresado no es correcto" MaximumValue="100" 
                     MinimumValue="1"></asp:RangeValidator>--%>
             </td>
-            <td>
+            <td style="color: #CC0000">
                 MI CARRITO<br />
                 <asp:GridView ID="dgvCarrito" runat="server" 
                     CellPadding="4" ForeColor="#333333" GridLines="None" Height="124px" 
