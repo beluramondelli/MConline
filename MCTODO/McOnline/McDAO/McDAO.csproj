@@ -44,7 +44,6 @@
     <Compile Include="ProductoDAO.cs" />
     <Compile Include="ProdXPedDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tamaño.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj">

@@ -36,7 +36,7 @@ namespace McDAO
                 cmd.Parameters.AddWithValue("@montoTot", ped.montoTotal);
                 cmd.Parameters.AddWithValue("@estado", ped.id_estado);
                 cmd.Parameters.AddWithValue("@hsPed", ped.horaPedido);
-                cmd.Parameters.AddWithValue("@hsPed", ped.horaEntrega);
+                cmd.Parameters.AddWithValue("@hsEnt", ped.horaEntrega);
                 ped.id_pedido = Convert.ToInt32(cmd.ExecuteScalar());
 
                 sql = "insert into productoXPedido(id_producto,id_pedido, id_tamaño, cantidad, descripcion,precio) values (@id_Prod, @id_Ped, @id_tam, @cant, @descr, @precio)";
