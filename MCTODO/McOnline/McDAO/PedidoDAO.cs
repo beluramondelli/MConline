@@ -31,14 +31,15 @@ namespace McDAO
                 cmd.Connection = cn;
 
                 sql = "insert into pedido(fecha, montoTotal, id_estado, horaPedido, horaEntrega) values (@fech, @montoTot, @estado, @hsPed, @hsEnt); select @@Identity;";
-                cmd.CommandText = sql;
+                
                 cmd.Parameters.AddWithValue("@fech", ped.fecha);
                 cmd.Parameters.AddWithValue("@montoTot", ped.montoTotal);
                 cmd.Parameters.AddWithValue("@estado", ped.id_estado);
                 cmd.Parameters.AddWithValue("@hsPed", ped.horaPedido);
                 cmd.Parameters.AddWithValue("@hsEnt", ped.horaEntrega);
+                cmd.CommandText = sql;
                 ped.id_pedido = int.Parse(cmd.ExecuteScalar().ToString());
-                //ped.id_pedido = Convert.ToInt32(cmd.ExecuteScalar());
+                
 
                 sql = "insert into productoXpedido(id_producto,id_pedido, id_tamaño, cantidad, descripcion,precio) values (@id_Prod, @id_Ped, @id_tam, @cant, @descr, @precio)";
                 foreach (ProductoXpedido item in listProdXped)
@@ -47,13 +48,15 @@ namespace McDAO
                     cmd2.Transaction = tran;
                     cmd2.Connection = cn;
 
-                    cmd2.CommandText = sql;
                     cmd2.Parameters.AddWithValue("@id_prod", item.id_producto);
                     cmd2.Parameters.AddWithValue("@id_ped", ped.id_pedido);
                     cmd2.Parameters.AddWithValue("@id_tam", item.id_tamaño);
                     cmd2.Parameters.AddWithValue("@cant", item.cantidad);
                     cmd2.Parameters.AddWithValue("@descr", item.descripcion);
                     cmd2.Parameters.AddWithValue("@precio", item.precio);
+                    
+                    cmd2.CommandText = sql;
+                    cmd2.ExecuteNonQuery();
                     
                 }
 
