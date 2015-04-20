@@ -42,18 +42,18 @@ namespace McDAO
                 sql = "insert into productoXPedido(id_producto,id_pedido, id_tamaño, cantidad, descripcion,precio) values (@id_Prod, @id_Ped, @id_tam, @cant, @descr, @precio)";
                 foreach (ProductoXpedido item in listProdXped)
                 {
-
-                    cmd.CommandText = sql;
-                    cmd.Parameters.AddWithValue("@id_prod", item.id_producto);
-                    cmd.Parameters.AddWithValue("@id_ped", ped.id_pedido);
-                    cmd.Parameters.AddWithValue("@id_tam", item.id_tamaño);
-                    cmd.Parameters.AddWithValue("@cant", item.cantidad);
-                    cmd.Parameters.AddWithValue("@descr", item.descripcion);
-                    cmd.Parameters.AddWithValue("@precio", item.precio);
-
                     SqlCommand cmd2 = new SqlCommand(sql, cn);
                     cmd2.Transaction = tran;
                     cmd2.Connection = cn;
+
+                    cmd2.CommandText = sql;
+                    cmd2.Parameters.AddWithValue("@id_prod", item.id_producto);
+                    cmd2.Parameters.AddWithValue("@id_ped", ped.id_pedido);
+                    cmd2.Parameters.AddWithValue("@id_tam", item.id_tamaño);
+                    cmd2.Parameters.AddWithValue("@cant", item.cantidad);
+                    cmd2.Parameters.AddWithValue("@descr", item.descripcion);
+                    cmd2.Parameters.AddWithValue("@precio", item.precio);
+                    
                 }
 
                 tran.Commit();
