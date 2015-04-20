@@ -120,6 +120,7 @@ public partial class pedido2 : System.Web.UI.Page
         ped.horaEntrega = DateTime.Now;
 
         McDAO.PedidoDAO.insertarPedido(ped, listProdXped);
+        Response.Redirect("~/PedidoRealizado.aspx");
 
     }
 
