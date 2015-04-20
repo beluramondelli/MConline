@@ -30,14 +30,15 @@ namespace McDAO
                 cmd.Transaction = tran;
                 cmd.Connection = cn;
 
-                sql = "insert into Pedido(fecha, montoTotal, id_estado, horaPedido, horaEntrega) values (@fech, @montoTot, @estado, @hsPed, @hsEnt); select @@Identity as id;";
+                sql = "insert into pedido(fecha, montoTotal, id_estado, horaPedido, horaEntrega) values (@fech, @montoTot, @estado, @hsPed, @hsEnt); select @@Identity;";
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@fech", ped.fecha);
                 cmd.Parameters.AddWithValue("@montoTot", ped.montoTotal);
                 cmd.Parameters.AddWithValue("@estado", ped.id_estado);
                 cmd.Parameters.AddWithValue("@hsPed", ped.horaPedido);
                 cmd.Parameters.AddWithValue("@hsEnt", ped.horaEntrega);
-                ped.id_pedido = Convert.ToInt32(cmd.ExecuteScalar());
+                ped.id_pedido = int.Parse(cmd.ExecuteScalar().ToString());
+                //ped.id_pedido = Convert.ToInt32(cmd.ExecuteScalar());
 
                 sql = "insert into productoXPedido(id_producto,id_pedido, id_tamaño, cantidad, descripcion,precio) values (@id_Prod, @id_Ped, @id_tam, @cant, @descr, @precio)";
                 foreach (ProductoXpedido item in listProdXped)
