@@ -28,12 +28,15 @@
     <form runat="server">
     <div class="page">
         <div class="header"  
-            style="background-color: #FF0000; top: 0px; left: 0px; height: 319px;">
+            style="background-color: #FF0000; top: 0px; left: 0px; height: 308px;">
             <table class="style1">
                 <tr>
                     <td bgcolor="Red" class="style2">
                         <img alt="" class="style2" src="Imagenes/Imlovinit.jpg" /></td>
                     <td class="style3">
+                        <br />
+                        <br />
+                        <br />
                         <br />
                         <br />
                         <br />
