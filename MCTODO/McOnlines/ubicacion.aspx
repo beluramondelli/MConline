@@ -33,23 +33,24 @@
 <asp:ScriptManager ID="ScriptManager1" runat="server">
 
     </asp:ScriptManager>
+        <asp:Image ID="Image5" runat="server" 
+                  ImageUrl="~/Imagenes/ronald-macdonald_1188363KHFJF.jpg" Height="92px" 
+                Width="369px" />
             <table  runat="server" Height="174px" Width="554px">
 
                 <tr>
                      
                 
               
-        <td class="style4"> 
-        <asp:Image ID="Image5" runat="server" 
-                  ImageUrl="~/Imagenes/ronald-macdonald_1188363KHFJF.jpg" Height="70px" 
-                Width="310px" />
+        <th class="style4"> 
                  <br />
                 <br />
                 <br />
                  <br />
                 <br />
                 <br />
-            <asp:Panel ID="Panel1" runat="server" Height="47px" style="margin-top: 0px" 
+
+          <%--  <asp:Panel ID="Panel1" runat="server" Height="47px" style="margin-top: 0px" 
             Width="250px">
                 <asp:Image ID="Image1" runat="server" DescriptionUrl="~/Imagenes/McDonald.jpg" 
                     Height="36px" ImageUrl="~/Imagenes/McDonald.jpg" Width="46px" />
@@ -127,15 +128,16 @@
         <br />
         <br />
 
-        </td>
-         
+      </td>--%>
+         </th>
                
-               <td>
-                          <div style="width:604px; height:548px;">
-      <cc1:GMap ID="GMap2" runat="server" Key="AIzaSyAlP8Yfqsmfz_s4QCLIQXeVw2Q4XwuaYaU" Height="400px" 
+               <th>
+                          <div style="width:714px; height:548px;">
+      <cc1:GMap ID="GMap2" runat="server" Key="AIzaSyAlP8Yfqsmfz_s4QCLIQXeVw2Q4XwuaYaU" Height="500px" 
+                                  BorderColor="Red" BorderStyle="Double" BorderWidth="10px" Width="700px" 
                                    />
     </div>
-                </td>
+                </th>
 
               
               
