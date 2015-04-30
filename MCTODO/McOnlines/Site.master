@@ -9,18 +9,13 @@
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
-        .style1
+        .style4
         {
-            height: 296px;
+            width: 100%;
         }
-        .style2
+        .style5
         {
-            height: 304px;
-        }
-        .style3
-        {
-            height: 304px;
-            width: 209px;
+            width: 124px;
         }
     </style>
 </head>
@@ -28,23 +23,13 @@
     <form runat="server">
     <div class="page">
         <div class="header"  
-            style="background-color: #FF0000; top: 0px; left: 0px; height: 308px;">
-            <table class="style1">
+            style="background-color: #FF0000; top: 0px; left: 0px; height: 118px;">
+            <table class="style4">
                 <tr>
-                    <td bgcolor="Red" class="style2">
-                        <img alt="" class="style2" src="Imagenes/Imlovinit.jpg" /></td>
-                    <td class="style3">
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
+                    <td class="style5">
+                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Imlovinitbaby.jpg" />
+                    </td>
+                    <td>
                         <br />
                         <br />
                         <br />
@@ -70,8 +55,8 @@
                     </Items>
                     <StaticHoverStyle BackColor="#FF9900" ForeColor="White" />
                     <StaticMenuItemStyle HorizontalPadding="10px" VerticalPadding="2px" 
-                        BackColor="#FF9900" />
-                    <StaticMenuStyle BackColor="#FF9900" />
+                        BackColor="#F3E105" />
+                    <StaticMenuStyle BackColor="Yellow" />
                     <StaticSelectedStyle BackColor="#FF9900" />
 
                 </asp:Menu>
