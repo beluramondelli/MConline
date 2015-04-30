@@ -49,8 +49,8 @@
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
                     EnableViewState="True" Orientation="Horizontal" 
                     BackColor="Red" DynamicHorizontalOffset="40" Font-Names="Verdana" 
-                    Font-Size="0.8em" ForeColor="Red" StaticSubMenuIndent="10px" 
-                    BorderColor="Red" Font-Bold="True" Width="230px" 
+                    Font-Size="Medium" ForeColor="Red" StaticSubMenuIndent="10px" 
+                    BorderColor="Red" Font-Bold="True" Width="300px" 
                             DynamicEnableDefaultPopOutImage="False" 
                             onmenuitemclick="NavigationMenu_MenuItemClick">
                     <DynamicHoverStyle BackColor="#FFCC00" ForeColor="#CC0000" />
