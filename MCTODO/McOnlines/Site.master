@@ -17,6 +17,10 @@
         {
             width: 124px;
         }
+        .style6
+        {
+            width: 723px;
+        }
     </style>
 </head>
 <body>
@@ -29,7 +33,7 @@
                     <td class="style5">
                         <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Imlovinitbaby.jpg" />
                     </td>
-                    <td>
+                    <td class="style6">
                         <br />
                         <br />
                         <br />
@@ -60,6 +64,22 @@
                     <StaticSelectedStyle BackColor="#FF9900" />
 
                 </asp:Menu>
+                    </td>
+                    <td>
+                        <asp:LoginView ID="HeadLoginView" runat="server">
+                            <AnonymousTemplate>
+                                [ <a ID="HeadLoginStatus0" runat="server" href="~/Account/Login.aspx">Iniciar 
+                                sesión</a> ]
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                Pantalla de bienvenida <span class="bold">
+                                <asp:LoginName ID="HeadLoginName" runat="server" />
+                                </span>! [
+                                <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" 
+                                    LogoutPageUrl="~/" LogoutText="Cerrar sesión" />
+                                ]
+                            </LoggedInTemplate>
+                        </asp:LoginView>
                     </td>
                 </tr>
             </table>
