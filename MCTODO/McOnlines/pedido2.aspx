@@ -52,7 +52,8 @@
                     runat="server"  ></asp:TextBox>
                 <br />
                 Descripción<asp:TextBox 
-                    ID="txtDescripcion" runat="server"></asp:TextBox>
+                    ID="txtDescripcion" runat="server" MaxLength="10" TextMode="MultiLine"  
+                    type="text" ontextchanged="txtDescripcion_TextChanged1" ></asp:TextBox>
                 <br />
                 <br />
                 <br />

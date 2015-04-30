@@ -8,6 +8,8 @@ using McDAO;
 using Entidades;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
+
 
 
 public partial class pedido2 : System.Web.UI.Page
@@ -41,12 +43,11 @@ public partial class pedido2 : System.Web.UI.Page
             gvProductos.DataSource = ProductoDAO.ObtenerTodo();
             gvProductos.DataKeyNames = new string[] { "id_producto" };
             gvProductos.DataBind();
-            gvProductos.Columns[1].Visible = false;
-            //gvProductos.HeaderRow.Cells[1].Text = " Código de producto";
+           
             gvProductos.HeaderRow.Cells[2].Text = " Producto";
             gvProductos.HeaderRow.Cells[3].Text = " Descripcion";
             gvProductos.HeaderRow.Cells[4].Text = " Precio";
-          
+           
         }
         catch
         {
@@ -134,4 +135,17 @@ public partial class pedido2 : System.Web.UI.Page
         txtTotal.Text = total.ToString();
     }
 
+    protected void txtDescripcion_TextChanged(object sender, EventArgs e)
+    {
+       
+    }
+    protected void txtDescripcion_TextChanged1(object sender, EventArgs e)
+    {
+       
+        int cantcar = txtDescripcion.Text.Length;
+        if (cantcar.Equals(10))
+        {
+            Response.Write("<script>window.alert('Ha llegado al límite de caracteres para la descripción');</script>");
+        }
+    }
 }
