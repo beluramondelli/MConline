@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ubicacion.aspx.cs" Inherits="ubicacion" %>
-
+<%@ register assembly="GMaps" namespace="Subgurim.Controles" Tagprefix="cc1" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+ 
     <style type="text/css">
         .style1
         {
@@ -23,7 +25,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-  
+   
+
 
     
     <div>
@@ -33,7 +36,7 @@
             <table  runat="server" Height="174px" Width="554px">
 
                 <tr>
-                
+                     
                 
               
         <td class="style4"> 
@@ -125,17 +128,20 @@
         <br />
 
         </td>
-         <td>
-              <asp:Image ID="Image4" runat="server" ImageUrl="~/Imagenes/UBICACION.jpg" 
-                      Height="459px" Width="597px" />
+         
+               
+               <td>
+                          <div style="width:604px; height:548px;">
+      <cc1:GMap ID="GMap2" runat="server" Key="AIzaSyAlP8Yfqsmfz_s4QCLIQXeVw2Q4XwuaYaU" Height="400px" 
+                                   />
+    </div>
+                </td>
+
               
               
               
               
               
-              
-              
-              </td>
         </tr>
         </table>
     </div>

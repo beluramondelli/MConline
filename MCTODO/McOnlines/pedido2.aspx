@@ -62,21 +62,19 @@
                 <asp:Button ID="btnAgregarCarrito" runat="server" Text="Agregar al carrito" 
                     onclick="btnAgregarCarrito_Click" />
                 <br />
-                <%--<asp:CompareValidator ID="CompareValidator1" runat="server" 
+                <asp:CompareValidator ID="CompareValidator1" runat="server" 
                     ErrorMessage="La cantidad debe ser un valor númerico" Operator="DataTypeCheck" 
-                    Type="Integer"></asp:CompareValidator>--%>                <%--<asp:RangeValidator ID="RangeValidator1" runat="server" 
+                    Type="Integer" ControlToValidate="txtCantidad"></asp:CompareValidator>             
+                <asp:RangeValidator ID="RangeValidator1" runat="server" 
                     ErrorMessage="El valor ingresado no es correcto" MaximumValue="100" 
-                    MinimumValue="1"></asp:RangeValidator>--%>
-            </td>
+                    MinimumValue="1" ControlToValidate="txtCantidad"></asp:RangeValidator>
+
             <td style="color: #CC0000">
                 MI CARRITO<br />
                 <asp:GridView ID="dgvCarrito" runat="server" 
                     CellPadding="4" ForeColor="#333333" GridLines="None" Height="124px" 
                     Width="148px">
                     <AlternatingRowStyle BackColor="White" />
-                    <Columns>
-                        <asp:CommandField ShowDeleteButton="True" />
-                    </Columns>
                     <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />

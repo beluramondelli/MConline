@@ -11,4 +11,8 @@ public partial class SiteMaster : System.Web.UI.MasterPage
     {
 
     }
+    protected void NavigationMenu_MenuItemClick(object sender, MenuEventArgs e)
+    {
+
+    }
 }
