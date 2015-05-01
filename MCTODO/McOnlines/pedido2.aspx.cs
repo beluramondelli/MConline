@@ -24,6 +24,7 @@ public partial class pedido2 : System.Web.UI.Page
             dt=new DataTable();
             dt.Columns.Add("Nombre");
             dt.Columns.Add("Cantidad");
+            dt.Columns.Add("Descripción");
             dt.Columns.Add("Precio");
             listProdXped = new List<ProductoXpedido>();
 
@@ -43,7 +44,8 @@ public partial class pedido2 : System.Web.UI.Page
             gvProductos.DataSource = ProductoDAO.ObtenerTodo();
             gvProductos.DataKeyNames = new string[] { "id_producto" };
             gvProductos.DataBind();
-           
+
+            //gvProductos.Columns[2].Visible = false;
             gvProductos.HeaderRow.Cells[2].Text = " Producto";
             gvProductos.HeaderRow.Cells[3].Text = " Descripcion";
             gvProductos.HeaderRow.Cells[4].Text = " Precio";
@@ -68,29 +70,28 @@ public partial class pedido2 : System.Web.UI.Page
         ProductoXpedido pxp = new ProductoXpedido();
         pxp.cantidad = int.Parse(txtCantidad.Text);
         pxp.descripcion = txtDescripcion.Text;
-        
 
-        int id_producto = (int.Parse(gvProductos.SelectedDataKey.Value.ToString()));
-        string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
-        int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
-        int cantidad = (int.Parse(txtCantidad.Text.ToString()));
-        int subtotal = (precio * cantidad);
+            int id_producto = (int.Parse(gvProductos.SelectedDataKey.Value.ToString()));
+            string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
+            int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
+            int cantidad = (int.Parse(txtCantidad.Text.ToString()));
+            int subtotal = (precio * cantidad);
 
-        pxp.precio = subtotal;
-        pxp.id_producto = id_producto;
-        pxp.id_tamaño = 3;
+            pxp.precio = subtotal;
+            pxp.id_producto = id_producto;
+            pxp.id_tamaño = 3;
 
-        listProdXped.Add(pxp);
+            listProdXped.Add(pxp);
 
-        dt.Rows.Add(nom, pxp.cantidad, subtotal);
-        cargarGrilla(dgvCarrito, dt);
-        CalcularTotal();
-        btnConfirmar.Enabled = true;
-        txtCantidad.Text = "";
-        txtCantidad.Enabled = false;
-        txtDescripcion.Text = "";
-        txtDescripcion.Enabled = false;
-        btnAgregarCarrito.Enabled = false;
+            dt.Rows.Add(nom, pxp.cantidad, pxp.descripcion, subtotal);
+            cargarGrilla(dgvCarrito, dt);
+            CalcularTotal();
+            btnConfirmar.Enabled = true;
+            txtCantidad.Text = "";
+            txtCantidad.Enabled = false;
+            txtDescripcion.Text = "";
+            txtDescripcion.Enabled = false;
+            btnAgregarCarrito.Enabled = false;
     }
 
     private void cargarGrilla(GridView gv, DataTable dt)
@@ -130,22 +131,8 @@ public partial class pedido2 : System.Web.UI.Page
         int total = 0;
         for (int i = 0; i < dgvCarrito.Rows.Count; i++)
         {
-            total = total + int.Parse(dgvCarrito.Rows[i].Cells[3].Text);
+            total = total + int.Parse(dgvCarrito.Rows[i].Cells[4].Text);
         }
         txtTotal.Text = total.ToString();
-    }
-
-    protected void txtDescripcion_TextChanged(object sender, EventArgs e)
-    {
-       
-    }
-    protected void txtDescripcion_TextChanged1(object sender, EventArgs e)
-    {
-       
-        int cantcar = txtDescripcion.Text.Length;
-        if (cantcar.Equals(10))
-        {
-            Response.Write("<script>window.alert('Ha llegado al límite de caracteres para la descripción');</script>");
-        }
     }
 }

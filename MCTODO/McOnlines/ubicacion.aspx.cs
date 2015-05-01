@@ -23,7 +23,8 @@ public partial class ubicacion : System.Web.UI.Page
                       "  Chacabuco 1010,  <br /> Plaza España <br />" +
                       "Tel: 0351 4589754 <br /> </div>";
                GInfoWindow window = new GInfoWindow(marker, strMarker, true);
-               GMap2.addInfoWindow(window);
+               GMap2.Add(window);
+                //GMap2.addInfoWindow(window);
 
                GLatLng latlongGP = new GLatLng(-31.415886264053487, -64.18685752749444);
                GMap2.setCenter(latlongGP, 13, maptype);
@@ -33,7 +34,8 @@ public partial class ubicacion : System.Web.UI.Page
                       "  General Paz 2345,  <br /> Zona Centro <br />" +
                       "Tel: 0351-4584563 <br /> </div>";
                GInfoWindow window1 = new GInfoWindow(marker1, strMarker1, true);
-               GMap2.addInfoWindow(window1);
+               GMap2.Add(window1);       
+                //GMap2.addInfoWindow(window1);
 
                GLatLng latlong25M = new GLatLng(-31.415794703445368, -64.1808601081371);
                GMap2.setCenter(latlong25M, 13, maptype);
@@ -43,7 +45,8 @@ public partial class ubicacion : System.Web.UI.Page
                       "  25 de mayo 70,  <br /> Zona Centro, Peatonal <br />" +
                       "Tel: 0351-459783 <br /> </div>";
                GInfoWindow window2 = new GInfoWindow(marker2, strMarker2, true);
-               GMap2.addInfoWindow(window2);
+               GMap2.Add(window2);
+                //GMap2.addInfoWindow(window2);
 
                GLatLng latlongN = new GLatLng(-31.37247652018589, -64.22956365942952);
                GMap2.setCenter(latlongN, 13, maptype);
@@ -53,7 +56,8 @@ public partial class ubicacion : System.Web.UI.Page
                       "  Av. Rafael Nuñez 3987,  <br /> Zona Cerro de las rosas <br />" +
                       "Tel: 0351-457834<br /> </div>";
                GInfoWindow window3 = new GInfoWindow(marker3, strMarker3, true);
-               GMap2.addInfoWindow(window3);
+               GMap2.Add(window3);
+                //GMap2.addInfoWindow(window3);
 
                GLatLng latlongNu = new GLatLng(-31.36111204525011, -64.23795617818827);
                GMap2.setCenter(latlongN, 13, maptype);
@@ -63,7 +67,8 @@ public partial class ubicacion : System.Web.UI.Page
                       "  Av. Rafael Nuñez 4987,  <br /> Zona Cerro de las rosas <br />" +
                       "Tel: 0351-678544<br /> </div>";
                GInfoWindow window4 = new GInfoWindow(marker4, strMarker4, true);
-               GMap2.addInfoWindow(window4);
+               GMap2.Add(window4);
+            //GMap2.addInfoWindow(window4);
 
                GMarkerOptions markerOptions = new GMarkerOptions();
                markerOptions.clickable = true;
