@@ -20,7 +20,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <p>
         NUEVO PEDIDO</p>
-    <table class="style1" align="center" 
+    <table class="style1" 
         style="position: static; visibility: visible">
         <tr>
             <td class="style4">
@@ -45,7 +45,7 @@
                     <SortedDescendingHeaderStyle BackColor="#820000" />
                 </asp:GridView>
             </td>
-            <td class="style5" align="justify" style="color: #CC0000">
+            <td class="style5" align="justify" style="color: #CC0000" valign="top">
                 DETALLE<br />
                 <br />
                 Cantidad<asp:TextBox ID="txtCantidad" 
@@ -53,9 +53,7 @@
                 <br />
                 Descripción<asp:TextBox 
                     ID="txtDescripcion" runat="server" MaxLength="10" TextMode="MultiLine"  
-                    type="text" ontextchanged="txtDescripcion_TextChanged1" ></asp:TextBox>
-                <br />
-                <br />
+                    type="text"  ></asp:TextBox>
                 <br />
                 <br />
                 <br />
@@ -63,19 +61,19 @@
                 <asp:Button ID="btnAgregarCarrito" runat="server" Text="Agregar al carrito" 
                     onclick="btnAgregarCarrito_Click" />
                 <br />
-                <asp:CompareValidator ID="CompareValidator1" runat="server" 
-                    ErrorMessage="La cantidad debe ser un valor númerico" Operator="DataTypeCheck" 
-                    Type="Integer" ControlToValidate="txtCantidad"></asp:CompareValidator>             
                 <asp:RangeValidator ID="RangeValidator1" runat="server" 
-                    ErrorMessage="El valor ingresado no es correcto" MaximumValue="100" 
+                    ErrorMessage="La cantidad ingresada no es un valor válido." MaximumValue="100" 
                     MinimumValue="1" ControlToValidate="txtCantidad"></asp:RangeValidator>
 
-            <td style="color: #CC0000">
+            <td style="color: #CC0000" valign="top">
                 MI CARRITO<br />
                 <asp:GridView ID="dgvCarrito" runat="server" 
                     CellPadding="4" ForeColor="#333333" GridLines="None" Height="124px" 
                     Width="148px">
                     <AlternatingRowStyle BackColor="White" />
+                    <Columns>
+                        <asp:BoundField />
+                    </Columns>
                     <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
@@ -97,9 +95,9 @@
         <tr>
             <td class="style4">
                 &nbsp;</td>
-            <td class="style6">
+            <td class="style6" valign="top">
                 &nbsp;</td>
-            <td>
+            <td valign="top">
                 &nbsp;</td>
         </tr>
     </table>
