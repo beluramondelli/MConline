@@ -61,9 +61,13 @@
                 <asp:Button ID="btnAgregarCarrito" runat="server" Text="Agregar al carrito" 
                     onclick="btnAgregarCarrito_Click" />
                 <br />
-                <asp:RangeValidator ID="RangeValidator1" runat="server" 
-                    ErrorMessage="La cantidad ingresada no es un valor válido." MaximumValue="100" 
-                    MinimumValue="1" ControlToValidate="txtCantidad"></asp:RangeValidator>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" 
+                    ControlToValidate="txtCantidad" 
+                    ErrorMessage="La cantidad ingresada no es un valor válido" 
+                    Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
+                <br />
+                <asp:Label ID="lblCant" runat="server" 
+                    Text="La cantidad debe ser un valor entre 1 y 100"></asp:Label>
 
             <td style="color: #CC0000" valign="top">
                 MI CARRITO<br />

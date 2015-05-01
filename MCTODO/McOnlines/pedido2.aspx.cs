@@ -34,6 +34,7 @@ public partial class pedido2 : System.Web.UI.Page
             btnAgregarCarrito.Enabled = false;
             btnConfirmar.Enabled = false;
             txtTotal.Enabled = false;
+            lblCant.Visible = false;
          }
     }
 
@@ -67,10 +68,15 @@ public partial class pedido2 : System.Web.UI.Page
 
     protected void btnAgregarCarrito_Click(object sender, EventArgs e)
     {
-        ProductoXpedido pxp = new ProductoXpedido();
-        pxp.cantidad = int.Parse(txtCantidad.Text);
-        pxp.descripcion = txtDescripcion.Text;
 
+
+        if (int.Parse(txtCantidad.Text) > 0 && int.Parse(txtCantidad.Text) < 101)
+        {
+            ProductoXpedido pxp = new ProductoXpedido();
+            pxp.descripcion = txtDescripcion.Text;
+            pxp.cantidad = int.Parse(txtCantidad.Text);
+
+            lblCant.Visible = false;
             int id_producto = (int.Parse(gvProductos.SelectedDataKey.Value.ToString()));
             string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
             int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
@@ -92,6 +98,9 @@ public partial class pedido2 : System.Web.UI.Page
             txtDescripcion.Text = "";
             txtDescripcion.Enabled = false;
             btnAgregarCarrito.Enabled = false;
+        }
+        else
+            lblCant.Visible=true;
     }
 
     private void cargarGrilla(GridView gv, DataTable dt)
