@@ -12,14 +12,26 @@
         .style4
         {
             width: 100%;
+            height: 107px;
         }
         .style5
         {
             width: 124px;
+            height: 52px;
         }
         .style6
         {
-            width: 723px;
+            width: 717px;
+            height: 52px;
+        }
+        .style7
+        {
+            height: 52px;
+            width: 43px;
+        }
+        .style12
+        {
+            height: 52px;
         }
     </style>
 </head>
@@ -27,11 +39,12 @@
     <form runat="server">
     <div class="page">
         <div class="header"  
-            style="background-color: #FF0000; top: 0px; left: 0px; height: 118px;">
-            <table class="style4">
+            style="background-color: #FF0000; top: 14px; left: 0px; height: 121px;">
+            <table class="style4" align="center">
                 <tr>
                     <td class="style5">
-                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Imlovinitbaby.jpg" />
+                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Imlovinitbaby.jpg" 
+                            Height="125px" />
                     </td>
                     <td class="style6">
                         <br />
@@ -41,10 +54,10 @@
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
                     EnableViewState="True" Orientation="Horizontal" 
                     BackColor="Red" DynamicHorizontalOffset="40" Font-Names="Verdana" 
-                    Font-Size="Medium" ForeColor="Red" StaticSubMenuIndent="10px" 
+                    Font-Size="Medium" ForeColor="Red" StaticSubMenuIndent="5px" 
                     BorderColor="Red" Font-Bold="True" Width="300px" 
-                            DynamicEnableDefaultPopOutImage="False" 
-                            onmenuitemclick="NavigationMenu_MenuItemClick">
+                            onmenuitemclick="NavigationMenu_MenuItemClick" BorderStyle="Outset" 
+                            BorderWidth="0px">
                     <DynamicHoverStyle BackColor="#FFCC00" ForeColor="#CC0000" />
                     <DynamicMenuItemStyle HorizontalPadding="20px" VerticalPadding="2px" 
                         BackColor="#FF9900" Height="10px" Width="40px" />
@@ -65,7 +78,16 @@
 
                 </asp:Menu>
                     </td>
-                    <td>
+                    <td class="style12">
+                    </td>
+                    <td class="style7" >
+                        
+                        <br />
+                        <br />
+                        <asp:HyperLink ID="HyperLink2" runat="server" Font-Bold="True" 
+                            Font-Size="Medium" ForeColor="Blue">Ingresar </asp:HyperLink>
+                        <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" 
+                            Font-Size="Medium" NavigateUrl="~/inicioSesion.aspx">Registrate</asp:HyperLink>
                         
                     </td>
                 </tr>

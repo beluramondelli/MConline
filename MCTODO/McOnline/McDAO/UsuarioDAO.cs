@@ -29,6 +29,7 @@ namespace McDAO
                 cmd.Connection = cn;
 
                 sql = "insert into usuario(nombreUsuario,password,nombre,apellido,mail,telefono)values(@usu, @pass,@nom,@ape,@mail,@tel); select @@Identity;";
+                cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@usu",usu.username);
                 cmd.Parameters.AddWithValue("@pass", usu.password);
                 cmd.Parameters.AddWithValue("@nom", usu.nombre);
@@ -36,10 +37,11 @@ namespace McDAO
                 cmd.Parameters.AddWithValue("@mail", usu.mail);
                 cmd.Parameters.AddWithValue("@tel", usu.telefono);
 
-                usu.id_usuario = Convert.ToInt32(cmd.ExecuteScalar());
-                cmd.ExecuteNonQuery();
+                usu.id_usuario = int.Parse(cmd.ExecuteScalar().ToString());
+                
                 tran.Commit();
                 cn.Close();
+                
 
             }
             catch (SqlException ex)

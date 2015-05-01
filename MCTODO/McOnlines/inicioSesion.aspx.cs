@@ -16,10 +16,12 @@ public partial class inicioSesion : System.Web.UI.Page
     {
         Usuario usu= new Usuario();
         usu.nombre = txtNombre.Text.ToString();
+        usu.username = txtUsuario.Text.ToString();
         usu.apellido = txtApe.Text.ToString();
         usu.mail = txtMail.Text.ToString();
         usu.password = txtPasswd.Text.ToString();
         usu.telefono = Convert.ToInt32(txtTel.Text.ToString());
         McDAO.UsuarioDAO.insertarUsuario(usu);
+        Label1.Text = "se ha creado con exito";
     }
 }
