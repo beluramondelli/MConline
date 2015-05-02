@@ -69,6 +69,11 @@
                 <asp:Label ID="lblCant" runat="server" 
                     Text="La cantidad debe ser un valor entre 1 y 100"></asp:Label>
 
+                <br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                    ControlToValidate="txtCantidad" 
+                    ErrorMessage="Debe ingresar un valor en cantidad"></asp:RequiredFieldValidator>
+
             <td style="color: #CC0000" valign="top">
                 MI CARRITO<br />
                 <asp:GridView ID="dgvCarrito" runat="server" 

@@ -13,6 +13,6 @@ public partial class PedidoRealizado : System.Web.UI.Page
     }
     protected void btnVolver_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/Principal.aspx");
+        Response.Redirect("~/pedido2.aspx");
     }
 }
