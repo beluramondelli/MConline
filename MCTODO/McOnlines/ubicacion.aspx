@@ -6,21 +6,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
  
     <style type="text/css">
-        .style1
-        {
-            width: 253px;
-        }
-        .style2
-        {
-            width: 259px;
-        }
-        .style3
-        {
-            width: 265px;
-        }
         .style4
         {
             width: 321px;
+        }
+        .style13
+        {
+            width: 109%;
+            height: 107px;
         }
     </style>
 </asp:Content>
@@ -33,16 +26,17 @@
 <asp:ScriptManager ID="ScriptManager1" runat="server">
 
     </asp:ScriptManager>
+        <br />
         <asp:Image ID="Image5" runat="server" 
-                  ImageUrl="~/Imagenes/ronald-macdonald_1188363KHFJF.jpg" Height="92px" 
+                  ImageUrl="~/Imagenes/ronald-macdonald_1188363KHFJF.jpg" Height="88px" 
                 Width="369px" />
-            <table  runat="server" Height="174px" Width="554px">
+            <table  runat="server" Height="174px" style="width: 808px">
 
                 <tr>
                      
                 
               
-        <th class="style4"> 
+        <th class="style13"> 
                  <br />
                 <br />
                 <br />
@@ -132,9 +126,9 @@
          </th>
                
                <th>
-                          <div style="width:714px; height:548px;">
-      <cc1:GMap ID="GMap2" runat="server" Key="AIzaSyAlP8Yfqsmfz_s4QCLIQXeVw2Q4XwuaYaU" Height="500px" 
-                                  BorderColor="Red" BorderStyle="Double" BorderWidth="10px" Width="700px" 
+                          <div style="width:843px; height:548px;">
+      <cc1:GMap ID="GMap2" runat="server" Key="AIzaSyAlP8Yfqsmfz_s4QCLIQXeVw2Q4XwuaYaU" Height="550px" 
+                                  BorderColor="Red" BorderStyle="Double" BorderWidth="10px" Width="850px" 
                                    />
     </div>
                 </th>
