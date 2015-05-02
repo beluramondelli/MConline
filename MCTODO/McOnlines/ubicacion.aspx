@@ -10,11 +10,11 @@
         {
             width: 321px;
         }
-        .style13
-        {
-            width: 109%;
-            height: 107px;
-        }
+    .style13
+    {
+        width: 109%;
+        height: 107px;
+    }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
