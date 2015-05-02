@@ -21,7 +21,6 @@ public partial class inicioSesion : System.Web.UI.Page
         usu.mail = txtMail.Text.ToString();
         usu.password = txtPasswd.Text.ToString();
         usu.telefono = Convert.ToInt32(txtTel.Text.ToString());
-        McDAO.UsuarioDAO.insertarUsuario(usu);
-        Label1.Text = "se ha creado con exito";
+        McDAO.UsuarioDAO.insertarUsuario(usu);       
     }
 }
