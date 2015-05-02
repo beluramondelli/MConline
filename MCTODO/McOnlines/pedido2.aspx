@@ -53,8 +53,7 @@
                 <br />
                 Descripción<asp:TextBox 
                     ID="txtDescripcion" runat="server" MaxLength="100" TextMode="MultiLine"  
-                    type="text"  ></asp:TextBox>
-                <br />
+                    type="text" Height="82px"  ></asp:TextBox>
                 <br />
                 <br />
                 <br />

@@ -73,32 +73,42 @@ public partial class pedido2 : System.Web.UI.Page
 
             if (int.Parse(txtCantidad.Text) > 0 && int.Parse(txtCantidad.Text) < 101)
             {
-                ProductoXpedido pxp = new ProductoXpedido();
-                pxp.descripcion = txtDescripcion.Text;
-                pxp.cantidad = int.Parse(txtCantidad.Text);
+                bool ban = validarDescripcion();
+                if (ban == true)
+                {
+                    ProductoXpedido pxp = new ProductoXpedido();
+                    pxp.descripcion = txtDescripcion.Text;
+                    pxp.cantidad = int.Parse(txtCantidad.Text);
 
-                lblCant.Visible = false;
-                int id_producto = (int.Parse(gvProductos.SelectedDataKey.Value.ToString()));
-                string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
-                int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
-                int cantidad = (int.Parse(txtCantidad.Text.ToString()));
-                int subtotal = (precio * cantidad);
+                    lblCant.Visible = false;
+                    int id_producto = (int.Parse(gvProductos.SelectedDataKey.Value.ToString()));
+                    string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
+                    int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
+                    int cantidad = (int.Parse(txtCantidad.Text.ToString()));
+                    int subtotal = (precio * cantidad);
 
-                pxp.precio = subtotal;
-                pxp.id_producto = id_producto;
-                pxp.id_tamaño = 3;
+                    pxp.precio = subtotal;
+                    pxp.id_producto = id_producto;
+                    pxp.id_tamaño = 3;
 
-                listProdXped.Add(pxp);
+                    listProdXped.Add(pxp);
 
-                dt.Rows.Add(nom, pxp.cantidad, pxp.descripcion, subtotal);
-                cargarGrilla(dgvCarrito, dt);
-                CalcularTotal();
-                btnConfirmar.Enabled = true;
-                txtCantidad.Text = "";
-                txtCantidad.Enabled = false;
-                txtDescripcion.Text = "";
-                txtDescripcion.Enabled = false;
-                btnAgregarCarrito.Enabled = false;
+                    dt.Rows.Add(nom, pxp.cantidad, pxp.descripcion, subtotal);
+                    cargarGrilla(dgvCarrito, dt);
+                    CalcularTotal();
+                    btnConfirmar.Enabled = true;
+                    txtCantidad.Text = "";
+                    txtCantidad.Enabled = false;
+                    txtDescripcion.Text = "";
+                    txtDescripcion.Enabled = false;
+                    btnAgregarCarrito.Enabled = false;
+                }
+                else
+                {
+                    lblCant.Text = "La descripcion supera el maximo de caracteres permitidos";
+                    lblCant.Visible = true;
+                }
+
             }
             else
             {
@@ -121,10 +131,8 @@ public partial class pedido2 : System.Web.UI.Page
 
   
     protected void gvProductos_PageIndexChanged(object sender, EventArgs e)
-    {
+    {}
 
-
-    }
     protected void gvProductos_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         gvProductos.PageIndex = e.NewPageIndex;
@@ -153,5 +161,14 @@ public partial class pedido2 : System.Web.UI.Page
             total = total + int.Parse(dgvCarrito.Rows[i].Cells[4].Text);
         }
         txtTotal.Text = total.ToString();
+    }
+
+    public bool validarDescripcion()
+    {
+        txtDescripcion.MaxLength = 100;
+        if (txtDescripcion.Text.Length < txtDescripcion.MaxLength)
+            return true;
+        else
+            return false;
     }
 }
