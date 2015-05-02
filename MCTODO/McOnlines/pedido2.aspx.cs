@@ -68,39 +68,49 @@ public partial class pedido2 : System.Web.UI.Page
 
     protected void btnAgregarCarrito_Click(object sender, EventArgs e)
     {
-
-
-        if (int.Parse(txtCantidad.Text) > 0 && int.Parse(txtCantidad.Text) < 101)
+        if (txtCantidad.Text != "")
         {
-            ProductoXpedido pxp = new ProductoXpedido();
-            pxp.descripcion = txtDescripcion.Text;
-            pxp.cantidad = int.Parse(txtCantidad.Text);
 
-            lblCant.Visible = false;
-            int id_producto = (int.Parse(gvProductos.SelectedDataKey.Value.ToString()));
-            string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
-            int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
-            int cantidad = (int.Parse(txtCantidad.Text.ToString()));
-            int subtotal = (precio * cantidad);
+            if (int.Parse(txtCantidad.Text) > 0 && int.Parse(txtCantidad.Text) < 101)
+            {
+                ProductoXpedido pxp = new ProductoXpedido();
+                pxp.descripcion = txtDescripcion.Text;
+                pxp.cantidad = int.Parse(txtCantidad.Text);
 
-            pxp.precio = subtotal;
-            pxp.id_producto = id_producto;
-            pxp.id_tamaño = 3;
+                lblCant.Visible = false;
+                int id_producto = (int.Parse(gvProductos.SelectedDataKey.Value.ToString()));
+                string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
+                int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
+                int cantidad = (int.Parse(txtCantidad.Text.ToString()));
+                int subtotal = (precio * cantidad);
 
-            listProdXped.Add(pxp);
+                pxp.precio = subtotal;
+                pxp.id_producto = id_producto;
+                pxp.id_tamaño = 3;
 
-            dt.Rows.Add(nom, pxp.cantidad, pxp.descripcion, subtotal);
-            cargarGrilla(dgvCarrito, dt);
-            CalcularTotal();
-            btnConfirmar.Enabled = true;
-            txtCantidad.Text = "";
-            txtCantidad.Enabled = false;
-            txtDescripcion.Text = "";
-            txtDescripcion.Enabled = false;
-            btnAgregarCarrito.Enabled = false;
+                listProdXped.Add(pxp);
+
+                dt.Rows.Add(nom, pxp.cantidad, pxp.descripcion, subtotal);
+                cargarGrilla(dgvCarrito, dt);
+                CalcularTotal();
+                btnConfirmar.Enabled = true;
+                txtCantidad.Text = "";
+                txtCantidad.Enabled = false;
+                txtDescripcion.Text = "";
+                txtDescripcion.Enabled = false;
+                btnAgregarCarrito.Enabled = false;
+            }
+            else
+            {
+                lblCant.Text = "La cantidad ingresada debe ser un valor entre 1 y 100";
+                lblCant.Visible = true;
+            }
         }
         else
-            lblCant.Visible=true;
+        {
+            lblCant.Text = "Debe ingresar una cantidad";
+            lblCant.Visible = true;
+        }
     }
 
     private void cargarGrilla(GridView gv, DataTable dt)
