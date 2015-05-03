@@ -139,9 +139,10 @@ using System.Windows.Forms;
         }
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
-            gvConfirmar.Visible = true;
-            btnAceptar.Visible = true;
-            cargarGrilla(gvConfirmar, dt);
+            Session["dataTable"]= dt;
+            Session["lista"] = listProdXped;
+            Session["total"] = txtTotal.Text;
+            Response.Redirect("~/confirmarPedido.aspx");
 
         }
 
@@ -164,18 +165,18 @@ using System.Windows.Forms;
                 return false;
         }
 
-        protected void btnAceptar_Click(object sender, EventArgs e)
-        {
-            Pedido ped = new Pedido();
+        //protected void btnAceptar_Click(object sender, EventArgs e)
+        //{
+        //    Pedido ped = new Pedido();
 
-            ped.fecha = DateTime.Now;
-            ped.montoTotal = int.Parse(txtTotal.Text);
-            ped.id_pedido = 0;
-            ped.horaPedido = DateTime.Now;
-            ped.horaEntrega = DateTime.Now;
+        //    ped.fecha = DateTime.Now;
+        //    ped.montoTotal = int.Parse(txtTotal.Text);
+        //    ped.id_pedido = 0;
+        //    ped.horaPedido = DateTime.Now;
+        //    ped.horaEntrega = DateTime.Now;
 
-            McDAO.PedidoDAO.insertarPedido(ped, listProdXped);
-            Response.Redirect("~/PedidoRealizado.aspx");
-        }
+        //    McDAO.PedidoDAO.insertarPedido(ped, listProdXped);
+        //    Response.Redirect("~/PedidoRealizado.aspx");
+        //}
     
 }
