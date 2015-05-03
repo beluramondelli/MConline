@@ -93,7 +93,7 @@
                         <asp:HyperLink ID="HyperLink2" runat="server" Font-Bold="True" 
                             Font-Size="Medium" ForeColor="#FFFFCC">Ingresar </asp:HyperLink>
                         <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" 
-                            Font-Size="Medium" NavigateUrl="~/inicioSesion.aspx" ForeColor="White">Registrate</asp:HyperLink>
+                            Font-Size="Medium" NavigateUrl="~/NuevoUsuario.aspx" ForeColor="White">Registrate</asp:HyperLink>
                         
                     </td>
                 </tr>
