@@ -23,4 +23,19 @@ public partial class inicioSesion : System.Web.UI.Page
         usu.telefono = Convert.ToInt32(txtTel.Text.ToString());
         McDAO.UsuarioDAO.insertarUsuario(usu);       
     }
+    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+    //{
+    //    string text = txtPasswd.Text;
+    //    if (CheckBox1.Checked)
+    //    {
+    //        txtPasswd.UseSystemPasswordChar = false;
+    //        PasswordtextBox.Text = text;
+            
+    //    }
+    //    else
+    //    {
+    //        PasswordtextBox.UseSystemPasswordChar = true;
+    //        PasswordtextBox.Text = text;
+    //    }
+    }
 }
