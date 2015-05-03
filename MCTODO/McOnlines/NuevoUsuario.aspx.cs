@@ -24,7 +24,7 @@ public partial class inicioSesion : System.Web.UI.Page
         McDAO.UsuarioDAO.insertarUsuario(usu);       
     }
     protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
-    //{
+   {
     //    string text = txtPasswd.Text;
     //    if (CheckBox1.Checked)
     //    {

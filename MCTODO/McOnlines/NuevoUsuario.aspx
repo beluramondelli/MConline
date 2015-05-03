@@ -13,50 +13,49 @@
         width: 67px;
         height: 50px;
     }
-    .style16
-    {
-            height: 50px;
-            width: 41px;
-        }
     .style17
     {
         width: 67px;
         height: 5px;
     }
-    .style18
-    {
-        height: 5px;
-            width: 41px;
-        }
     .style19
     {
         width: 67px;
         height: 43px;
     }
-    .style20
-    {
-        height: 43px;
-            width: 41px;
-        }
         .style21
         {
             height: 50px;
-            width: 535px;
+            width: 587px;
         }
         .style22
         {
             height: 5px;
-            width: 535px;
+            width: 587px;
         }
         .style23
         {
             height: 43px;
-            width: 535px;
+            width: 587px;
+        }
+        .style24
+        {
+            height: 50px;
+        }
+        .style25
+        {
+            height: 5px;
+        }
+        .style26
+        {
+            height: 43px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <table style="width: 65%; margin-left: 290px; margin-top: 75px; font-family: Verdana; font-weight: bold; color: #000000; background-color: #FFFFFF; margin-right: 144px;">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <table style="width: 67%; margin-left: 290px; margin-top: 75px; font-family: Verdana; font-weight: bold; color: #000000; background-color: #FFFFFF; margin-right: 144px;">
     <tr>
         <td class="style15">
             Nombre</td>
@@ -65,10 +64,10 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                 ControlToValidate="txtNombre" ErrorMessage="Campo obligatorio"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
-                ErrorMessage="Ingrese un nombre válido" 
+                ControlToValidate="txtNombre" ErrorMessage="Ingrese un nombre válido" 
                 ValidationExpression="[a-zA-ZñÑ\s]{2,50}"></asp:RegularExpressionValidator>
         </td>
-        <td class="style16">
+        <td class="style24">
             </td>
     </tr>
     <tr>
@@ -79,10 +78,10 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                 ControlToValidate="txtApe" ErrorMessage="Campo obligatorio"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
-                ErrorMessage="Ingrese un apellido válido" 
+                ControlToValidate="txtApe" ErrorMessage="Ingrese un apellido válido" 
                 ValidationExpression="[a-zA-ZñÑ\s]{2,50}"></asp:RegularExpressionValidator>
         </td>
-        <td class="style16">
+        <td class="style24">
             </td>
     </tr>
     <tr>
@@ -93,11 +92,10 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
                 ControlToValidate="txtMail" ErrorMessage="Campo obligatorio"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                ControlToValidate="txtMail" 
-                ErrorMessage="Ingrese una dirección de correo válida" 
+                ControlToValidate="txtMail" ErrorMessage=" Dirección de correo no válida" 
                 ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
         </td>
-        <td class="style16">
+        <td class="style24">
             </td>
     </tr>
     <tr>
@@ -107,8 +105,11 @@
             <asp:TextBox ID="txtTel" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
                 ControlToValidate="txtTel" ErrorMessage="Campo obligatorio"></asp:RequiredFieldValidator>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" 
+                ControlToValidate="txtTel" ErrorMessage="Ingrese un número válido" 
+                Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
         </td>
-        <td class="style16">
+        <td class="style24">
             </td>
     </tr>
     <tr>
@@ -119,7 +120,7 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                 ControlToValidate="txtUsuario" ErrorMessage="Campo obligatorio"></asp:RequiredFieldValidator>
         </td>
-        <td class="style16">
+        <td class="style24">
             </td>
     </tr>
     <tr>
@@ -132,7 +133,7 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                 ControlToValidate="txtPasswd" ErrorMessage="Campo obligatorio"></asp:RequiredFieldValidator>
         </td>
-        <td class="style16">
+        <td class="style24">
             </td>
     </tr>
     <tr>
@@ -141,7 +142,7 @@
         <td class="style22">
             <asp:Label ID="Label1" runat="server"></asp:Label>
         </td>
-        <td class="style18">
+        <td class="style25">
             </td>
     </tr>
     <tr>
@@ -149,9 +150,12 @@
             </td>
         <td class="style23">
             <asp:Button ID="btnCrear" runat="server" Height="28px" onclick="btnCrear_Click" 
-                Text="Crear" Width="58px" />
+                Text="Crear" Width="58px" Font-Bold="True" Font-Names="Verdana" />
+            <cc1:RoundedCornersExtender ID="btnCrear_RoundedCornersExtender" runat="server" 
+                BehaviorID="btnCrear_RoundedCornersExtender" Color="AliceBlue" 
+                TargetControlID="btnCrear" />
         </td>
-        <td class="style20">
+        <td class="style26">
             </td>
     </tr>
 </table>
