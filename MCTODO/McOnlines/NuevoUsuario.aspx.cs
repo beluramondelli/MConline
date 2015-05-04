@@ -14,14 +14,30 @@ public partial class inicioSesion : System.Web.UI.Page
     }
     protected void btnCrear_Click(object sender, EventArgs e)
     {
-        Usuario usu= new Usuario();
-        usu.nombre = txtNombre.Text.ToString();
-        usu.username = txtUsuario.Text.ToString();
-        usu.apellido = txtApe.Text.ToString();
-        usu.mail = txtMail.Text.ToString();
-        usu.password = txtPasswd.Text.ToString();
-        usu.telefono = Convert.ToInt32(txtTel.Text.ToString());
-        McDAO.UsuarioDAO.insertarUsuario(usu);       
+        if ((McDAO.UsuarioDAO.verificarMail(txtMail.Text.ToString()).Equals(false)) && (McDAO.UsuarioDAO.VerificarNombreUsuario(txtUsuario.Text.ToString()).Equals(false)))
+        {
+            Usuario usu = new Usuario();
+            usu.nombre = txtNombre.Text.ToString();
+            usu.username = txtUsuario.Text.ToString();
+            usu.apellido = txtApe.Text.ToString();
+            usu.mail = txtMail.Text.ToString();
+            usu.password = txtPasswd.Text.ToString();
+            usu.telefono = Convert.ToInt32(txtTel.Text.ToString());
+            McDAO.UsuarioDAO.insertarUsuario(usu);
+            
+        }
+        else
+        {
+            if (McDAO.UsuarioDAO.verificarMail(txtMail.Text.ToString()).Equals(true))
+            {
+                Response.Write("<script>window.alert('Ya existe un usuario con esta dirección de mail');</script>");
+            }
+            if(McDAO.UsuarioDAO.VerificarNombreUsuario(txtUsuario.Text.ToString()).Equals(true))
+            {
+                Response.Write("<script>window.alert('Ya existe un usuario con este nombre de usuario');</script>");
+            }
+        }
+              
     }
     protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
    {
@@ -40,9 +56,6 @@ public partial class inicioSesion : System.Web.UI.Page
     }
     protected void txtMail_TextChanged(object sender, EventArgs e)
     {
-        if (McDAO.UsuarioDAO.verificarMail(txtMail.Text.ToString()).Equals(true))
-        {
 
-        }
     }
 }
