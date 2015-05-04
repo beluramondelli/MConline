@@ -63,38 +63,87 @@ using System.Windows.Forms;
             txtCantidad.Enabled = true;
             txtDescripcion.Enabled = true;
             btnAgregarCarrito.Enabled = true;
-        }
+         }
 
         protected void btnAgregarCarrito_Click(object sender, EventArgs e)
         {
             if (txtCantidad.Text != "")
             {
-
                 if (int.Parse(txtCantidad.Text) > 0 && int.Parse(txtCantidad.Text) < 101)
                 {
                     bool ban = validarDescripcion();
                     if (ban == true)
                     {
-                        ProductoXpedido pxp = new ProductoXpedido();
-                        pxp.descripcion = txtDescripcion.Text;
-                        pxp.cantidad = int.Parse(txtCantidad.Text);
-
-                        lblCant.Visible = false;
                         int id_producto = (int.Parse(gvProductos.SelectedDataKey.Value.ToString()));
-                        string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
-                        int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
-                        int cantidad = (int.Parse(txtCantidad.Text.ToString()));
-                        int subtotal = (precio * cantidad);
+                        if (listProdXped.Count() != 0)
+                        {
+                            foreach (var item in listProdXped)
+                            {
+                                if (id_producto == item.id_producto)
+                                {
+                                    string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
+                                    item.cantidad += (int.Parse(txtCantidad.Text.ToString()));
+                                    int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
+                                    item.precio = (precio * item.cantidad);
+                                    item.descripcion = string.Concat(item.descripcion, txtDescripcion.Text);
 
-                        pxp.precio = subtotal;
-                        pxp.id_producto = id_producto;
-                        pxp.id_tamaño = 3;
+                                    for (int i = 0; i < dt.Rows.Count; i++)
+                                    {
+                                        if (dt.Rows[i]["Nombre"].ToString() == nom)
+                                        {
+                                            dt.Rows[i].Delete();
+                                            dt.Rows.Add(nom, item.cantidad, item.descripcion, item.precio);
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    ProductoXpedido pxp = new ProductoXpedido();
+                                    pxp.descripcion = txtDescripcion.Text;
+                                    pxp.cantidad = int.Parse(txtCantidad.Text);
 
-                        listProdXped.Add(pxp);
 
-                        dt.Rows.Add(nom, pxp.cantidad, pxp.descripcion, subtotal);
+                                    string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
+                                    int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
+                                    int cantidad = (int.Parse(txtCantidad.Text.ToString()));
+                                    int subtotal = (precio * cantidad);
+
+                                    pxp.precio = subtotal;
+                                    pxp.id_producto = id_producto;
+                                    pxp.id_tamaño = 3;
+
+                                    listProdXped.Add(pxp);
+
+                                    dt.Rows.Add(nom, pxp.cantidad, pxp.descripcion, subtotal);
+
+                                }
+                            }
+                        }
+                        else
+                        {
+                            ProductoXpedido pxp = new ProductoXpedido();
+                            pxp.descripcion = txtDescripcion.Text;
+                            pxp.cantidad = int.Parse(txtCantidad.Text);
+
+
+                            string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
+                            int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
+                            int cantidad = (int.Parse(txtCantidad.Text.ToString()));
+                            int subtotal = (precio * cantidad);
+
+                            pxp.precio = subtotal;
+                            pxp.id_producto = id_producto;
+                            pxp.id_tamaño = 3;
+
+                            listProdXped.Add(pxp);
+
+                            dt.Rows.Add(nom, pxp.cantidad, pxp.descripcion, subtotal);
+
+                        }
+
                         cargarGrilla(dgvCarrito, dt);
                         CalcularTotal();
+                        lblCant.Visible = false;
                         btnConfirmar.Enabled = true;
                         txtCantidad.Text = "";
                         txtCantidad.Enabled = false;
@@ -102,6 +151,7 @@ using System.Windows.Forms;
                         txtDescripcion.Enabled = false;
                         btnAgregarCarrito.Enabled = false;
                     }
+
                     else
                     {
                         lblCant.Text = "La descripcion supera el maximo de caracteres permitidos";
@@ -121,6 +171,8 @@ using System.Windows.Forms;
                 lblCant.Visible = true;
             }
         }
+
+
 
         private void cargarGrilla(GridView gv, DataTable dt)
         {
@@ -143,7 +195,6 @@ using System.Windows.Forms;
             Session["lista"] = listProdXped;
             Session["total"] = txtTotal.Text;
             Response.Redirect("~/confirmarPedido.aspx");
-
         }
 
         public void CalcularTotal()
