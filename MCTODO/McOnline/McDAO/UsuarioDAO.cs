@@ -82,6 +82,37 @@ namespace McDAO
             return false;
         }
 
+
+        public static bool VerificarNombreUsuario(string user)
+        
+        {
+
+            
+            string sql = " select * from usuario where nombreUsuario=@user";
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = con;
+            try
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand(sql, cn);
+                cmd.Parameters.AddWithValue("@user", user);
+              
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+            }
+            return false;
+        }
+
         }
     }
 
