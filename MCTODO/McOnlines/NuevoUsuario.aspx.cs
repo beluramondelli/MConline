@@ -38,4 +38,11 @@ public partial class inicioSesion : System.Web.UI.Page
     //        PasswordtextBox.Text = text;
     //    }
     }
+    protected void txtMail_TextChanged(object sender, EventArgs e)
+    {
+        if (McDAO.UsuarioDAO.verificarMail(txtMail.Text.ToString()).Equals(true))
+        {
+
+        }
+    }
 }

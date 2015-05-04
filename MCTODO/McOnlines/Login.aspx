@@ -40,7 +40,8 @@
                 <td class="style14">
                     &nbsp;</td>
                 <td>
-                    <asp:Button ID="btnEntrar" runat="server" Text="Entrar" />
+                    <asp:Button ID="btnEntrar" runat="server" Text="Entrar" 
+                        onclick="btnEntrar_Click" />
                 </td>
                 <td>
                     &nbsp;</td>

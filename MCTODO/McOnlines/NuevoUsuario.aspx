@@ -62,7 +62,8 @@
         <td class="style21">
             <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
-                ControlToValidate="txtNombre" ErrorMessage="Campo obligatorio"></asp:RequiredFieldValidator>
+                ControlToValidate="txtNombre" ErrorMessage="Campo obligatorio" 
+                SetFocusOnError="True"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
                 ControlToValidate="txtNombre" ErrorMessage="Ingrese un nombre válido" 
                 ValidationExpression="[a-zA-ZñÑ\s]{2,50}"></asp:RegularExpressionValidator>
@@ -88,7 +89,7 @@
         <td class="style15">
             Mail</td>
         <td class="style21">
-            <asp:TextBox ID="txtMail" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtMail" runat="server" ontextchanged="txtMail_TextChanged"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
                 ControlToValidate="txtMail" ErrorMessage="Campo obligatorio"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 

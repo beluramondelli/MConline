@@ -52,5 +52,35 @@ namespace McDAO
                 throw new ApplicationException("Error al insertar un nuevo usuario");
             }
         }
+
+        public static bool verificarMail(string mail)
+        {
+
+            
+            string sql = " select * from usuario where mail=@mail";
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = con;
+            try
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand(sql, cn);
+                cmd.Parameters.AddWithValue("@mail", mail);
+              
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+            }
+            return false;
+        }
+        }
     }
 }

@@ -19,14 +19,14 @@ namespace Entidades
         public Usuario()
         {
         }
-        public Usuario(string nom, string ape, string correo, string pass)
+        public Usuario(string user,string pass)
         {
-            this.nombre = nom;
-            this.apellido = ape;
-            this.mail = correo;
+
+            this.username = user;
             this.password = pass;
 
         }
+
     }
   
 
