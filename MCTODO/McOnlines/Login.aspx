@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" %>
 
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <style type="text/css">
         .style14
@@ -27,6 +29,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
     <asp:Panel ID="Panel1" runat="server" Height="150px" style="margin-left: 261px; margin-top: 115px;" 
         Width="363px" BackColor="#CCCCCC" BorderColor="Red" BorderStyle="Solid">
         <table style="width: 99%; height: 125px; margin-top: 0px;">
@@ -63,7 +67,11 @@
                     &nbsp;</td>
                 <td>
                     <asp:Button ID="btnEntrar" runat="server" Text="Entrar" 
-                        onclick="btnEntrar_Click" Font-Bold="True" Font-Names="Verdana" />
+                        onclick="btnEntrar_Click" Font-Bold="True" Font-Names="Verdana" 
+                        BackColor="Red" ForeColor="#FFCC00" />
+                    <cc1:RoundedCornersExtender ID="btnEntrar_RoundedCornersExtender" 
+                        runat="server" BehaviorID="btnEntrar_RoundedCornersExtender" Color="AliceBlue" 
+                        TargetControlID="btnEntrar" />
                 </td>
                 <td>
                     &nbsp;</td>
