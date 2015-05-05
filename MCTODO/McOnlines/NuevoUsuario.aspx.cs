@@ -24,7 +24,13 @@ public partial class inicioSesion : System.Web.UI.Page
             usu.password = txtPasswd.Text.ToString();
             usu.telefono = Convert.ToInt32(txtTel.Text.ToString());
             McDAO.UsuarioDAO.insertarUsuario(usu);
-            
+            Response.Write("<script>window.alert('Se ha creado su usuario con éxito, ingrese para realizar un pedido');</script>");
+            txtApe.Text = "";
+            txtMail.Text = "";
+            txtNombre.Text = "";
+            txtTel.Text = "";
+            txtUsuario.Text = "";
+
         }
         else
         {

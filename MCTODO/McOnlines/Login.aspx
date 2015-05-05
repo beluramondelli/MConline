@@ -2,46 +2,68 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <style type="text/css">
-        .style13
-        {
-            width: 81px;
-        }
         .style14
         {
-            width: 96px;
+            width: 100px;
+        }
+        .style15
+        {
+            width: 100px;
+            height: 44px;
+        }
+        .style16
+        {
+            height: 44px;
+        }
+        .style17
+        {
+            width: 100px;
+            height: 35px;
+        }
+        .style18
+        {
+            height: 35px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <asp:Panel ID="Panel1" runat="server" Height="103px" style="margin-left: 247px" 
-        Width="380px">
-        <table style="width: 100%; height: 100px;">
+    <asp:Panel ID="Panel1" runat="server" Height="150px" style="margin-left: 261px; margin-top: 115px;" 
+        Width="363px" BackColor="#CCCCCC" BorderColor="Red" BorderStyle="Solid">
+        <table style="width: 99%; height: 125px; margin-top: 0px;">
             <tr>
-                <td class="style14" 
+                <td class="style17" 
+                    
                     style="font-size: medium; font-style: normal; font-weight: bold; color: #000000; font-family: Verdana;">
-                    Usuario</td>
-                <td>
-                    <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox>
+                    Usuario*</td>
+                <td class="style18">
+                    <asp:TextBox ID="txtUsuario" runat="server" Width="90px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="txtUsuario" ErrorMessage="Campo Obligatorio" 
+                        Font-Bold="True" Font-Names="Verdana"></asp:RequiredFieldValidator>
                 </td>
-                <td>
-                    &nbsp;</td>
+                <td class="style18">
+                    </td>
             </tr>
             <tr>
-                <td class="style14" 
+                <td class="style15" 
+                    
                     style="font-size: medium; font-style: normal; font-weight: bold; color: #000000; font-family: Verdana">
-                    Password</td>
-                <td>
-                    <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+                    Password*</td>
+                <td class="style16">
+                    <asp:TextBox ID="txtPassword" runat="server" Width="90px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                        ControlToValidate="txtPassword" ErrorMessage="Campo obligatorio" 
+                        Font-Bold="True" Font-Names="Verdana"></asp:RequiredFieldValidator>
                 </td>
-                <td>
-                    &nbsp;</td>
+                <td class="style16">
+                    </td>
             </tr>
             <tr>
                 <td class="style14">
                     &nbsp;</td>
                 <td>
                     <asp:Button ID="btnEntrar" runat="server" Text="Entrar" 
-                        onclick="btnEntrar_Click" />
+                        onclick="btnEntrar_Click" Font-Bold="True" Font-Names="Verdana" />
                 </td>
                 <td>
                     &nbsp;</td>

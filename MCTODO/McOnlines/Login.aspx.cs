@@ -19,6 +19,10 @@ public partial class Login : System.Web.UI.Page
         {
             Response.Redirect("pedido2.aspx");
         }
+        else
+        {
+            Response.Write("<script>window.alert('Error en el nombre de usuario o password');</script>");
+        }
 
     }
 }
