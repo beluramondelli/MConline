@@ -50,8 +50,15 @@ public partial class confirmarPedido : System.Web.UI.Page
             ped.horaEntrega = DateTime.Now;
 
             McDAO.PedidoDAO.insertarPedido(ped, listaProdPed);
-            Response.Redirect("~/PedidoRealizado.aspx");
-
+            DialogResult result;
+            result=MessageBox.Show("Ha realizado su pedido con éxito","Confimación",MessageBoxButtons.OK, MessageBoxIcon.Information,MessageBoxDefaultButton.Button1 ,MessageBoxOptions.ServiceNotification);
+            if (result == DialogResult.OK)
+            {
+                Response.Redirect("~/pedido2.aspx");
+            }
         }
+
     }
+
+    
 }

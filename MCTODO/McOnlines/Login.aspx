@@ -54,7 +54,7 @@
                     style="font-size: medium; font-style: normal; font-weight: bold; color: #000000; font-family: Verdana">
                     Password*</td>
                 <td class="style16">
-                    <asp:TextBox ID="txtPassword" runat="server" Width="90px"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" runat="server" Width="90px" TextMode="Password"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                         ControlToValidate="txtPassword" ErrorMessage="Campo obligatorio" 
                         Font-Bold="True" Font-Names="Verdana"></asp:RequiredFieldValidator>
@@ -68,7 +68,7 @@
                 <td>
                     <asp:Button ID="btnEntrar" runat="server" Text="Entrar" 
                         onclick="btnEntrar_Click" Font-Bold="True" Font-Names="Verdana" 
-                        BackColor="Red" ForeColor="#FFCC00" />
+                        BackColor="Red" ForeColor="#FFCC00" Height="33px" />
                     <cc1:RoundedCornersExtender ID="btnEntrar_RoundedCornersExtender" 
                         runat="server" BehaviorID="btnEntrar_RoundedCornersExtender" Color="AliceBlue" 
                         TargetControlID="btnEntrar" />

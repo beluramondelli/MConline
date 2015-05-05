@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using McDAO;
 using Entidades;
+using System.Windows.Forms;
 public partial class inicioSesion : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -24,7 +25,13 @@ public partial class inicioSesion : System.Web.UI.Page
             usu.password = txtPasswd.Text.ToString();
             usu.telefono = Convert.ToInt32(txtTel.Text.ToString());
             McDAO.UsuarioDAO.insertarUsuario(usu);
-            Response.Write("<script>window.alert('Se ha creado su usuario con éxito, ingrese para realizar un pedido');</script>");
+            DialogResult result;
+
+           result= MessageBox.Show("Se ha creado su usuario con éxito, ingrese para realizar un pedido", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information , MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+           if (result == DialogResult.OK)
+           {
+               Response.Redirect("Login.aspx");
+           }
             txtApe.Text = "";
             txtMail.Text = "";
             txtNombre.Text = "";
@@ -36,11 +43,13 @@ public partial class inicioSesion : System.Web.UI.Page
         {
             if (McDAO.UsuarioDAO.verificarMail(txtMail.Text.ToString()).Equals(true))
             {
-                Response.Write("<script>window.alert('Ya existe un usuario con esta dirección de mail');</script>");
+                MessageBox.Show("Ya existe un usuario con esta dirección de mail", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+                
             }
             if(McDAO.UsuarioDAO.VerificarNombreUsuario(txtUsuario.Text.ToString()).Equals(true))
             {
-                Response.Write("<script>window.alert('Ya existe un usuario con este nombre de usuario');</script>");
+                MessageBox.Show("Ya existe un usuario con este nombre de usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+                
             }
         }
               
