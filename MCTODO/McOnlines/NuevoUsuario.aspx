@@ -29,22 +29,22 @@
             width: 561px;
         }
         .style30
-        {
-            width: 67px;
-            height: 40px;
-        }
-        .style31
-        {
-            height: 40px;
-            width: 561px;
-        }
+    {
+        width: 67px;
+        height: 40px;
+    }
+    .style31
+    {
+        height: 40px;
+        width: 561px;
+    }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <table style="border-style: none; width: 67%; margin-left: 153px; margin-top: 75px; font-family: Verdana; font-weight: bold; color: #000000; background-color: #FFFFFF; margin-right: 144px;" 
-        bgcolor="Silver">
+    bgcolor="Silver">
     <tr>
         <td class="style30" style="background-color: #FFFFFF">
             Nombre*</td>

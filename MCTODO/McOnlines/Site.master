@@ -5,7 +5,8 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/StyleSheet1.css" rel="stylesheet" type="text/css" /> 
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
@@ -33,10 +34,11 @@
 </head>
 <body>
     <form runat="server">
+    
     <div class="page">
              
         <div class="header"  
-            style="background-color: #CC0000; top: 0px; left: 2px; height: 129px;">
+            style="background-color: #CC0000; top: 0px; left: 0px; height: 129px;">
              
             <table class="style4" align="center" >
             
@@ -101,9 +103,7 @@
         </div>
         <div class="main">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                <asp:Image ID="Image2" runat="server" Height="584px" 
-                    ImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" style="margin-left: 0px" 
-                    Width="866px" />
+                
             </asp:ContentPlaceHolder>
         </div>
         <div class="clear">

@@ -12,7 +12,7 @@
         }
     .style13
     {
-        width: 109%;
+        width: 111%;
         height: 107px;
     }
     </style>
@@ -22,12 +22,11 @@
 
 
     
-    <div>
+    <div style="margin-left: 0px">
 <asp:ScriptManager ID="ScriptManager1" runat="server">
 
     </asp:ScriptManager>
-        <asp:Panel ID="Panel1" runat="server" 
-            BackImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg">
+        <asp:Panel ID="Panel1" runat="server">
          <br />
         <asp:Image ID="Image5" runat="server" 
                   ImageUrl="~/Imagenes/ronald-macdonald_1188363KHFJF.jpg" Height="88px" 
@@ -48,7 +47,7 @@
                   </th>
                
                <th>
-                          <div style="width:845px; height:509px;">
+                          <div style="width:895px; height:563px; margin-left: 69px; margin-right: 0px;">
       <cc1:GMap ID="GMap2" runat="server" Key="AIzaSyAlP8Yfqsmfz_s4QCLIQXeVw2Q4XwuaYaU" Height="550px" 
                                   BorderColor="Red" BorderStyle="Double" BorderWidth="10px" Width="850px" 
                                    />

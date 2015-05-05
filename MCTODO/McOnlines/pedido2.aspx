@@ -21,13 +21,12 @@
 
     <p>
         NUEVO PEDIDO</p>
-    <asp:Panel ID="Panel1" runat="server"        
-        BackImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" Height="658px">
+    <asp:Panel ID="Panel1" runat="server" Height="658px">
     <%--<asp:Image ID="Image1" runat="server" Height="584px" 
                     ImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" style="margin-left: 0px" 
                     Width="866px" />--%>
 
-     <table class="style1" 
+     <table 
         style="position: static; visibility: visible">
         <tr>
             <td class="style4">
