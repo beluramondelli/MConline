@@ -18,9 +18,16 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
     <p>
         NUEVO PEDIDO</p>
-    <table class="style1" 
+    <asp:Panel ID="Panel1" runat="server"        
+        BackImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" Height="658px">
+    <%--<asp:Image ID="Image1" runat="server" Height="584px" 
+                    ImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" style="margin-left: 0px" 
+                    Width="866px" />--%>
+
+     <table class="style1" 
         style="position: static; visibility: visible">
         <tr>
             <td class="style4">
@@ -96,8 +103,16 @@
                     Text="Confirmar Pedido" />
             </td>
         </tr>
+                        <asp:Image ID="Image2" runat="server" Height="584px" 
+                    ImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" 
+    style="margin-left: 0px" Width="866px" />
+            
         </table>
 
+    </asp:Panel>
+    <p>
+        &nbsp;</p>
+   
     <br />
     </asp:Content>
 

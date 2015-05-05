@@ -3,9 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
- <asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
-  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+   
+  <asp:UpdatePanel ID="UpdatePanel1" runat="server"    BackImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" Height="473px">
             <ContentTemplate>
                 <asp:Timer ID="Timer1" runat="server" Interval="2000">
                 </asp:Timer>
