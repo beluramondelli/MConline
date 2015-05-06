@@ -21,12 +21,16 @@ using System.Data.SqlClient;
             if (Session["usuario"] == null)
             {
                 lblsession.Text = "Para poder realizar un pedido debe iniciar sesion. ";
-
+                hlIniSesion.NavigateUrl = "~/Login.aspx";
+                hlRegistrarse.NavigateUrl = "~/NuevoUsuario.aspx";
             }
 
             else
             {
                 lblsession.Text="Bienvenido " + Session["usuario"].ToString();
+                hlIniSesion.Visible = false;
+                hlRegistrarse.Visible = false;
+
                 if (!IsPostBack)
                 {
                     dt = new DataTable();

@@ -63,6 +63,7 @@
                                  <asp:TextBox ID="txtCantidad" runat="server" Columns="5" Width="50px"></asp:TextBox>
                              </ItemTemplate>
                          </asp:TemplateField>
+                         <asp:CheckBoxField />
                      </Columns>
                      <EmptyDataTemplate>
                          <asp:CheckBox ID="check1" runat="server" />
