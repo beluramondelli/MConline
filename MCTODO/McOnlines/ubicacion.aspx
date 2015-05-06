@@ -10,11 +10,6 @@
         {
             width: 321px;
         }
-    .style13
-    {
-        width: 111%;
-        height: 107px;
-    }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -22,47 +17,17 @@
 
 
     
-    <div style="margin-left: 0px">
+    <div style="margin-left: 0px; height: 617px;">
 <asp:ScriptManager ID="ScriptManager1" runat="server">
 
     </asp:ScriptManager>
-        <asp:Panel ID="Panel1" runat="server">
-         <br />
-        <asp:Image ID="Image5" runat="server" 
-                  ImageUrl="~/Imagenes/ronald-macdonald_1188363KHFJF.jpg" Height="88px" 
-                Width="369px" />
-            <table id="Table1"  runat="server" Height="174px" style="width: 808px">
-
-                <tr>
-                     
-                
-              
-        <th class="style13"> 
-                 <br />
-                <br />
-                <br />
-                 <br />
-                <br />
-                <br />
-                  </th>
-               
-               <th>
-                          <div style="width:895px; height:563px; margin-left: 69px; margin-right: 0px;">
-      <cc1:GMap ID="GMap2" runat="server" Key="AIzaSyAlP8Yfqsmfz_s4QCLIQXeVw2Q4XwuaYaU" Height="550px" 
+        <asp:Panel ID="Panel1" runat="server" Height="585px">
+         <cc1:GMap ID="GMap2" runat="server" Key="AIzaSyAlP8Yfqsmfz_s4QCLIQXeVw2Q4XwuaYaU" Height="550px" 
                                   BorderColor="Red" BorderStyle="Double" BorderWidth="10px" Width="850px" 
                                    />
-    </div>
-                </th>
 
-              
-              
-              
-              
-              
-        </tr>
-        </table>
-    </div>
         </asp:Panel>
+
        
 
           <%--  <asp:Panel ID="Panel1" runat="server" Height="47px" style="margin-top: 0px" 

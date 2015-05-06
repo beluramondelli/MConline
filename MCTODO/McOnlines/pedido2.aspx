@@ -19,15 +19,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <p>
-        NUEVO PEDIDO</p>
-    <asp:Panel ID="Panel1" runat="server" Height="658px">
+    <asp:Panel ID="Panel1" runat="server" Height="553px">
     <%--<asp:Image ID="Image1" runat="server" Height="584px" 
                     ImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" style="margin-left: 0px" 
                     Width="866px" />--%>
 
      <table 
-        style="position: static; visibility: visible">
+        style="position: static; visibility: visible; height: 371px;">
         <tr>
             <td class="style4">
                 <asp:GridView ID="gvProductos" runat="server" 
@@ -35,11 +33,22 @@
                     style="margin-right: 0px" AllowPaging="True" Font-Bold="True" 
                     onpageindexchanged="gvProductos_PageIndexChanged" 
                     onpageindexchanging="gvProductos_PageIndexChanging" 
-                    onselectedindexchanged="gvProductos_SelectedIndexChanged" PageSize="15">
+                    onselectedindexchanged="gvProductos_SelectedIndexChanged" PageSize="9">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:CommandField ShowSelectButton="True" />
+                    <asp:TemplateField >
+                     <ItemTemplate>
+                        <asp:CheckBox ID="chek1" runat="server" EnableViewState="true"  />
+                     </ItemTemplate>
+                </asp:TemplateField>
+
+
                     </Columns>
+                    <EmptyDataTemplate>
+                        <asp:CheckBox ID="check1" runat="server" />
+                        <br />
+                        <br />
+                    </EmptyDataTemplate>
                     <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
@@ -102,9 +111,7 @@
                     Text="Confirmar Pedido" />
             </td>
         </tr>
-                        <asp:Image ID="Image2" runat="server" Height="584px" 
-                    ImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" 
-    style="margin-left: 0px" Width="866px" />
+                        
             
         </table>
 
