@@ -54,7 +54,8 @@
                      <Columns>
                          <asp:TemplateField>
                              <ItemTemplate>
-                                 <asp:CheckBox ID="chek1" runat="server" EnableViewState="true" />
+                                 <asp:CheckBox ID="chek1" runat="server" 
+                                     oncheckedchanged="chek1_CheckedChanged" />
                              </ItemTemplate>
                          </asp:TemplateField>
                          <asp:TemplateField HeaderText="Cantidad Solicitada">
@@ -81,6 +82,7 @@
              </td>
              <td align="justify" class="style5" style="color: #CC0000" valign="top">
                  <br />
+                 <asp:Label ID="lbl" runat="server"></asp:Label>
                  <br />
                  <asp:TextBox ID="txtCantidad" runat="server"></asp:TextBox>
                  <br />

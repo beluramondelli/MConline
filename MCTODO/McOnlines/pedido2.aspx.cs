@@ -67,7 +67,7 @@ using System.Windows.Forms;
         }
         protected void gvProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            lbl.Text = "Ha seleccionado ALGO";
             //txtCantidad.Text = "1";
             //txtDescripcion.Text = "";
             //txtCantidad.Enabled = true;
@@ -239,5 +239,9 @@ using System.Windows.Forms;
         //    McDAO.PedidoDAO.insertarPedido(ped, listProdXped);
         //    Response.Redirect("~/PedidoRealizado.aspx");
         //}
-    
+
+        protected void chek1_CheckedChanged(object sender, EventArgs e)
+        {
+            txtCantidad.Enabled=true;
+        }
 }
