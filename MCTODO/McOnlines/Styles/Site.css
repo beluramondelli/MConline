@@ -1,9 +1,15 @@
 ﻿/* DEFAULTS
 ----------------------------------------------------------*/
-
+Html
+{
+    height:100%;
+    width:100%;
+}
 body   
 {
-    background: #b6b7bc;
+  
+ 
+    
     font-size: .80em;
     font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
     margin: 0px;
@@ -88,8 +94,8 @@ first child of the left and right table columns */
 
 .page
 {
-    width: 960px;
-    background-color: #fff;
+    width: 100%;
+   background:#E1E5EF url(~/Imagenes/mcdonalds-art-7AGUA.jpg) repeat-x scroll 0 0;
     margin: 20px auto 0px auto;
     border: 1px solid #496077;
 }
