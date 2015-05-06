@@ -41,7 +41,11 @@
                         <asp:CheckBox ID="chek1" runat="server" EnableViewState="true"  />
                      </ItemTemplate>
                 </asp:TemplateField>
-
+                   <asp:TemplateField HeaderText="Cantidad Solicitada">
+                    <ItemTemplate>
+                        <asp:TextBox ID="txtCantidad" runat="server" Width="50px" Columns="5"></asp:TextBox>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
                     </Columns>
                     <EmptyDataTemplate>
@@ -58,13 +62,12 @@
                     <SortedAscendingHeaderStyle BackColor="#4D0000" />
                     <SortedDescendingCellStyle BackColor="#FCF6C0" />
                     <SortedDescendingHeaderStyle BackColor="#820000" />
+                 
                 </asp:GridView>
             </td>
             <td class="style5" align="justify" style="color: #CC0000" valign="top">
-                DETALLE<br />
                 <br />
-                Cantidad<asp:TextBox ID="txtCantidad" 
-                    runat="server"  ></asp:TextBox>
+                <br />
                 <br />
                 Descripción<asp:TextBox 
                     ID="txtDescripcion" runat="server" MaxLength="100" TextMode="MultiLine"  

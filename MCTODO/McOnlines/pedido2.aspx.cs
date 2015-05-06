@@ -56,7 +56,7 @@ using System.Windows.Forms;
 
             }
         }
-        protected void gvProductos_SelectedIndexChanged(object sender, EventArgs e)
+        protected void gvProductos_SelectedIndexChanged(object sender, GridViewSelectEventArgs e)
         {
             txtCantidad.Text = "1";
             txtDescripcion.Text = "";
