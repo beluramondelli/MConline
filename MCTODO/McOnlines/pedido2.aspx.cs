@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 
 
 
+
     public partial class pedido2 : System.Web.UI.Page
     {
         public static DataTable dt;
@@ -43,7 +44,7 @@ using System.Data.SqlClient;
                     CargarGrilla();
                     txtCantidad.Enabled = false;
                     txtDescripcion.Enabled = false;
-                    btnAgregarCarrito.Enabled = true;
+                    btnAgregarCarrito.Enabled = false;
                     btnConfirmar.Enabled = false;
                     txtTotal.Enabled = false;
                     lblCant.Visible = false;
@@ -63,6 +64,9 @@ using System.Data.SqlClient;
                 gvProductos.HeaderRow.Cells[3].Text = " Descripcion";
                 gvProductos.HeaderRow.Cells[4].Text = " Precio";
 
+             
+
+
             }
             catch
             {
@@ -80,18 +84,10 @@ using System.Data.SqlClient;
          }
 
         protected void btnAgregarCarrito_Click(object sender, EventArgs e)
-        {
-            foreach (GridViewRow dgi in gvProductos.Rows)
-            {
+        {        
 
 
-
-                CheckBox myCheckBox = dgi.Cells[0].Controls[1] as CheckBox;
-                if (myCheckBox.Checked == true)
-                {
-                    lbl.Text = "HA seleccionado";
-
-                }
+                
                 //    if (txtCantidad.Text != "")
                 //    {
                 //        if (int.Parse(txtCantidad.Text) > 0 && int.Parse(txtCantidad.Text) < 101)
@@ -195,7 +191,7 @@ using System.Data.SqlClient;
                 //        lblCant.Text = "Debe ingresar una cantidad";
                 //        lblCant.Visible = true;
                 //    }
-            }
+            
         }
 
     
@@ -243,23 +239,21 @@ using System.Data.SqlClient;
                 return false;
         }
 
-        //protected void btnAceptar_Click(object sender, EventArgs e)
-        //{
-        //    Pedido ped = new Pedido();
-
-        //    ped.fecha = DateTime.Now;
-        //    ped.montoTotal = int.Parse(txtTotal.Text);
-        //    ped.id_pedido = 0;
-        //    ped.horaPedido = DateTime.Now;
-        //    ped.horaEntrega = DateTime.Now;
-
-        //    McDAO.PedidoDAO.insertarPedido(ped, listProdXped);
-        //    Response.Redirect("~/PedidoRealizado.aspx");
-        //}
 
         protected void chek1_CheckedChanged(object sender, EventArgs e)
         {
-            txtCantidad.Enabled=true;
+           
+            foreach (GridViewRow dgi in gvProductos.Rows)
+            {
+
+                CheckBox myCheckBox = dgi.Cells[0].Controls[1] as CheckBox;
+                if (myCheckBox.Checked == true)
+                { 
+                    btnAgregarCarrito.Enabled = true;
+                    lbl.Text = "HA seleccionado";
+
+                }
+            }
            
         }
 }
