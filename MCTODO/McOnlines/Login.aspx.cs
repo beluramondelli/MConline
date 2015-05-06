@@ -22,6 +22,7 @@ public partial class Login : System.Web.UI.Page
             result=MessageBox.Show("¡Bienvenido "+txtUsuario.Text.ToString()+"!", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
             if (result == DialogResult.OK)
             {
+                Session["usuario"] = txtUsuario.Text;
                 Response.Redirect("pedido2.aspx");
             }
         }

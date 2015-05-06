@@ -18,25 +18,34 @@ using System.Windows.Forms;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["usuario"] == null)
             {
-                dt = new DataTable();
-                dt.Columns.Add("Nombre");
-                dt.Columns.Add("Cantidad");
-                dt.Columns.Add("Descripción");
-                dt.Columns.Add("Precio");
-                listProdXped = new List<ProductoXpedido>();
+                lblsession.Text = "Para poder realizar un pedido debe iniciar sesion. ";
 
-                CargarGrilla();
-                txtCantidad.Enabled = false;
-                txtDescripcion.Enabled = false;
-                btnAgregarCarrito.Enabled = false;
-                btnConfirmar.Enabled = false;
-                txtTotal.Enabled = false;
-                lblCant.Visible = false;
+            }
+
+            else
+            {
+                lblsession.Text="Bienvenido " + Session["usuario"].ToString();
+                if (!IsPostBack)
+                {
+                    dt = new DataTable();
+                    dt.Columns.Add("Nombre");
+                    dt.Columns.Add("Cantidad");
+                    dt.Columns.Add("Descripción");
+                    dt.Columns.Add("Precio");
+                    listProdXped = new List<ProductoXpedido>();
+
+                    CargarGrilla();
+                    txtCantidad.Enabled = false;
+                    txtDescripcion.Enabled = false;
+                    btnAgregarCarrito.Enabled = false;
+                    btnConfirmar.Enabled = false;
+                    txtTotal.Enabled = false;
+                    lblCant.Visible = false;
+                }
             }
         }
-
         private void CargarGrilla()
         {
             try
