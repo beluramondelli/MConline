@@ -27,5 +27,13 @@ namespace Entidades
             this.descripcion = descripcion;
             this.precio = precio;
         }
+
+        internal class ProductInfo
+        {
+            public int id_producto { get; set; }
+            public int cantidad { get; set; }
+            public string descripcion { get; set; }
+
+        }
     }
 }

@@ -56,13 +56,14 @@ using System.Windows.Forms;
 
             }
         }
-        protected void gvProductos_SelectedIndexChanged(object sender, GridViewSelectEventArgs e)
+        protected void gvProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtCantidad.Text = "1";
-            txtDescripcion.Text = "";
-            txtCantidad.Enabled = true;
-            txtDescripcion.Enabled = true;
-            btnAgregarCarrito.Enabled = true;
+
+            //txtCantidad.Text = "1";
+            //txtDescripcion.Text = "";
+            //txtCantidad.Enabled = true;
+            //txtDescripcion.Enabled = true;
+            //btnAgregarCarrito.Enabled = true;
          }
 
         protected void btnAgregarCarrito_Click(object sender, EventArgs e)

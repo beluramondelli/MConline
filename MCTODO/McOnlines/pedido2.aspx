@@ -68,6 +68,7 @@
             <td class="style5" align="justify" style="color: #CC0000" valign="top">
                 <br />
                 <br />
+                <asp:TextBox ID="txtCantidad" runat="server"></asp:TextBox>
                 <br />
                 Descripción<asp:TextBox 
                     ID="txtDescripcion" runat="server" MaxLength="100" TextMode="MultiLine"  
