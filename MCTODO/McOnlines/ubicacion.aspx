@@ -18,15 +18,26 @@
 
     
     <div style="margin-left: 0px; height: 617px;">
-<asp:ScriptManager ID="ScriptManager1" runat="server">
+
+        <asp:Panel ID="Panel2" runat="server" 
+            BackImageUrl="~/Imagenes/McDonaldAGUA.jpg">
+
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
 
     </asp:ScriptManager>
-        <asp:Panel ID="Panel1" runat="server" Height="585px">
-         <cc1:GMap ID="GMap2" runat="server" Key="AIzaSyAlP8Yfqsmfz_s4QCLIQXeVw2Q4XwuaYaU" Height="550px" 
-                                  BorderColor="Red" BorderStyle="Double" BorderWidth="10px" Width="850px" 
-                                   />
 
+     <cc1:GMap ID="GMap2" runat="server" Key="AIzaSyAlP8Yfqsmfz_s4QCLIQXeVw2Q4XwuaYaU" Height="550px" 
+                                  BorderColor="Red" BorderStyle="Double" 
+                BorderWidth="10px" Width="1000px" 
+                                   />
         </asp:Panel>
+
+
+
+
+
+
+       
 
        
 

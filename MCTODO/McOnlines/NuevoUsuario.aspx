@@ -44,7 +44,7 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <table style="border-style: none; width: 67%; margin-left: 153px; margin-top: 75px; font-family: Verdana; font-weight: bold; color: #000000; background-color: #FFFFFF; margin-right: 144px;" 
-    bgcolor="Silver">
+    bgcolor="#FFCC00">
     <tr>
         <td class="style30" style="background-color: #FFFFFF">
             Nombre*</td>

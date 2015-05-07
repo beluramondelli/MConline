@@ -19,11 +19,18 @@
         {
             width: 100%;
         }
+    .style9
+    {
+        width: 245px;
+    }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <asp:Panel ID="Panel1" runat="server" Height="553px">
+    <asp:Panel ID="Panel1" runat="server" 
+                                    
+    BackImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" Height="566px" 
+                                    Width="1337px">
     <%--<asp:Image ID="Image1" runat="server" Height="584px" 
                     ImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" style="margin-left: 0px" 
                     Width="866px" />--%>
@@ -41,7 +48,7 @@
         </table>
 
      <table 
-        style="position: static; visibility: visible; height: 371px;">
+        style="position: static; visibility: visible; height: 371px; width: 1308px;">
          <tr>
              <td class="style4">
                  <asp:GridView ID="gvProductos" runat="server" AllowPaging="True" 
@@ -101,7 +108,7 @@
                  <br />
                  <asp:Label ID="lblCant" runat="server"></asp:Label>
                  <br />
-                 <td style="color: #CC0000" valign="top">
+                 <td style="color: #CC0000" valign="top" class="style9">
                      MI CARRITO<br />
                      <asp:GridView ID="dgvCarrito" runat="server" CellPadding="4" 
                          ForeColor="#333333" GridLines="None" Height="124px" Width="148px">
