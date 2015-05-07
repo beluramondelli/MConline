@@ -44,7 +44,7 @@ using System.Data.SqlClient;
                     CargarGrilla();
                     txtCantidad.Enabled = false;
                     txtDescripcion.Enabled = false;
-                    btnAgregarCarrito.Enabled = false;
+                    btnAgregarCarrito.Enabled = true;
                     btnConfirmar.Enabled = false;
                     txtTotal.Enabled = false;
                     lblCant.Visible = false;
@@ -173,7 +173,7 @@ using System.Data.SqlClient;
                                 txtDescripcion.Enabled = false;
                                 btnAgregarCarrito.Enabled = true;
                             }
-                            git 
+                      
                             else
                             {
                                 lblCant.Text = "La descripcion supera el maximo de caracteres permitidos";
