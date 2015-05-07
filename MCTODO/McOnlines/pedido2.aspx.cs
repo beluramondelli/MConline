@@ -84,9 +84,119 @@ using System.Data.SqlClient;
          }
 
         protected void btnAgregarCarrito_Click(object sender, EventArgs e)
-        {        
+        {
+
+            foreach (GridViewRow dgi in gvProductos.Rows)
+            {
+
+                CheckBox myCheckBox = dgi.Cells[0].Controls[1] as CheckBox;
+                if (myCheckBox.Checked == true)
+                {
+                    TextBox txtCantidad = dgi.Cells[1].Controls[1] as TextBox;
+                    if(!string.IsNullOrWhiteSpace(txtCantidad.Text))
+                    {
+                        if (int.Parse(txtCantidad.Text) > 0 && int.Parse(txtCantidad.Text) < 101)
+                        {
+                            int id_producto = (int.Parse(gvProductos.SelectedDataKey.Value.ToString()));
+                            if (listProdXped.Count() != 0)
+                                {
+                                    foreach (var item in listProdXped)
+                                    {
+                                        if (id_producto == item.id_producto)
+                                        {
+                                            string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
+                                            item.cantidad += (int.Parse(txtCantidad.Text.ToString()));
+                                            int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
+                                            item.precio = (precio * item.cantidad);
+
+                                            for (int i = 0; i < dt.Rows.Count; i++)
+                                            {
+                                                if (dt.Rows[i]["Nombre"].ToString() == nom)
+                                                {
+                                                    dt.Rows[i].Delete();
+                                                    dt.Rows.Add(nom, item.cantidad, item.descripcion, item.precio);
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            ProductoXpedido pxp = new ProductoXpedido();
+                                            pxp.descripcion = txtDescripcion.Text;
+                                            pxp.cantidad = int.Parse(txtCantidad.Text);
 
 
+                                            string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
+                                            int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
+                                            int cantidad = (int.Parse(txtCantidad.Text.ToString()));
+                                            int subtotal = (precio * cantidad);
+
+                                            pxp.precio = subtotal;
+                                            pxp.id_producto = id_producto;
+                                            pxp.id_tamaño = 3;
+
+                                            listProdXped.Add(pxp);
+
+                                            dt.Rows.Add(nom, pxp.cantidad, pxp.descripcion, subtotal);
+
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    ProductoXpedido pxp = new ProductoXpedido();
+                                    pxp.descripcion = txtDescripcion.Text;
+                                    pxp.cantidad = int.Parse(txtCantidad.Text);
+
+
+                                    string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
+                                    int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
+                                    int cantidad = (int.Parse(txtCantidad.Text.ToString()));
+                                    int subtotal = (precio * cantidad);
+
+                                    pxp.precio = subtotal;
+                                    pxp.id_producto = id_producto;
+                                    pxp.id_tamaño = 3;
+
+                                    listProdXped.Add(pxp);
+
+                                    dt.Rows.Add(nom, pxp.cantidad, pxp.descripcion, subtotal);
+
+                                }
+
+                                cargarGrilla(dgvCarrito, dt);
+                                CalcularTotal();
+                                lblCant.Visible = false;
+                                btnConfirmar.Enabled = true;
+                                txtCantidad.Text = "";
+                                txtCantidad.Enabled = false;
+                                txtDescripcion.Text = "";
+                                txtDescripcion.Enabled = false;
+                                btnAgregarCarrito.Enabled = false;
+                            }
+
+                            else
+                            {
+                                lblCant.Text = "La descripcion supera el maximo de caracteres permitidos";
+                                lblCant.Visible = true;
+                            }
+
+                        }
+                        else
+                        {
+                            lblCant.Text = "La cantidad ingresada debe ser un valor entre 1 y 100";
+                            lblCant.Visible = true;
+                        }
+                    }
+                    else
+                    {
+                        lblCant.Text = "Debe ingresar una cantidad";
+                        lblCant.Visible = true;
+                    }
+
+                        }
+                    }
+                
+            
                 
                 //    if (txtCantidad.Text != "")
                 //    {
@@ -192,7 +302,7 @@ using System.Data.SqlClient;
                 //        lblCant.Visible = true;
                 //    }
             
-        }
+        
 
     
 
@@ -243,17 +353,7 @@ using System.Data.SqlClient;
         protected void chek1_CheckedChanged(object sender, EventArgs e)
         {
            
-            foreach (GridViewRow dgi in gvProductos.Rows)
-            {
-
-                CheckBox myCheckBox = dgi.Cells[0].Controls[1] as CheckBox;
-                if (myCheckBox.Checked == true)
-                { 
-                    btnAgregarCarrito.Enabled = true;
-                    lbl.Text = "HA seleccionado";
-
-                }
-            }
+            
            
         }
 }
