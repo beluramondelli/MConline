@@ -57,7 +57,8 @@
                      onpageindexchanging="gvProductos_PageIndexChanging" 
                      PageSize="9" 
                      style="margin-right: 0px" Width="1300px" 
-                     onselectedindexchanged="gvProductos_SelectedIndexChanged">
+                     onselectedindexchanged="gvProductos_SelectedIndexChanged" 
+                     AutoGenerateColumns="False">
                      <AlternatingRowStyle BackColor="White" />
                      <Columns>
                          <asp:TemplateField>
@@ -71,6 +72,9 @@
                                  <asp:TextBox ID="txtCantidad" runat="server" Columns="5" Width="50px"></asp:TextBox>
                              </ItemTemplate>
                          </asp:TemplateField>
+                         <asp:BoundField DataField="nombre" HeaderText="Producto" />
+                         <asp:BoundField DataField="descripcion" HeaderText="Descripción" />
+                         <asp:BoundField DataField="precio" HeaderText="Precio" />
                      </Columns>
                      <EmptyDataTemplate>
                          <asp:CheckBox ID="check1" runat="server" />

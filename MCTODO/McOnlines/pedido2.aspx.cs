@@ -17,6 +17,7 @@ public partial class pedido2 : System.Web.UI.Page
     public static DataTable dt;
     public static List<ProductoXpedido> listProdXped;
 
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["usuario"] == null)
@@ -102,7 +103,7 @@ public partial class pedido2 : System.Web.UI.Page
                 if (myCheckBox.Checked == true)
                 {
                     TextBox txtCantidad = dgi.Cells[1].Controls[1] as TextBox;
-                    int id_producto = (int.Parse(dgi.Cells[2].Text));
+                    int id_producto = (int.Parse(gvProductos.DataKeys[dgi.RowIndex].Value.ToString()));
 
                     ProductoXpedido pxp = new ProductoXpedido();
                     pxp.cantidad = int.Parse(txtCantidad.Text);
