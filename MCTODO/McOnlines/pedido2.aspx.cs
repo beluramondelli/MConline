@@ -124,9 +124,6 @@ public partial class pedido2 : System.Web.UI.Page
 
                     CalcularTotal();
                     lblCant.Visible = false;
-
-
-                    
                 }
             }
             Session["dataTable"] = dt;
