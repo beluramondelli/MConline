@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="pedido2.aspx.cs" Inherits="pedido2" %>
 
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <style type="text/css">
         .style4
@@ -26,7 +28,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
     <asp:Panel ID="Panel1" runat="server" 
                                     
     BackImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" Height="566px" 
@@ -52,13 +55,14 @@
          <tr>
              <td class="style4">
                  <asp:GridView ID="gvProductos" runat="server" AllowPaging="True" 
-                     CellPadding="4" Font-Bold="True" ForeColor="#333333" 
+                     CellPadding="4" Font-Bold="True" ForeColor="#FFCC00" 
                      onpageindexchanged="gvProductos_PageIndexChanged" 
                      onpageindexchanging="gvProductos_PageIndexChanging" 
                      PageSize="9" 
-                     style="margin-right: 0px" Width="1300px" 
+                     style="margin-right: 0px" Width="1297px" 
                      onselectedindexchanged="gvProductos_SelectedIndexChanged" 
-                     AutoGenerateColumns="False">
+                     AutoGenerateColumns="False" EnablePersistedSelection="True" 
+                     Font-Names="Verdana">
                      <AlternatingRowStyle BackColor="White" />
                      <Columns>
                          <asp:TemplateField>
@@ -82,9 +86,9 @@
                          <br />
                      </EmptyDataTemplate>
                      <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                     <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                     <HeaderStyle BackColor="#CC0000" Font-Bold="True" ForeColor="#FFCC00" />
                      <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                     <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                     <RowStyle BackColor="#FFFBD6" ForeColor="#333333" Width="50px" />
                      <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
                      <SortedAscendingCellStyle BackColor="#FDF5AC" />
                      <SortedAscendingHeaderStyle BackColor="#4D0000" />
@@ -106,7 +110,11 @@
                 </td>
                 <td>
                     <asp:Button ID="btnConfirmar" runat="server" onclick="btnConfirmar_Click" 
-                        Text="Confirmar Pedido" />
+                        Text="Confirmar Pedido" BackColor="Red" Font-Bold="True" 
+                        Font-Names="Verdana" ForeColor="#FFCC00" />
+                    <cc1:RoundedCornersExtender ID="btnConfirmar_RoundedCornersExtender" 
+                        runat="server" BehaviorID="btnConfirmar_RoundedCornersExtender" 
+                        TargetControlID="btnConfirmar" />
                     <asp:Label ID="lblCant" runat="server" Text="Label" Visible="False"></asp:Label>
                 </td>
             </tr>

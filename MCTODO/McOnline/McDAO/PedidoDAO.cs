@@ -41,7 +41,7 @@ namespace McDAO
                 ped.id_pedido = int.Parse(cmd.ExecuteScalar().ToString());
 
 
-                sql = "insert into productoXpedido(id_producto, id_pedido, id_tamaño, cantidad, descripcion, precio) values (@id_Prod, @id_Ped, @id_tam, @cant, @descr, @precio)";
+                sql = "insert into productoXpedido(id_producto, id_pedido, id_tamaño, cantidad, precio) values (@id_Prod, @id_Ped, @id_tam, @cant, @precio)";
                 foreach (ProductoXpedido item in listProdXped)
                 {
                     SqlCommand cmd2 = new SqlCommand(sql, cn);
@@ -52,7 +52,7 @@ namespace McDAO
                     cmd2.Parameters.AddWithValue("@id_ped", ped.id_pedido);
                     cmd2.Parameters.AddWithValue("@id_tam", item.id_tamaño);
                     cmd2.Parameters.AddWithValue("@cant", item.cantidad);
-                    cmd2.Parameters.AddWithValue("@descr", item.descripcion);
+                    //cmd2.Parameters.AddWithValue("@descr", item.descripcion);
                     cmd2.Parameters.AddWithValue("@precio", item.precio);
                     
                     cmd2.CommandText = sql;

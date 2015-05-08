@@ -17,7 +17,7 @@ namespace McDAO
         public static List<ProductoXtamaño> ObtenerTodo()
         {
             List<ProductoXtamaño> listProductos = new List<ProductoXtamaño>();
-            string sql = " select prod.nombre, prodtam.descripcion, prodtam.precio from producto prod, productoXtamaño prodtam where prodtam.id_producto=prod.id_producto  ";
+            string sql = " select prod.id_producto, prod.nombre, prodtam.descripcion, prodtam.precio from producto prod, productoXtamaño prodtam where prodtam.id_producto=prod.id_producto  ";
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = con;
             try
