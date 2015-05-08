@@ -36,13 +36,14 @@ public partial class confirmarPedido : System.Web.UI.Page
     }
     protected void btnAceptar_Click(object sender, EventArgs e)
     {
-        if (Session["lista"] != null)
+        if (Session["lista"] != null && Session["usuario"]!= null)
         {
             List<ProductoXpedido> listaProdPed = new List<ProductoXpedido>();
             listaProdPed = (List<ProductoXpedido>)Session["lista"];
 
             Pedido ped = new Pedido();
 
+            ped.usuario = UsuarioDAO.buscarIdUsuario(Session["usuario"].ToString());
             ped.fecha = DateTime.Now;
             ped.montoTotal = int.Parse(txtTotal.Text);
             ped.id_pedido = 0;

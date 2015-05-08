@@ -30,8 +30,9 @@ namespace McDAO
                 cmd.Transaction = tran;
                 cmd.Connection = cn;
 
-                sql = "insert into pedido(fecha, montoTotal, id_estado, horaPedido, horaEntrega) values (@fech, @montoTot, @estado, @hsPed, @hsEnt); select @@Identity;";
-                
+                sql = "insert into pedido(fecha, montoTotal, id_estado, horaPedido, horaEntrega, usuario) values (@fech, @montoTot, @estado, @hsPed, @hsEnt, @usuario); select @@Identity;";
+
+                cmd.Parameters.AddWithValue("@usuario", ped.usuario);
                 cmd.Parameters.AddWithValue("@fech", ped.fecha);
                 cmd.Parameters.AddWithValue("@montoTot", ped.montoTotal);
                 cmd.Parameters.AddWithValue("@estado", ped.id_estado);

@@ -13,6 +13,7 @@ namespace Entidades
         public int id_estado { get; set; }
         public DateTime horaPedido { get; set; }
         public DateTime horaEntrega { get; set; }
+        public int usuario { get; set; }
 
         public Pedido()
         { }

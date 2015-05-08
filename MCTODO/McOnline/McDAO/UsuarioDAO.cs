@@ -14,7 +14,6 @@ namespace McDAO
 
         public static void insertarUsuario(Usuario usu)
         {
-            
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = con;
             SqlTransaction tran = null;
@@ -30,7 +29,7 @@ namespace McDAO
 
                 sql = "insert into usuario(nombreUsuario,password,nombre,apellido,mail,telefono)values(@usu, @pass,@nom,@ape,@mail,@tel); select @@Identity;";
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@usu",usu.username);
+                cmd.Parameters.AddWithValue("@usu", usu.username);
                 cmd.Parameters.AddWithValue("@pass", usu.password);
                 cmd.Parameters.AddWithValue("@nom", usu.nombre);
                 cmd.Parameters.AddWithValue("@ape", usu.apellido);
@@ -38,10 +37,10 @@ namespace McDAO
                 cmd.Parameters.AddWithValue("@tel", usu.telefono);
 
                 usu.id_usuario = int.Parse(cmd.ExecuteScalar().ToString());
-                
+
                 tran.Commit();
                 cn.Close();
-                
+
 
             }
             catch (SqlException ex)
@@ -56,7 +55,7 @@ namespace McDAO
         public static bool verificarMail(string mail)
         {
 
-            
+
             string sql = " select * from usuario where mail=@mail";
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = con;
@@ -65,7 +64,7 @@ namespace McDAO
                 cn.Open();
                 SqlCommand cmd = new SqlCommand(sql, cn);
                 cmd.Parameters.AddWithValue("@mail", mail);
-              
+
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
@@ -84,10 +83,7 @@ namespace McDAO
 
 
         public static bool VerificarNombreUsuario(string user)
-        
         {
-
-            
             string sql = " select * from usuario where nombreUsuario=@user";
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = con;
@@ -96,7 +92,7 @@ namespace McDAO
                 cn.Open();
                 SqlCommand cmd = new SqlCommand(sql, cn);
                 cmd.Parameters.AddWithValue("@user", user);
-              
+
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
@@ -113,7 +109,37 @@ namespace McDAO
             return false;
         }
 
+
+
+        public static int buscarIdUsuario(string user)
+        {
+            string sql = " select * from usuario where nombreUsuario=@user";
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = con;
+            try
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand(sql, cn);
+                cmd.Parameters.AddWithValue("@user", user);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    return (int)dr["id_usuario"];
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch
+            {
+            }
+            return 0;
         }
+
     }
+}
+    
 
 
