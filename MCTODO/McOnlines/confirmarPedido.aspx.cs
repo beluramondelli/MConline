@@ -20,6 +20,7 @@ public partial class confirmarPedido : System.Web.UI.Page
             DataTable dt = (DataTable)Session["dataTable"];
             txtTotal.Text = Session["total"].ToString();
             cargarGrilla(dgvCompra, dt);
+            
         }
     }
 
@@ -52,7 +53,7 @@ public partial class confirmarPedido : System.Web.UI.Page
 
             McDAO.PedidoDAO.insertarPedido(ped, listaProdPed);
             DialogResult result;
-            result=MessageBox.Show("Ha realizado su pedido con éxito","Confimación",MessageBoxButtons.OK, MessageBoxIcon.Information,MessageBoxDefaultButton.Button1 ,MessageBoxOptions.ServiceNotification);
+            result = MessageBox.Show("Ha realizado su pedido con éxito" + " "+ Session["usuario"].ToString(), "Confimación", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
             if (result == DialogResult.OK)
             {
                 Response.Redirect("~/pedido2.aspx");
@@ -61,5 +62,23 @@ public partial class confirmarPedido : System.Web.UI.Page
 
     }
 
-    
+
+    protected void dgvCompra_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+    protected void dgvCompra_RowCreated(object sender, GridViewRowEventArgs e)
+    {
+       
+        GridViewRow row = e.Row;
+        List<TableCell> columns = new List<TableCell>();
+        foreach (DataControlField column in dgvCompra.Columns)
+        {
+            TableCell cell = row.Cells[0];
+            row.Cells.Remove(cell);
+            columns.Add(cell);
+        }
+        row.Cells.AddRange(columns.ToArray());
+        
+    }
 }

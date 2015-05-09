@@ -39,10 +39,9 @@ public partial class pedido2 : System.Web.UI.Page
             if (!IsPostBack)
             {
                 dt = new DataTable();
-                dt.Columns.Add("Nombre");
-                dt.Columns.Add("Cantidad");
-                dt.Columns.Add("Descripción");
-                dt.Columns.Add("Precio");
+                dt.Columns.Add("Producto");
+                dt.Columns.Add("Cantidad"); 
+                dt.Columns.Add("Subtotal");
                 listProdXped = new List<ProductoXpedido>();
 
                 CargarGrilla();
@@ -118,9 +117,11 @@ public partial class pedido2 : System.Web.UI.Page
                     pxp.id_tamaño = 3;
 
                     listProdXped.Add(pxp);
-
-                    dt.Rows.Add(nom, pxp.cantidad, pxp.descripcion, subtotal);
-
+                    dt.Columns[0].ColumnName = "Producto";
+                    dt.Columns[1].ColumnName = "Cantidad";
+                    dt.Columns[2].ColumnName = "Subtotal";
+                    dt.Rows.Add(nom, pxp.cantidad, subtotal);
+                    
 
                     CalcularTotal();
                     lblCant.Visible = false;
