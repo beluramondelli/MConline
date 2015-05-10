@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
      <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
-<%--    <link href="~/Styles/StyleSheet1.css" rel="stylesheet" type="text/css" /> --%>
+    <%--    <link href="~/Styles/StyleSheet1.css" rel="stylesheet" type="text/css" /> --%>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
@@ -88,12 +88,18 @@
                     </td>
                     <td class="style7" >
                         
+                        <asp:Label ID="lblbienvenido" runat="server" Font-Bold="True" Text="Label"></asp:Label>
+                        
                         <br />
                         <br />
                         <asp:HyperLink ID="HyperLink2" runat="server" Font-Bold="True" 
                             Font-Size="Medium" ForeColor="#FFFFCC" NavigateUrl="Login.aspx">Ingresar </asp:HyperLink>
                         <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" 
                             Font-Size="Medium" NavigateUrl="~/NuevoUsuario.aspx" ForeColor="White">Registrate</asp:HyperLink>
+                        
+                        <asp:HyperLink ID="HyperLink3" runat="server" Font-Bold="True" 
+                            Font-Size="Medium" ForeColor="#FFFFCC" onclick="cerrarSesion" NavigateUrl="~/Principal.aspx" 
+                            Visible="False">Cerrar sesion</asp:HyperLink>
                         
                     </td>
                 </tr>
