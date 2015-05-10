@@ -34,7 +34,7 @@
         <Columns>
             <asp:TemplateField HeaderText="Preferencias">
                 <ItemTemplate>
-                    <asp:TextBox ID="txtdescrip" runat="server" TextMode="MultiLine"></asp:TextBox>
+                    <asp:TextBox ID="txtDescrip" runat="server" TextMode="MultiLine"></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

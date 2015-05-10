@@ -8,7 +8,6 @@ using McDAO;
 using Entidades;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 public partial class confirmarPedido : System.Web.UI.Page
 {
@@ -51,13 +50,25 @@ public partial class confirmarPedido : System.Web.UI.Page
             ped.horaPedido = DateTime.Now;
             ped.horaEntrega = DateTime.Now;
 
-            McDAO.PedidoDAO.insertarPedido(ped, listaProdPed);
-            DialogResult result;
-            result = MessageBox.Show("Ha realizado su pedido con éxito" + " "+ Session["usuario"].ToString(), "Confimación", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
-            if (result == DialogResult.OK)
+            int i = 0;
+           
+            foreach (ProductoXpedido item in listaProdPed)
             {
-                Response.Redirect("~/pedido2.aspx");
+                GridViewRow row = dgvCompra.Rows[i];
+
+                TextBox txtDescrip = row.FindControl("txtDescrip")as TextBox;
+                item.descripcion = Convert.ToString(txtDescrip.Text);
+                i = i + 1;
             }
+
+            McDAO.PedidoDAO.insertarPedido(ped, listaProdPed);
+            //DialogResult result;
+            //result = MessageBox.Show("Ha realizado su pedido con éxito" + " "+ Session["usuario"].ToString(), "Confimación", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+            //if (result == DialogResult.OK)
+            //{
+                
+                Response.Redirect("~/pedido2.aspx");
+            //}
         }
 
     }

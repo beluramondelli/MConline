@@ -115,7 +115,8 @@
                     <cc1:RoundedCornersExtender ID="btnConfirmar_RoundedCornersExtender" 
                         runat="server" BehaviorID="btnConfirmar_RoundedCornersExtender" 
                         TargetControlID="btnConfirmar" />
-                    <asp:Label ID="lblCant" runat="server" Text="Label" Visible="False"></asp:Label>
+                    <asp:Label ID="lblCant" runat="server" Text="Label" Visible="False" 
+                        Font-Bold="True" Font-Names="Verdana" Font-Size="Medium"></asp:Label>
                 </td>
             </tr>
         </table>

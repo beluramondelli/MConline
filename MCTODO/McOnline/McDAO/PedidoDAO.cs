@@ -53,7 +53,7 @@ namespace McDAO
                     cmd2.Parameters.AddWithValue("@id_ped", ped.id_pedido);
                     cmd2.Parameters.AddWithValue("@id_tam", item.id_tamaño);
                     cmd2.Parameters.AddWithValue("@cant", item.cantidad);
-                    cmd2.Parameters.AddWithValue("@descr", item.descripcion);
+                    cmd2.Parameters.AddWithValue("@descrip", item.descripcion);
                     cmd2.Parameters.AddWithValue("@precio", item.precio);
                     
                     cmd2.CommandText = sql;

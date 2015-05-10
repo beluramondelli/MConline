@@ -134,7 +134,7 @@ public partial class pedido2 : System.Web.UI.Page
         }
         else
         {
-            lblCant.Text = "La cantidad ingresada debe ser un valor entre 1 y 100";
+            lblCant.Text = "La cantidad ingresada debe ser válida";
             lblCant.Visible = true;
         }
     }
