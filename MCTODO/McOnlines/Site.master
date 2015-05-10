@@ -88,7 +88,8 @@
                     </td>
                     <td class="style7" >
                         
-                        <asp:Label ID="lblbienvenido" runat="server" Font-Bold="True" Text="Label"></asp:Label>
+                        <asp:Label ID="lblbienvenido" runat="server" Font-Bold="True" Text="Label" 
+                            ForeColor="White"></asp:Label>
                         
                         <br />
                         <br />
@@ -97,9 +98,8 @@
                         <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" 
                             Font-Size="Medium" NavigateUrl="~/NuevoUsuario.aspx" ForeColor="White">Registrate</asp:HyperLink>
                         
-                        <asp:HyperLink ID="HyperLink3" runat="server" Font-Bold="True" 
-                            Font-Size="Medium" ForeColor="#FFFFCC" onclick="cerrarSesion" NavigateUrl="~/Principal.aspx" 
-                            Visible="False">Cerrar sesion</asp:HyperLink>
+                        <asp:LinkButton ID="LinkButton1" runat="server" Font-Bold="True" 
+                            ForeColor="White" onclick="LinkButton1_Click">Cerrar sesion</asp:LinkButton>
                         
                     </td>
                 </tr>

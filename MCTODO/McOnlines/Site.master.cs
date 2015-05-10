@@ -16,26 +16,30 @@ public partial class SiteMaster : System.Web.UI.MasterPage
                 lblbienvenido.Text = "Bienvenido " + Session["usuario"].ToString();
                 HyperLink1.Visible = false;
                 HyperLink2.Visible = false;
-                HyperLink3.Visible = true;
+                LinkButton1.Visible = true;
             }
             else
             {
                 lblbienvenido.Visible = false;
                 HyperLink1.Visible = true;
                 HyperLink2.Visible = true;
-                HyperLink3.Visible = false;
+                LinkButton1.Visible = false;
             }
         }
-    }
-
-    protected void cerrarSesion(object sender, EventArgs e)
-    {
-        Session["usuario"] = null;
-        Response.Redirect("~/Principal.aspx");
     }
 
     protected void NavigationMenu_MenuItemClick(object sender, MenuEventArgs e)
     {
 
+    }
+
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        Session["usuario"] = null;
+        lblbienvenido.Visible = false;
+        HyperLink1.Visible = true;
+        HyperLink2.Visible = true;
+        LinkButton1.Visible = false;
+        Response.Redirect("~/Principal.aspx");
     }
 }

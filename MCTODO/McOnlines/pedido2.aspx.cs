@@ -20,32 +20,35 @@ public partial class pedido2 : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["usuario"] == null)
+        if (!IsPostBack)
         {
-            lblsession.Text = "Para poder realizar un pedido debe iniciar sesion. ";
-            hlIniSesion.NavigateUrl = "~/Login.aspx";
-            hlRegistrarse.NavigateUrl = "~/NuevoUsuario.aspx";
-            Label1.Visible = false;
-            txtTotal.Visible = false;
-            btnConfirmar.Visible = false;
-        }
-
-        else
-        {
-            lblsession.Text = "Bienvenido " + Session["usuario"].ToString();
-            hlIniSesion.Visible = false;
-            hlRegistrarse.Visible = false;
-
-            if (!IsPostBack)
+            if (Session["usuario"] == null)
             {
-                dt = new DataTable();
-                dt.Columns.Add("Producto");
-                dt.Columns.Add("Cantidad"); 
-                dt.Columns.Add("Subtotal");
-                listProdXped = new List<ProductoXpedido>();
+                lblsession.Text = "Para poder realizar un pedido debe iniciar sesion. ";
+                hlIniSesion.NavigateUrl = "~/Login.aspx";
+                hlRegistrarse.NavigateUrl = "~/NuevoUsuario.aspx";
+                Label1.Visible = false;
+                txtTotal.Visible = false;
+                btnConfirmar.Visible = false;
+            }
 
-                CargarGrilla();
-                //btnConfirmar.Enabled = false;
+            else
+            {
+                lblsession.Visible = false;
+                hlIniSesion.Visible = false;
+                hlRegistrarse.Visible = false;
+
+                if (!IsPostBack)
+                {
+                    dt = new DataTable();
+                    dt.Columns.Add("Producto");
+                    dt.Columns.Add("Cantidad");
+                    dt.Columns.Add("Subtotal");
+                    listProdXped = new List<ProductoXpedido>();
+
+                    CargarGrilla();
+                    //btnConfirmar.Enabled = false;
+                }
             }
         }
     }
