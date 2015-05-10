@@ -163,7 +163,9 @@ public partial class pedido2 : System.Web.UI.Page
 
 
     protected void chek1_CheckedChanged(object sender, EventArgs e)
-    { }
+    {
+ 
+    }
 
     protected void gvProductos_SelectedIndexChanged(object sender, EventArgs e)
     {

@@ -26,9 +26,9 @@
 
     </asp:ScriptManager>
 
-     <cc1:GMap ID="GMap2" runat="server" Key="AIzaSyAlP8Yfqsmfz_s4QCLIQXeVw2Q4XwuaYaU" Height="550px" 
+     <cc1:GMap ID="GMap2" runat="server" Key="AIzaSyAlP8Yfqsmfz_s4QCLIQXeVw2Q4XwuaYaU" Height="570px" 
                                   BorderColor="Red" BorderStyle="Double" 
-                BorderWidth="10px" Width="1000px" 
+                BorderWidth="10px" Width="1348px" style="text-align: center" 
                                    />
         </asp:Panel>
 
