@@ -14,9 +14,11 @@ namespace Entidades
         public DateTime horaPedido { get; set; }
         public DateTime horaEntrega { get; set; }
         public int usuario { get; set; }
+        public string descrip { get; set; }
 
         public Pedido()
-        { }
+        {
+        }
 
         public Pedido(int id, DateTime fecha, int monto, int id_estado, DateTime horaPedido, DateTime horaEntrega)
         {

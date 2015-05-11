@@ -70,7 +70,8 @@
             <tr>
                 <td align="justify" class="style38">
                     <table align="center" bgcolor="#FFFF66" 
-                        style="border-style: none; width: 58%; margin-left: 418px; margin-top: 0px; font-family: Verdana; font-weight: bold; color: #000000; background-color: #FFFFFF; margin-right: 144px; height: 370px;">
+                        
+                        style="border-style: none; width: 58%; margin-left: 260px; margin-top: 0px; font-family: Verdana; font-weight: bold; color: #000000; background-color: #FFFFFF; margin-right: 144px; height: 370px;">
                         <tr>
                             <td bgcolor="#FFFF66" class="style30" style="background-color: #FFFF66">
                                 Nombre*</td>
@@ -134,8 +135,6 @@
                                 Password*</td>
                             <td bgcolor="#FFFF66" class="style31">
                                 <asp:TextBox ID="txtPasswd" runat="server" TextMode="Password"></asp:TextBox>
-                                <asp:CheckBox ID="CheckBox1" runat="server" 
-                                    oncheckedchanged="CheckBox1_CheckedChanged" Text="Ver caracteres" />
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                                     ControlToValidate="txtPasswd" ErrorMessage="Campo obligatorio"></asp:RequiredFieldValidator>
                             </td>

@@ -18,13 +18,10 @@ public partial class Login : System.Web.UI.Page
         Usuario usu = new Usuario(txtUsuario.Text.ToString(), txtPassword.Text.ToString());
         if (McDAO.Login1DAO.verificarExistencia(usu).Equals(true))
         {
-            DialogResult result;
-            result=MessageBox.Show("¡Bienvenido "+txtUsuario.Text.ToString()+"!", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
-            if (result == DialogResult.OK)
-            {
+            
                 Session["usuario"] = txtUsuario.Text;
                 Response.Redirect("pedido2.aspx");
-            }
+            
         }
         else
         {

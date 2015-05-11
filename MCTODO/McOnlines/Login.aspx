@@ -59,8 +59,8 @@
             <tr>
                 <td>
                     <asp:Panel ID="Panel1" runat="server" BackColor="#FFFF99" BorderColor="Red" 
-                        BorderStyle="Solid" Height="150px" style="margin-left: 400px; margin-top: 0px;" 
-                        Width="363px">
+                        BorderStyle="Solid" Height="150px" style="margin-left: 476px; margin-top: 0px;" 
+                        Width="375px">
                         <table style="width: 99%; height: 125px; margin-top: 0px;">
                             <tr>
                                 <td class="style17" 

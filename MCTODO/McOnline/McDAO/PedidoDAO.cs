@@ -30,7 +30,7 @@ namespace McDAO
                 cmd.Transaction = tran;
                 cmd.Connection = cn;
 
-                sql = "insert into pedido(fecha, montoTotal, id_estado, horaPedido, horaEntrega, id_usuario) values (@fech, @montoTot, @estado, @hsPed, @hsEnt, @usuario); select @@Identity;";
+                sql = "insert into pedido(fecha, montoTotal, id_estado, horaPedido, horaEntrega, id_usuario,descripcion) values (@fech, @montoTot, @estado, @hsPed, @hsEnt, @usuario,@descrip); select @@Identity;";
 
                 cmd.Parameters.AddWithValue("@usuario", ped.usuario);
                 cmd.Parameters.AddWithValue("@fech", ped.fecha);
@@ -38,13 +38,14 @@ namespace McDAO
                 cmd.Parameters.AddWithValue("@estado", ped.id_estado);
                 cmd.Parameters.AddWithValue("@hsPed", ped.horaPedido);
                 cmd.Parameters.AddWithValue("@hsEnt", ped.horaEntrega);
+                cmd.Parameters.AddWithValue("@descrip", ped.descrip);
                 cmd.CommandText = sql;
                 ped.id_pedido = int.Parse(cmd.ExecuteScalar().ToString());
 
 
-                sql = "insert into productoXpedido(id_producto, id_pedido, id_tamaño, cantidad, descripcion, precio) values (@id_Prod, @id_Ped, @id_tam, @cant, @descrip, @precio)";
+                sql = "insert into productoXpedido(id_producto, id_pedido, id_tamaño, cantidad, precio) values (@id_Prod, @id_Ped, @id_tam, @cant, @precio)";
                 foreach (ProductoXpedido item in listProdXped)
-                { 
+                {
                     SqlCommand cmd2 = new SqlCommand(sql, cn);
                     cmd2.Transaction = tran;
                     cmd2.Connection = cn;
@@ -53,12 +54,12 @@ namespace McDAO
                     cmd2.Parameters.AddWithValue("@id_ped", ped.id_pedido);
                     cmd2.Parameters.AddWithValue("@id_tam", item.id_tamaño);
                     cmd2.Parameters.AddWithValue("@cant", item.cantidad);
-                    cmd2.Parameters.AddWithValue("@descrip", item.descripcion);
+                    //cmd2.Parameters.AddWithValue("@descrip", item.descripcion);
                     cmd2.Parameters.AddWithValue("@precio", item.precio);
-                    
+
                     cmd2.CommandText = sql;
                     cmd2.ExecuteNonQuery();
-                    
+
                 }
 
                 tran.Commit();
@@ -74,7 +75,7 @@ namespace McDAO
                 throw new ApplicationException("Error al insertar Pedido");
             }
         }
-        
+
 
     }
 
