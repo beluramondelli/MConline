@@ -103,44 +103,44 @@ public partial class pedido2 : System.Web.UI.Page
         bool validar = validarCantidad();
         if (validar == true)
         {
-           
-                foreach (GridViewRow dgi in gvProductos.Rows)
+
+            foreach (GridViewRow dgi in gvProductos.Rows)
+            {
+                CheckBox myCheckBox = dgi.Cells[0].Controls[1] as CheckBox;
+                if (myCheckBox.Checked == true)
                 {
-                    CheckBox myCheckBox = dgi.Cells[0].Controls[1] as CheckBox;
-                    if (myCheckBox.Checked == true)
-                    {
-                        TextBox txtCantidad = dgi.Cells[1].Controls[1] as TextBox;
-                        int id_producto = (int.Parse(gvProductos.DataKeys[dgi.RowIndex].Value.ToString()));
+                    TextBox txtCantidad = dgi.Cells[1].Controls[1] as TextBox;
+                    int id_producto = (int.Parse(gvProductos.DataKeys[dgi.RowIndex].Value.ToString()));
 
-                        ProductoXpedido pxp = new ProductoXpedido();
-                        pxp.cantidad = int.Parse(txtCantidad.Text);
+                    ProductoXpedido pxp = new ProductoXpedido();
+                    pxp.cantidad = int.Parse(txtCantidad.Text);
 
-                        string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
-                        int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
-                        int cantidad = (int.Parse(txtCantidad.Text.ToString()));
-                        int subtotal = (precio * cantidad);
+                    string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
+                    int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
+                    int cantidad = (int.Parse(txtCantidad.Text.ToString()));
+                    int subtotal = (precio * cantidad);
 
-                        pxp.precio = subtotal;
-                        pxp.id_producto = id_producto;
-                        pxp.id_tamaño = 3;
+                    pxp.precio = subtotal;
+                    pxp.id_producto = id_producto;
+                    pxp.id_tamaño = 3;
 
-                        listProdXped.Add(pxp);
-                        dt.Columns[0].ColumnName = "Producto";
-                        dt.Columns[1].ColumnName = "Cantidad";
-                        dt.Columns[2].ColumnName = "Subtotal";
-                        dt.Rows.Add(nom, pxp.cantidad, subtotal);
+                    listProdXped.Add(pxp);
+                    dt.Columns[0].ColumnName = "Producto";
+                    dt.Columns[1].ColumnName = "Cantidad";
+                    dt.Columns[2].ColumnName = "Subtotal";
+                    dt.Rows.Add(nom, pxp.cantidad, subtotal);
 
 
-                        CalcularTotal();
-                        lblCant.Visible = false;
-                    }
+                    CalcularTotal();
+                    lblCant.Visible = false;
                 }
-                Session["dataTable"] = dt;
-                Session["lista"] = listProdXped;
-                Session["total"] = txtTotal.Text;
-                Response.Redirect("~/confirmarPedido.aspx");
             }
-        
+            Session["dataTable"] = dt;
+            Session["lista"] = listProdXped;
+            Session["total"] = txtTotal.Text;
+            Response.Redirect("~/confirmarPedido.aspx");
+        }
+
         else
         {
             lblCant.Text = "La cantidad ingresada debe ser válida";
@@ -170,7 +170,7 @@ public partial class pedido2 : System.Web.UI.Page
 
     protected void chek1_CheckedChanged(object sender, EventArgs e)
     {
- 
+
     }
 
     protected void gvProductos_SelectedIndexChanged(object sender, EventArgs e)
@@ -215,18 +215,18 @@ public partial class pedido2 : System.Web.UI.Page
         //
         // se obtienen los id de producto checkeados de la pagina actual
         //
-       
+
         var checkedProd = from item in grid.Rows.Cast<GridViewRow>()
-                                 let check = (CheckBox)item.FindControl("Chek1")
-                                 let cantidad=(TextBox)item.FindControl("txtCantidad")
-                                 where (check.Checked && (!string.IsNullOrWhiteSpace(cantidad.Text)))
-                                 select new ProductInfo()
-                                 {
-                                     id_prod= Convert.ToInt32(grid.DataKeys[item.RowIndex].Value),
-                                     cant=Convert.ToInt32(cantidad.Text),
-                                     //id_tam=ProductoDAO.buscarIdTamaño(grid.Rows[item.RowIndex].Cells)
-                                 };
-        
+                          let check = (CheckBox)item.FindControl("Chek1")
+                          let cantidad = (TextBox)item.FindControl("txtCantidad")
+                          where (check.Checked && (!string.IsNullOrWhiteSpace(cantidad.Text)))
+                          select new ProductInfo()
+                          {
+                              id_prod = Convert.ToInt32(grid.DataKeys[item.RowIndex].Value),
+                              cant = Convert.ToInt32(cantidad.Text),
+                              //id_tam=ProductoDAO.buscarIdTamaño(grid.Rows[item.RowIndex].Cells)
+                          };
+
         //
         // se recupera de session la lista de seleccionados previamente
         //
@@ -235,24 +235,24 @@ public partial class pedido2 : System.Web.UI.Page
 
         if (prodInfo == null)
             prodInfo = new List<ProductInfo>();
-//
-    // se cruzan todos los ingresados en la pagina actual, con los previamente conservados 
-    // en Session, devolviendo solo aquellos donde no hay coincidencia
-    //
-    prodInfo = (from item in prodInfo
-                 join item2 in checkedProd
-                    on item.id_prod  equals item2.id_prod into g
-                 where !g.Any()
-                 select item).ToList();
+        //
+        // se cruzan todos los ingresados en la pagina actual, con los previamente conservados 
+        // en Session, devolviendo solo aquellos donde no hay coincidencia
+        //
+        prodInfo = (from item in prodInfo
+                    join item2 in checkedProd
+                       on item.id_prod equals item2.id_prod into g
+                    where !g.Any()
+                    select item).ToList();
 
-    //
-    // se agregan la actualizacion realizada por el usuario
-    //
-    prodInfo.AddRange(checkedProd);
+        //
+        // se agregan la actualizacion realizada por el usuario
+        //
+        prodInfo.AddRange(checkedProd);
 
-    HttpContext.Current.Session["ProdInfo"] = prodInfo;
+        HttpContext.Current.Session["ProdInfo"] = prodInfo;
 
-}
+    }
 
 
     public static void RestoreProductInfo(GridView grid)
@@ -283,15 +283,37 @@ public partial class pedido2 : System.Web.UI.Page
         //
         result.ForEach(x =>
         {
-            ((CheckBox)x.gridrow.FindControl("Chek1")).Checked=true;
+            ((CheckBox)x.gridrow.FindControl("Chek1")).Checked = true;
             ((TextBox)x.gridrow.FindControl("txtCantidad")).Text = Convert.ToString(x.prodonfo.cant);
 
         });
     }
     internal class ProductInfo
     {
-        public int id_prod{ get; set; }
+        public int id_prod { get; set; }
         public int cant { get; set; }
         public int id_tam { get; set; }
+    }
+
+
+    private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    {
+
+        // Detecta si se ha seleccionado el header de la grilla
+
+        if (e.RowIndex == -1)
+            return;
+
+        if (gvProductos.Columns[e.ColumnIndex].Name == "Seleccion")
+        {
+            // Se toma la fila seleccionada
+            DataGridViewRow row = gvProductos.Rows[e.RowIndex];
+
+            // Se selecciona la celda del checkbox
+
+            DataGridViewCheckBoxCell cellSelecion = row.Cells["Seleccion"] as DataGridViewCheckBoxCell;
+
+
+        }
     }
 }
