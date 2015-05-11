@@ -109,8 +109,8 @@
         <table class="style8">
             <tr>
                 <td class="style9">
-                    <asp:Label ID="Label1" runat="server" Text="Total"></asp:Label>
-                    <asp:TextBox ID="txtTotal" runat="server" Enabled="False"></asp:TextBox>
+                    <asp:Label ID="Label1" runat="server" Text="Total" Visible="False"></asp:Label>
+                    <asp:TextBox ID="txtTotal" runat="server" Enabled="False" Visible="False"></asp:TextBox>
                 </td>
                 <td>
                     <asp:Button ID="btnConfirmar" runat="server" onclick="btnConfirmar_Click" 
