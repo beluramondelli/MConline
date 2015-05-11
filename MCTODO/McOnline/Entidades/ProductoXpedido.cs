@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web;
+
 
 namespace Entidades
 {
@@ -28,12 +30,5 @@ namespace Entidades
             this.precio = precio;
         }
 
-        internal class ProductInfo
-        {
-            public int id_producto { get; set; }
-            public int cantidad { get; set; }
-            public string descripcion { get; set; }
-
-        }
     }
 }

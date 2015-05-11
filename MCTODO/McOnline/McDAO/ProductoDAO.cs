@@ -58,7 +58,7 @@ namespace McDAO
         public static string ObtenerProductoPorId(int id)
         {
             string nom = "";
-            string sql = "select nombre from Producto where id_producto = @id";
+            string sql = "select nombre from producto where id_producto = @id";
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = con;
             try
@@ -114,5 +114,58 @@ namespace McDAO
             return preci;
         }
 
+        public static int buscarIdProducto(string prod)
+        {
+            string sql = " select * from producto where nombre=@prod";
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = con;
+            try
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand(sql, cn);
+                cmd.Parameters.AddWithValue("@prod", prod);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    return (int)dr["id_producto"];
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch
+            {
+            }
+            return 0;
+        }
+
+        public static int buscarIdTamaño(string prod)
+        {
+            string sql = " select * from producto where nombre=@prod";
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = con;
+            try
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand(sql, cn);
+                cmd.Parameters.AddWithValue("@prod", prod);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    return (int)dr["id_tamaño"];
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch
+            {
+            }
+            return 0;
+        }
     }
 }

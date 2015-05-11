@@ -36,7 +36,7 @@ public partial class confirmarPedido : System.Web.UI.Page
     }
     protected void btnAceptar_Click(object sender, EventArgs e)
     {
-        if (Session["lista"] != null && Session["usuario"]!= null)
+        if (Session["lista"] != null && Session["usuario"] != null)
         {
             List<ProductoXpedido> listaProdPed = new List<ProductoXpedido>();
             listaProdPed = (List<ProductoXpedido>)Session["lista"];
@@ -50,15 +50,20 @@ public partial class confirmarPedido : System.Web.UI.Page
             ped.horaPedido = DateTime.Now;
             ped.horaEntrega = DateTime.Now;
 
-            int i = 0;
+          
            
             foreach (ProductoXpedido item in listaProdPed)
             {
-                GridViewRow row = dgvCompra.Rows[i];
+                foreach (GridViewRow row in dgvCompra.Rows)
+                {
+                    if (item.id_producto.Equals(ProductoDAO.buscarIdProducto(row.Cells[0].Text)))
+                    {
+                        TextBox txtDescrip = row.FindControl("txtDescrip") as TextBox;
 
-                TextBox txtDescrip = row.FindControl("txtDescrip")as TextBox;
-                item.descripcion = Convert.ToString(txtDescrip.Text);
-                i = i + 1;
+                        item.descripcion = Convert.ToString(txtDescrip.Text);
+                        
+                    }
+                }
             }
 
             McDAO.PedidoDAO.insertarPedido(ped, listaProdPed);
@@ -72,6 +77,7 @@ public partial class confirmarPedido : System.Web.UI.Page
         }
 
     }
+        
 
 
     protected void dgvCompra_SelectedIndexChanged(object sender, EventArgs e)
