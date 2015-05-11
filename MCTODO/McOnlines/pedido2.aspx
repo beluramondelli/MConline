@@ -74,6 +74,10 @@
                          <asp:TemplateField HeaderText="Cantidad Solicitada">
                              <ItemTemplate>
                                  <asp:TextBox ID="txtCantidad" runat="server" Columns="5" Width="50px"></asp:TextBox>
+                                 <asp:CompareValidator ID="CompareValidator1" runat="server" 
+                                     ControlToValidate="txtCantidad" 
+                                     ErrorMessage="Debe ingresar una cantidad válida" Operator="DataTypeCheck" 
+                                     Type="Integer"></asp:CompareValidator>
                              </ItemTemplate>
                          </asp:TemplateField>
                          <asp:BoundField DataField="nombre" HeaderText="Producto" />

@@ -100,6 +100,7 @@ public partial class pedido2 : System.Web.UI.Page
     }
     protected void btnConfirmar_Click(object sender, EventArgs e)
     {
+        lblCant.Visible = false;
         bool validar = validarCantidad();
         if (validar == true)
         {
@@ -296,24 +297,16 @@ public partial class pedido2 : System.Web.UI.Page
     }
 
 
-    private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-    {
-
-        // Detecta si se ha seleccionado el header de la grilla
-
-        if (e.RowIndex == -1)
-            return;
-
-        if (gvProductos.Columns[e.ColumnIndex].Name == "Seleccion")
-        {
-            // Se toma la fila seleccionada
-            DataGridViewRow row = gvProductos.Rows[e.RowIndex];
-
-            // Se selecciona la celda del checkbox
-
-            DataGridViewCheckBoxCell cellSelecion = row.Cells["Seleccion"] as DataGridViewCheckBoxCell;
-
-
-        }
-    }
+    //private void dataGridView1_CellContentClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
+    //{
+    //    if (gvProductos.Columns[e.ColumnIndex].Name == "IsSelected" && gvProductos.CurrentCell is DataGridViewCheckBoxCell)
+    //    {
+    //        bool isChecked = (bool)gvProductos[e.ColumnIndex, e.RowIndex].EditedFormattedValue;
+    //        if (isChecked == false)
+    //        {
+    //            gvProductos.Rows[e.RowIndex].Cells["Status"].Value = "";
+    //        }
+    //        gvProductos.EndEdit();
+    //    }
+    //}
 }
