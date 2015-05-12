@@ -76,8 +76,10 @@
                     Text="Preferencias con respecto a cada producto del pedido"></asp:Label>
             </td>
             <td class="style21">
+                <br />
                 <asp:TextBox ID="txtPreferencias" runat="server" TextMode="MultiLine" 
-                    Width="357px" ontextchanged="txtPreferencias_TextChanged"></asp:TextBox>
+                    Width="357px" ontextchanged="txtPreferencias_TextChanged" Height="104px"></asp:TextBox>
+                <br />
             </td>
         </tr>
     </table>
