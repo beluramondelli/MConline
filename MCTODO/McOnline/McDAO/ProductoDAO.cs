@@ -167,5 +167,44 @@ namespace McDAO
             }
             return 0;
         }
+
+
+
+        public static List<ProductoXtamaño> ObtenerConFiltro(int sand, int beb, int acomp, int postre, int caf)
+        {
+            List<ProductoXtamaño> listProductos = new List<ProductoXtamaño>();
+            string sql = " select prod.id_producto, prod.nombre, prodtam.descripcion, prodtam.precio";
+            sql += "from producto prod, productoXtamaño prodtam where prodtam.id_producto=prod.id_producto and";
+            sql += "(prodtam.tipo=sand or prodtam.tipo=beb or prodtam.tipo= acomp or prodtam.tipo= postre or prodtam.tipo=caf";
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = con;
+            try
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand(sql, cn);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    ProductoXtamaño prod = new ProductoXtamaño();
+
+                    prod.id_producto = (int)dr["id_producto"];
+                    prod.nombre = dr["nombre"].ToString();
+                    prod.descripcion = dr["descripcion"].ToString();
+                    prod.precio = (int)dr["precio"];
+
+                    listProductos.Add(prod);
+                }
+                dr.Close();
+                cn.Close();
+            }
+            catch (SqlException ex)
+            {
+                if (cn.State == ConnectionState.Open)
+                    cn.Close();
+                throw new ApplicationException("Error al buscar los prdocutos");
+            }
+            return listProductos;
+        }
+
     }
 }

@@ -25,6 +25,14 @@
         {
             width: 318px;
         }
+        .style10
+        {
+            width: 110px;
+        }
+        .style11
+        {
+            width: 187px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -46,6 +54,37 @@
                         ForeColor="Blue">Registrarse</asp:HyperLink>
                     <asp:HyperLink ID="hlIniSesion" runat="server" Font-Bold="True" 
                         ForeColor="Blue">Iniciar sesion</asp:HyperLink>
+                    <br />
+                    <br />
+                    <table class="style8">
+                        <tr>
+                            <td class="style10">
+                                <asp:CheckBox ID="chSand" runat="server" Text="Sandwich" />
+                            </td>
+                            <td class="style10">
+                                <asp:CheckBox ID="chBebida" runat="server" Text="Bebida" />
+                            </td>
+                            <td class="style10">
+                                <asp:CheckBox ID="chEnsalada" runat="server" Text="Ensaldasa" />
+                            </td>
+                            <td class="style10">
+                                <asp:CheckBox ID="chPostre" runat="server" Text="Postre" />
+                            </td>
+                            <td>
+                                <asp:CheckBox ID="chCafeteria" runat="server" Text="Cafeteria" />
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="style8">
+                        <tr>
+                            <td class="style11">
+                                &nbsp;</td>
+                            <td>
+                                <asp:Button ID="btnFiltrar" runat="server" onclick="btnFiltrar_Click" 
+                                    Text="Buscar" />
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>
@@ -73,7 +112,7 @@
                          </asp:TemplateField>
                          <asp:TemplateField HeaderText="Cantidad Solicitada">
                              <ItemTemplate>
-                                 <asp:TextBox ID="txtCantidad" runat="server" Columns="5" Width="20px"></asp:TextBox>
+                                 <asp:TextBox ID="txtCantidad" runat="server" Columns="5" Width="50px"></asp:TextBox>
                                  <asp:CompareValidator ID="CompareValidator1" runat="server" 
                                      ControlToValidate="txtCantidad" 
                                      ErrorMessage="Debe ingresar una cantidad válida" Operator="DataTypeCheck" 

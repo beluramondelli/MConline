@@ -30,6 +30,12 @@ public partial class pedido2 : System.Web.UI.Page
                 Label1.Visible = false;
                 txtTotal.Visible = false;
                 btnConfirmar.Visible = false;
+                chSand.Visible = false;
+                chBebida.Visible = false;
+                chCafeteria.Visible = false;
+                chEnsalada.Visible = false;
+                chPostre.Visible = false;
+                btnFiltrar.Visible = false;
             }
 
             else
@@ -61,7 +67,6 @@ public partial class pedido2 : System.Web.UI.Page
             gvProductos.DataKeyNames = new string[] { "id_producto" };
             gvProductos.DataBind();
 
-            //gvProductos.Columns[2].Visible = false;
             gvProductos.HeaderRow.Cells[2].Text = " Producto";
             gvProductos.HeaderRow.Cells[3].Text = " Descripcion";
             gvProductos.HeaderRow.Cells[4].Text = " Precio";
@@ -309,4 +314,34 @@ public partial class pedido2 : System.Web.UI.Page
     //        gvProductos.EndEdit();
     //    }
     //}
+    protected void btnFiltrar_Click(object sender, EventArgs e)
+    {
+        int sand=0, beb=0, acomp=0, postre=0, caf=0;
+
+        if (chSand.Checked==true)
+             sand = 1;
+        if (chBebida.Checked==true)
+             beb = 2;
+        if(chEnsalada.Checked==true)
+            acomp = 3;
+        if(chPostre.Checked==true)
+            postre = 4;
+        if(chCafeteria.Checked==true)
+            caf = 5;
+
+        try
+        {
+            gvProductos.DataSource = ProductoDAO.ObtenerConFiltro(sand, beb, acomp, postre, caf);
+            gvProductos.DataKeyNames = new string[] { "id_producto" };
+            gvProductos.DataBind();
+
+            gvProductos.HeaderRow.Cells[2].Text = " Producto";
+            gvProductos.HeaderRow.Cells[3].Text = " Descripcion";
+            gvProductos.HeaderRow.Cells[4].Text = " Precio";
+        }
+        catch
+        {
+
+        }
+    }
 }
