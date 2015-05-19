@@ -13,7 +13,7 @@ namespace Entidades
         public string apellido{get;set;}
         public string mail{get;set;}
         public string password{get;set;}
-        public int telefono { get; set; }
+        public long telefono { get; set; }
 
 
         public Usuario()

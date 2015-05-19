@@ -23,7 +23,7 @@ public partial class inicioSesion : System.Web.UI.Page
             usu.apellido = txtApe.Text.ToString();
             usu.mail = txtMail.Text.ToString();
             usu.password = txtPasswd.Text.ToString();
-            usu.telefono = Convert.ToInt32(txtTel.Text.ToString());
+            usu.telefono = Convert.ToInt64(txtTel.Text.ToString());
             McDAO.UsuarioDAO.insertarUsuario(usu);
             DialogResult result;
 
