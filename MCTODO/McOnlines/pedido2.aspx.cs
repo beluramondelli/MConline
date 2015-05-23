@@ -33,8 +33,9 @@ public partial class pedido2 : System.Web.UI.Page
                 chSand.Visible = false;
                 chBebida.Visible = false;
                 chCafeteria.Visible = false;
-                chEnsalada.Visible = false;
+                chGuarn.Visible = false;
                 chPostre.Visible = false;
+                chCombo.Visible = false;
                 btnFiltrar.Visible = false;
             }
 
@@ -316,22 +317,24 @@ public partial class pedido2 : System.Web.UI.Page
     //}
     protected void btnFiltrar_Click(object sender, EventArgs e)
     {
-        int sand=0, beb=0, acomp=0, postre=0, caf=0;
+        int sand=0, beb=0, guarn=0, postre=0, caf=0, combo=0;
 
         if (chSand.Checked==true)
              sand = 1;
         if (chBebida.Checked==true)
              beb = 2;
-        if(chEnsalada.Checked==true)
-            acomp = 3;
+        if(chGuarn.Checked==true)
+            guarn = 3;
         if(chPostre.Checked==true)
             postre = 4;
         if(chCafeteria.Checked==true)
             caf = 5;
+        if (chCombo.Checked == true)
+            combo = 6;
 
         try
         {
-            gvProductos.DataSource = ProductoDAO.ObtenerConFiltro(sand, beb, acomp, postre, caf);
+            gvProductos.DataSource = ProductoDAO.ObtenerConFiltro(sand, beb, guarn, postre, caf,combo);
             gvProductos.DataKeyNames = new string[] { "id_producto" };
             gvProductos.DataBind();
 

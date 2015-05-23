@@ -12,16 +12,18 @@ namespace Entidades
         public string nombre { get; set; }
         public string descripcion { get; set; }
         public int precio { get; set; }
+        public int tipo { get; set; }
 
         public ProductoXtamaño()
         {
         }
-        public ProductoXtamaño(int id_producto, int precio, string descrip, string nom)
+        public ProductoXtamaño(int id_producto, int precio, string descrip, string nom, int tipo)
         {
             this.id_producto = id_producto;
             this.nombre = nom;
             this.precio = precio;
             this.descripcion = descrip;
+            this.tipo = tipo;
         }
 
 

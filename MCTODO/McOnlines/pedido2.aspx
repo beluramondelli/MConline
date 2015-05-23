@@ -31,7 +31,7 @@
         }
         .style11
         {
-            width: 187px;
+            width: 307px;
         }
     </style>
 </asp:Content>
@@ -65,7 +65,10 @@
                                 <asp:CheckBox ID="chBebida" runat="server" Text="Bebida" />
                             </td>
                             <td class="style10">
-                                <asp:CheckBox ID="chEnsalada" runat="server" Text="Ensaldasa" />
+                                <asp:CheckBox ID="chGuarn" runat="server" Text="Guarnición" />
+                            </td>
+                            <td ID="ck" class="style10">
+                                <asp:CheckBox ID="chCombo" runat="server" Text="Combo" />
                             </td>
                             <td class="style10">
                                 <asp:CheckBox ID="chPostre" runat="server" Text="Postre" />

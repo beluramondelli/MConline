@@ -170,18 +170,24 @@ namespace McDAO
 
 
 
-        public static List<ProductoXtamaño> ObtenerConFiltro(int sand, int beb, int acomp, int postre, int caf)
+        public static List<ProductoXtamaño> ObtenerConFiltro(int sand, int beb, int guarn, int postre, int caf, int combo)
         {
             List<ProductoXtamaño> listProductos = new List<ProductoXtamaño>();
-            string sql = " select prod.id_producto, prod.nombre, prodtam.descripcion, prodtam.precio";
-            sql += "from producto prod, productoXtamaño prodtam where prodtam.id_producto=prod.id_producto and";
-            sql += "(prodtam.tipo=sand or prodtam.tipo=beb or prodtam.tipo= acomp or prodtam.tipo= postre or prodtam.tipo=caf";
+            string sql = " select prod.id_producto, prod.nombre, prodtam.descripcion, prodtam.precio from producto prod, productoXtamaño prodtam where prodtam.id_producto=prod.id_producto and";
+            sql += "(prodtam.id_tipo=@sand or prodtam.id_tipo=@beb or prodtam.id_tipo=@guarn or prodtam.id_tipo=@postre or prodtam.id_tipo=@caf or prodtam.id_tipo=@combo)";
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = con;
             try
             {
                 cn.Open();
                 SqlCommand cmd = new SqlCommand(sql, cn);
+                cmd.Parameters.AddWithValue("@sand", sand);
+                cmd.Parameters.AddWithValue("@beb", beb);
+                cmd.Parameters.AddWithValue("@guarn", guarn);
+                cmd.Parameters.AddWithValue("@postre", postre);
+                cmd.Parameters.AddWithValue("@caf", caf);
+                cmd.Parameters.AddWithValue("@combo", combo);
+
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
