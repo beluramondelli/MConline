@@ -2,17 +2,18 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Entidades;
+using System.Collections.Generic;
 
 namespace Unit_Test
 {
     
     
     /// <summary>
-    ///Se trata de una clase de prueba para Login1DAOTest y se pretende que
-    ///contenga todas las pruebas unitarias Login1DAOTest.
+    ///Se trata de una clase de prueba para PedidoDAOTest y se pretende que
+    ///contenga todas las pruebas unitarias PedidoDAOTest.
     ///</summary>
     [TestClass()]
-    public class Login1DAOTest
+    public class PedidoDAOTest
     {
 
 
@@ -66,48 +67,32 @@ namespace Unit_Test
 
 
         /// <summary>
-        ///Una prueba de verificarUsuario
+        ///Una prueba de insertarPedido
         ///</summary>
         [TestMethod()]
-        public void verificarUsuarioTest()
+        public void insertarPedidoTest()
         {
-            string usu = "belram"; // TODO: Inicializar en un valor adecuado
-            bool expected = true; // TODO: Inicializar en un valor adecuado
-            bool actual;
-            actual = Login1DAO.verificarUsuario(usu);
-            Assert.AreEqual(expected, actual);
-            //Assert.Inconclusive("Compruebe la exactitud de este método de prueba.");
-        }
+            Pedido ped = new Pedido();// TODO: Inicializar en un valor adecuado
+            ped.id_estado = 1;
+            ped.id_pedido = 0;
+            ped.montoTotal = 250;
+            ped.usuario = 3;
+            ped.fecha = DateTime.Now;
+            ped.horaEntrega = DateTime.Now;
+            ped.horaPedido = DateTime.Now;
+            ped.descrip = "sin descrip";
 
-        /// <summary>
-        ///Una prueba de verificarPasswd
-        ///</summary>
-        [TestMethod()]
-        public void verificarPasswdTest()
-        {
-            string pass =  "157359"; // TODO: Inicializar en un valor adecuado
-            bool expected = true; // TODO: Inicializar en un valor adecuado
-            bool actual;
-            actual = Login1DAO.verificarPasswd(pass);
-            Assert.AreEqual(expected, actual);
-            //Assert.Inconclusive("Compruebe la exactitud de este método de prueba.");
-        }
+            List<ProductoXpedido> listProdXped = new List<ProductoXpedido>(); // TODO: Inicializar en un valor adecuado
+            ProductoXpedido pxp = new ProductoXpedido();
+            pxp.cantidad = 1;
+            pxp.id_producto = 1;
+            pxp.id_tamaño = 3;
+            pxp.precio = 50;
 
-        /// <summary>
-        ///Una prueba de verificarExistencia
-        ///</summary>
-        [TestMethod()]
-        public void verificarExistenciaTest()
-        {
-            Usuario usu = new Usuario();
-            usu.username= "valran";
-            usu.password="157359";// TODO: Inicializar en un valor adecuado
+            listProdXped.Add(pxp);
 
-            bool expected = true; // TODO: Inicializar en un valor adecuado
-            bool actual;
-            actual = Login1DAO.verificarExistencia(usu);
-            Assert.AreEqual(expected, actual);
-            //Assert.Inconclusive("Compruebe la exactitud de este método de prueba.");
+            PedidoDAO.insertarPedido(ped, listProdXped);
+            //Assert.Inconclusive("Un método que no devuelve ningún valor no se puede comprobar.");
         }
     }
 }

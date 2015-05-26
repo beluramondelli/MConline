@@ -7,3 +7,12 @@ C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnlines\Unit Test\bin\Debug\McD
 C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnlines\Unit Test\obj\Debug\Unit Test.csprojResolveAssemblyReference.cache
 C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnlines\Unit Test\obj\Debug\Unit Test.dll
 C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnlines\Unit Test\obj\Debug\Unit Test.pdb
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnlines\Unit Test\bin\Debug\Unit Test.dll
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnlines\Unit Test\bin\Debug\Unit Test.pdb
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnlines\Unit Test\bin\Debug\Entidades.dll
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnlines\Unit Test\bin\Debug\McDAO.dll
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnlines\Unit Test\bin\Debug\Entidades.pdb
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnlines\Unit Test\bin\Debug\McDAO.pdb
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnlines\Unit Test\obj\Debug\Unit Test.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnlines\Unit Test\obj\Debug\Unit Test.dll
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnlines\Unit Test\obj\Debug\Unit Test.pdb
