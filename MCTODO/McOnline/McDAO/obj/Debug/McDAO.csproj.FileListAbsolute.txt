@@ -26,3 +26,10 @@ C:\Users\Vale\Documents\GitHub\MCOnline 16-04\MConline\MCTODO\McOnline\McDAO\bin
 C:\Users\Vale\Documents\GitHub\MCOnline 16-04\MConline\MCTODO\McOnline\McDAO\obj\Debug\McDAO.csprojResolveAssemblyReference.cache
 C:\Users\Vale\Documents\GitHub\MCOnline 16-04\MConline\MCTODO\McOnline\McDAO\obj\Debug\McDAO.dll
 C:\Users\Vale\Documents\GitHub\MCOnline 16-04\MConline\MCTODO\McOnline\McDAO\obj\Debug\McDAO.pdb
+C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\McDAO\bin\Debug\McDAO.dll
+C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\McDAO\bin\Debug\McDAO.pdb
+C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\McDAO\bin\Debug\Entidades.dll
+C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\McDAO\bin\Debug\Entidades.pdb
+C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\McDAO\obj\Debug\McDAO.csprojResolveAssemblyReference.cache
+C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\McDAO\obj\Debug\McDAO.dll
+C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\McDAO\obj\Debug\McDAO.pdb
