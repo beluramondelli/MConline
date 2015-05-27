@@ -36,14 +36,36 @@ public partial class Pager : System.Web.UI.UserControl
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        if (Session["usuario"] != null)
         {
-            for (int count = 0; count <= this.TotalPages ; ++count)
-                ddlPageNumber.Items.Add(count.ToString());
-            ddlPageNumber.Items[0].Enabled = false;
-            ddlPageNumber.Items[1].Selected = true;
+            ddlPageNumber.Visible = true;
+            ddlPageSize.Visible = true;
+            lblDe.Visible = true;
+            lblMostrar.Visible = true;
+            lblPag.Visible = true;
+            lblPag2.Visible = true;
+            lblProd.Visible = true;
+            
 
-            lblShowRecords.Text = string.Format(" {0} ", this.TotalPages.ToString());
+            if (!IsPostBack)
+            {
+                for (int count = 0; count <= this.TotalPages; ++count)
+                    ddlPageNumber.Items.Add(count.ToString());
+                ddlPageNumber.Items[0].Enabled = false;
+                ddlPageNumber.Items[1].Selected = true;
+
+                lblShowRecords.Text = string.Format(" {0} ", this.TotalPages.ToString());
+            }
+        }
+        else
+        {
+            ddlPageNumber.Visible = false;
+            ddlPageSize.Visible = false;
+            lblDe.Visible = false;
+            lblMostrar.Visible = false;
+            lblPag.Visible = false;
+            lblPag2.Visible = false;
+            lblProd.Visible = false;
         }
     }
 
