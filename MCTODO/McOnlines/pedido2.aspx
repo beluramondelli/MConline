@@ -27,11 +27,39 @@
         }
         .style10
         {
-            width: 110px;
+            width: 96px;
         }
         .style11
         {
             width: 307px;
+        }
+        .style12
+        {
+            width: 81px;
+        }
+        .style13
+        {
+            width: 99px;
+        }
+        .style14
+        {
+            width: 429px;
+        }
+        .style16
+        {
+            width: 94px;
+        }
+        .style17
+        {
+            width: 79px;
+        }
+        .style18
+        {
+            width: 78px;
+        }
+        .style19
+        {
+            width: 64px;
         }
     </style>
 </asp:Content>
@@ -40,8 +68,8 @@
     </asp:ScriptManager>
     <asp:Panel ID="Panel1" runat="server" 
                                     
-    BackImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" Height="566px" 
-                                    Width="1337px">
+    BackImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" Height="1278px" 
+                                    Width="1337px" style="margin-bottom: 0px">
     <%--<asp:Image ID="Image1" runat="server" Height="584px" 
                     ImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" style="margin-left: 0px" 
                     Width="866px" />--%>
@@ -58,23 +86,24 @@
                     <br />
                     <table class="style8">
                         <tr>
-                            <td class="style10">
-                                <asp:CheckBox ID="chSand" runat="server" Text="Sandwich" />
+                            <td class="style16">
+                                <asp:CheckBox ID="chSand" runat="server" Text="Sandwich" Font-Bold="True" />
+                            </td>
+                            <td class="style17">
+                                <asp:CheckBox ID="chBebida" runat="server" Text="Bebida" Font-Bold="True" />
                             </td>
                             <td class="style10">
-                                <asp:CheckBox ID="chBebida" runat="server" Text="Bebida" />
+                                <asp:CheckBox ID="chGuarn" runat="server" Text="Guarnición" Font-Bold="True" />
                             </td>
-                            <td class="style10">
-                                <asp:CheckBox ID="chGuarn" runat="server" Text="Guarnición" />
+                            <td ID="ck" class="style18">
+                                <asp:CheckBox ID="chCombo" runat="server" Text="Combo" Font-Bold="True" />
                             </td>
-                            <td ID="ck" class="style10">
-                                <asp:CheckBox ID="chCombo" runat="server" Text="Combo" />
+                            <td class="style19">
+                                <asp:CheckBox ID="chPostre" runat="server" Text="Postre" Font-Bold="True" />
                             </td>
-                            <td class="style10">
-                                <asp:CheckBox ID="chPostre" runat="server" Text="Postre" />
-                            </td>
-                            <td>
-                                <asp:CheckBox ID="chCafeteria" runat="server" Text="Cafeteria" />
+                            <td class="style14">
+                                <asp:CheckBox ID="chCafeteria" runat="server" Text="Cafeteria" 
+                                    Font-Bold="True" />
                             </td>
                         </tr>
                     </table>
@@ -85,6 +114,7 @@
                             <td>
                                 <asp:Button ID="btnFiltrar" runat="server" onclick="btnFiltrar_Click" 
                                     Text="Buscar" />
+                                <br />
                             </td>
                         </tr>
                     </table>
@@ -101,10 +131,10 @@
                      onpageindexchanged="gvProductos_PageIndexChanged" 
                      onpageindexchanging="gvProductos_PageIndexChanging" 
                      PageSize="9" 
-                     style="margin-right: 0px" Width="1297px" 
+                     style="margin-right: 245px; margin-left: 214px;" Width="700px" 
                      onselectedindexchanged="gvProductos_SelectedIndexChanged" 
                      AutoGenerateColumns="False" EnablePersistedSelection="True" 
-                     Font-Names="Verdana">
+                     Font-Names="Verdana" HorizontalAlign="Center">
                      <AlternatingRowStyle BackColor="White" />
                      <Columns>
                          <asp:TemplateField>
@@ -112,6 +142,7 @@
                                  <asp:CheckBox ID="chek1" runat="server" 
                                      oncheckedchanged="chek1_CheckedChanged" />
                              </ItemTemplate>
+                             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="20px" />
                          </asp:TemplateField>
                          <asp:TemplateField HeaderText="Cantidad Solicitada">
                              <ItemTemplate>
@@ -121,6 +152,7 @@
                                      ErrorMessage="Debe ingresar una cantidad válida" Operator="DataTypeCheck" 
                                      Type="Integer"></asp:CompareValidator>
                              </ItemTemplate>
+                             <ItemStyle VerticalAlign="Middle" Width="10px" />
                          </asp:TemplateField>
                          <asp:BoundField DataField="nombre" HeaderText="Producto" />
                          <asp:BoundField DataField="descripcion" HeaderText="Descripción" />
@@ -134,7 +166,7 @@
                      <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                      <HeaderStyle BackColor="#CC0000" Font-Bold="True" ForeColor="#FFCC00" />
                      <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                     <RowStyle BackColor="#FFFBD6" ForeColor="#333333" Width="50px" />
+                     <RowStyle BackColor="#FFFBD6" ForeColor="#333333" HorizontalAlign="Center" />
                      <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
                      <SortedAscendingCellStyle BackColor="#FDF5AC" />
                      <SortedAscendingHeaderStyle BackColor="#4D0000" />
@@ -157,7 +189,8 @@
                 <td>
                     <asp:Button ID="btnConfirmar" runat="server" onclick="btnConfirmar_Click" 
                         Text="Confirmar Pedido" BackColor="Red" Font-Bold="True" 
-                        Font-Names="Verdana" ForeColor="#FFCC00" />
+                        Font-Names="Verdana" ForeColor="#FFCC00" Font-Size="Medium" Height="47px" 
+                        Width="210px" />
                     <cc1:RoundedCornersExtender ID="btnConfirmar_RoundedCornersExtender" 
                         runat="server" BehaviorID="btnConfirmar_RoundedCornersExtender" 
                         TargetControlID="btnConfirmar" />
@@ -169,8 +202,6 @@
         <br />
 
     </asp:Panel>
-    <p>
-        &nbsp;</p>
    
     <br />
     </asp:Content>

@@ -22,15 +22,25 @@
                         <tr>
                             <td class="style8">
                                <asp:UpdatePanel ID="UpdatePanel1" runat="server"  Height="785px" 
-                                    HorizontalAlign="Center" style="margin-right: 113px" Width="1333px">
+                                    HorizontalAlign="Center" style="margin-right: 113px" Width="1333px" >
                                    <ContentTemplate>
-                                       <asp:Panel ID="Panel1" runat="server"  
+                                       <asp:Image ID="Image4" runat="server" Height="74px" 
+                                           ImageUrl="~/Imagenes/que bueno que viniste.jpg" Width="431px" />
+                                       <asp:Image ID="Image5" runat="server" Height="74px" 
+                                           ImageUrl="~/Imagenes/que bueno que viniste.jpg" Width="431px" />
+                                            <asp:Image ID="Image6" runat="server" Height="74px" 
+                                           ImageUrl="~/Imagenes/que bueno que viniste.jpg" Width="431px" />
+                                   <asp:Image runat="server" ImageUrl="~/Imagenes/principal.jpg" 
+                                           Height="623px" Width="1334px" 
+                                           
+                                           />
+                                      <%-- <asp:Panel ID="Panel1" runat="server"  
                                            BackImageUrl="~/Imagenes/McDonaldAGUA.jpg" Height="468px" 
                                     style="margin-top: 0px" Width="1331px"/>
-                                      
+                                      --%>
                                         <asp:Timer ID="Timer1" runat="server" Interval="2000" />
                                         <asp:Image ID="Image1" runat="server" Height="318px" ImageAlign="AbsMiddle" 
-                                            Style="margin-left: 291px; margin-top: 62px" Width="243px" />
+                                           Style="margin-left: 291px; margin-top: 62px" Width="243px" />
                                         <asp:Image ID="Image2" runat="server" Height="318px" ImageAlign="AbsMiddle" Style="margin-left: 23px;
                     margin-top: 55px" Width="235px" />
                                         <asp:Image ID="Image3" runat="server" Height="318px" ImageAlign="AbsMiddle" Style="margin-left: 34px;
@@ -40,7 +50,7 @@
                                   
                           
                                 <br />
-                               </asp:Panel>
+                               <%--</asp:Panel>--%>
                                     </ContentTemplate>  
                                 </asp:UpdatePanel>
                                 <br />
