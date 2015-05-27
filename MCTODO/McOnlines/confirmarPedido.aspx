@@ -43,7 +43,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
-    <asp:GridView ID="dgvCompra" runat="server" Width="868px" CellPadding="4" 
+   
+    <asp:Panel ID="Panel1" runat="server" BackImageUrl="~/Imagenes/loguitos AGUA.png" Height="600px" Width="100%">
+ 
+    <asp:GridView ID="dgvCompra" runat="server" Width="565px" CellPadding="4" 
         ForeColor="#333333" GridLines="Vertical" BackColor="#CC0000" 
         Font-Bold="True" Font-Names="Verdana" 
         onselectedindexchanged="dgvCompra_SelectedIndexChanged" 
@@ -73,7 +76,8 @@
                 &nbsp;</td>
             <td class="style20">
                 <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Verdana" 
-                    Text="Preferencias con respecto a cada producto del pedido"></asp:Label>
+                    Text="Preferencias con respecto a cada producto del pedido" 
+                    ForeColor="#990000"></asp:Label>
             </td>
             <td class="style21">
                 <br />
@@ -153,4 +157,7 @@
         </tr>
     </table>
     <br />
+       </asp:Panel>
+   
+    
 </asp:Content>
