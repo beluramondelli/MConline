@@ -54,8 +54,12 @@ public partial class pedido2 : System.Web.UI.Page
                     dt.Columns.Add("Subtotal");
                     listProdXped = new List<ProductoXpedido>();
 
+                    DropDownList ddlPageSize = (DropDownList)custPager.FindControl("ddlPageSize");
+                    custPager.CurrentPageSize = Convert.ToInt32(ddlPageSize.SelectedItem.Value);
+                    gvProductos.PageIndex = 1;
                     CargarGrilla();
-                    //btnConfirmar.Enabled = false;
+
+
                 }
             }
         }
@@ -64,9 +68,14 @@ public partial class pedido2 : System.Web.UI.Page
     {
         try
         {
-            gvProductos.DataSource = ProductoDAO.ObtenerTodo();
+            //gvProductos.DataSource = ProductoDAO.ObtenerTodo();
+            gvProductos.DataSource = ProductoDAO.productos(gvProductos.PageIndex, gvProductos.PageSize);
             gvProductos.DataKeyNames = new string[] { "id_producto" };
             gvProductos.DataBind();
+            int totalPages = ProductoDAO.paginas(gvProductos.PageIndex, gvProductos.PageSize);
+            custPager.TotalPages = totalPages % gvProductos.PageSize == 0 ? totalPages / gvProductos.PageSize : totalPages / gvProductos.PageSize + 1;
+
+            //gvProductos.DataBind();
 
             gvProductos.HeaderRow.Cells[2].Text = " Producto";
             gvProductos.HeaderRow.Cells[3].Text = " Descripcion";
@@ -78,7 +87,12 @@ public partial class pedido2 : System.Web.UI.Page
         }
     }
 
-
+    protected void custPager_PageChanged(object sender, CustomPageChangeArgs e)
+    {
+        gvProductos.PageSize = e.CurrentPageSize;
+        gvProductos.PageIndex = e.CurrentPageNumber;
+        CargarGrilla();
+    }
     protected void btnAgregarCarrito_Click(object sender, EventArgs e)
     {
 
@@ -317,24 +331,24 @@ public partial class pedido2 : System.Web.UI.Page
     //}
     protected void btnFiltrar_Click(object sender, EventArgs e)
     {
-        int sand=0, beb=0, guarn=0, postre=0, caf=0, combo=0;
+        int sand = 0, beb = 0, guarn = 0, postre = 0, caf = 0, combo = 0;
 
-        if (chSand.Checked==true)
-             sand = 1;
-        if (chBebida.Checked==true)
-             beb = 2;
-        if(chGuarn.Checked==true)
+        if (chSand.Checked == true)
+            sand = 1;
+        if (chBebida.Checked == true)
+            beb = 2;
+        if (chGuarn.Checked == true)
             guarn = 3;
-        if(chPostre.Checked==true)
+        if (chPostre.Checked == true)
             postre = 4;
-        if(chCafeteria.Checked==true)
+        if (chCafeteria.Checked == true)
             caf = 5;
         if (chCombo.Checked == true)
             combo = 6;
 
         try
         {
-            gvProductos.DataSource = ProductoDAO.ObtenerConFiltro(sand, beb, guarn, postre, caf,combo);
+            gvProductos.DataSource = ProductoDAO.ObtenerConFiltro(sand, beb, guarn, postre, caf, combo);
             gvProductos.DataKeyNames = new string[] { "id_producto" };
             gvProductos.DataBind();
 
@@ -347,4 +361,5 @@ public partial class pedido2 : System.Web.UI.Page
 
         }
     }
+
 }

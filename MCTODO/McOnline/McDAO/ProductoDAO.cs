@@ -33,7 +33,7 @@ namespace McDAO
                     prod.nombre = dr["nombre"].ToString();
                     prod.descripcion = dr["descripcion"].ToString();
                     prod.precio = (int)dr["precio"];
-                    
+
                     listProductos.Add(prod);
                 }
                 dr.Close();
@@ -48,11 +48,56 @@ namespace McDAO
                 throw new ApplicationException("Error al buscar los prdocutos");
             }
             return listProductos;
-            
+
+        }
+        public static DataTable productos(int index, int pageSize)
+        {
+            SqlConnection sqlConn = new SqlConnection();
+            sqlConn.ConnectionString = con;
+
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.Connection = sqlConn;
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "dbo.getData";
+            sqlCmd.Parameters.Add("@PageNo", SqlDbType.Int).Value = index;
+            sqlCmd.Parameters.Add("@NoOfRecord", SqlDbType.Int).Value = pageSize;
+            sqlCmd.Parameters.Add("@TotalRecord", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+            SqlDataAdapter sqlDad = new SqlDataAdapter();
+            sqlDad.SelectCommand = sqlCmd;
+
+            DataTable sqlDt = new DataTable();
+
+            sqlDad.Fill(sqlDt);
+
+            int totalPages = (int)sqlCmd.Parameters["@TotalRecord"].Value;
+            return sqlDt;
+
         }
 
+        public static int paginas(int index, int pageSize)
+        {
+            SqlConnection sqlConn = new SqlConnection();
+            sqlConn.ConnectionString = con;
 
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.Connection = sqlConn;
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "dbo.getData";
+            sqlCmd.Parameters.Add("@PageNo", SqlDbType.Int).Value = index;
+            sqlCmd.Parameters.Add("@NoOfRecord", SqlDbType.Int).Value = pageSize;
+            sqlCmd.Parameters.Add("@TotalRecord", SqlDbType.Int).Direction = ParameterDirection.Output;
 
+            SqlDataAdapter sqlDad = new SqlDataAdapter();
+            sqlDad.SelectCommand = sqlCmd;
+
+            DataTable sqlDt = new DataTable();
+
+            sqlDad.Fill(sqlDt);
+
+            int totalPages = (int)sqlCmd.Parameters["@TotalRecord"].Value;
+            return totalPages;
+        }
 
 
         public static string ObtenerProductoPorId(int id)
