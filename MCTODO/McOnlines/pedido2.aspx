@@ -42,10 +42,7 @@
                                     
     BackImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" Height="1329px" 
                                     Width="1337px">
-    <%--<asp:Image ID="Image1" runat="server" Height="584px" 
-                    ImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" style="margin-left: 0px" 
-                    Width="866px" />--%>
-
+   
         <table class="style8">
             <tr>
                 <td>

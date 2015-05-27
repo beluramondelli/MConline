@@ -41,35 +41,39 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
-    </asp:ScriptManager>
+    
    
-    <asp:Panel ID="Panel1" runat="server" BackImageUrl="~/Imagenes/loguitos AGUA.png" Height="600px" Width="100%">
- 
-    <asp:GridView ID="dgvCompra" runat="server" Width="565px" CellPadding="4" 
-        ForeColor="#333333" GridLines="Vertical" BackColor="#CC0000" 
-        Font-Bold="True" Font-Names="Verdana" 
-        onselectedindexchanged="dgvCompra_SelectedIndexChanged" 
-        style="margin-left: 256px; margin-top: 56px">
-        <AlternatingRowStyle BackColor="White" />
-        <Columns>
-          <%--  <asp:TemplateField HeaderText="Preferencias">
+    <asp:Panel ID="Panel1" runat="server" BackImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" Height="600px" Width="100%">
+ <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <asp:GridView ID="dgvCompra" runat="server" BackColor="#CC0000" CellPadding="4" 
+            Font-Bold="True" Font-Names="Verdana" ForeColor="#333333" GridLines="Vertical" 
+            onselectedindexchanged="dgvCompra_SelectedIndexChanged" 
+            style="margin-left: 256px; margin-top: 0px" Width="565px">
+            <AlternatingRowStyle BackColor="White" />
+            <Columns>
+                <%--  <asp:TemplateField HeaderText="Preferencias">
                 <ItemTemplate>
                     <asp:TextBox ID="txtDescrip" runat="server" Height="44px" Width="264px"></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>--%>
-        </Columns>
-        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#CC0000" Font-Bold="True" ForeColor="#FFCC00" 
-            Font-Names="Verdana" />
-        <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-        <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-        <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-        <SortedAscendingCellStyle BackColor="#FDF5AC" />
-        <SortedAscendingHeaderStyle BackColor="#4D0000" />
-        <SortedDescendingCellStyle BackColor="#FCF6C0" />
-        <SortedDescendingHeaderStyle BackColor="#820000" />
-    </asp:GridView>
+            </Columns>
+            <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#CC0000" Font-Bold="True" Font-Names="Verdana" 
+                ForeColor="#FFCC00" />
+            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+            <SortedAscendingCellStyle BackColor="#FDF5AC" />
+            <SortedAscendingHeaderStyle BackColor="#4D0000" />
+            <SortedDescendingCellStyle BackColor="#FCF6C0" />
+            <SortedDescendingHeaderStyle BackColor="#820000" />
+        </asp:GridView>
     <table style="width:100%;">
         <tr>
             <td class="style19">
