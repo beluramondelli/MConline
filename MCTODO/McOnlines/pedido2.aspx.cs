@@ -24,7 +24,7 @@ public partial class pedido2 : System.Web.UI.Page
         {
             if (Session["usuario"] == null)
             {
-                lblsession.Text = "Para poder realizar un pedido debe iniciar sesion. ";
+                lblsession.Text = "Para poder realizar un pedido debe iniciar sesión. ";
                 hlIniSesion.NavigateUrl = "~/Login.aspx";
                 hlRegistrarse.NavigateUrl = "~/NuevoUsuario.aspx";
                 Label1.Visible = false;
@@ -45,22 +45,21 @@ public partial class pedido2 : System.Web.UI.Page
                 hlIniSesion.Visible = false;
                 hlRegistrarse.Visible = false;
 
-                if (!IsPostBack)
-                {
-                    Session["ProdInfo"] = null;
-                    dt = new DataTable();
-                    dt.Columns.Add("Producto");
-                    dt.Columns.Add("Cantidad");
-                    dt.Columns.Add("Subtotal");
-                    listProdXped = new List<ProductoXpedido>();
 
-                    DropDownList ddlPageSize = (DropDownList)custPager.FindControl("ddlPageSize");
-                    custPager.CurrentPageSize = Convert.ToInt32(ddlPageSize.SelectedItem.Value);
-                    gvProductos.PageIndex = 1;
-                    CargarGrilla();
+                Session["ProdInfo"] = null;
+                dt = new DataTable();
+                dt.Columns.Add("Producto");
+                dt.Columns.Add("Cantidad");
+                dt.Columns.Add("Subtotal");
+                listProdXped = new List<ProductoXpedido>();
+
+                DropDownList ddlPageSize = (DropDownList)custPager.FindControl("ddlPageSize");
+                custPager.CurrentPageSize = Convert.ToInt32(ddlPageSize.SelectedItem.Value);
+                gvProductos.PageIndex = 1;
+                CargarGrilla();
 
 
-                }
+
             }
         }
     }
@@ -69,10 +68,12 @@ public partial class pedido2 : System.Web.UI.Page
         try
         {
             //gvProductos.DataSource = ProductoDAO.ObtenerTodo();
+            int totalPages = ProductoDAO.paginas(gvProductos.PageIndex, gvProductos.PageSize);
             gvProductos.DataSource = ProductoDAO.productos(gvProductos.PageIndex, gvProductos.PageSize);
             gvProductos.DataKeyNames = new string[] { "id_producto" };
+
             gvProductos.DataBind();
-            int totalPages = ProductoDAO.paginas(gvProductos.PageIndex, gvProductos.PageSize);
+          
             custPager.TotalPages = totalPages % gvProductos.PageSize == 0 ? totalPages / gvProductos.PageSize : totalPages / gvProductos.PageSize + 1;
 
             //gvProductos.DataBind();
@@ -219,7 +220,7 @@ public partial class pedido2 : System.Web.UI.Page
                     {
                         ban = false;
                         return ban;
-                        txtCantidad.ForeColor = System.Drawing.Color.Red;
+                        txtCantidad.BackColor = System.Drawing.Color.Red;
                     }
                 }
                 else

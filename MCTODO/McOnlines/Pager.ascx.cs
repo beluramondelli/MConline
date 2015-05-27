@@ -36,11 +36,12 @@ public partial class Pager : System.Web.UI.UserControl
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack)
+        if (!IsPostBack)
         {
-            for (int count = 0; count <= this.TotalPages; ++count)
+            for (int count = 0; count <= this.TotalPages ; ++count)
                 ddlPageNumber.Items.Add(count.ToString());
-            ddlPageNumber.Items[0].Selected = true;
+            ddlPageNumber.Items[0].Enabled = false;
+            ddlPageNumber.Items[1].Selected = true;
 
             lblShowRecords.Text = string.Format(" {0} ", this.TotalPages.ToString());
         }

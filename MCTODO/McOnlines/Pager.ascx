@@ -10,7 +10,7 @@
     <div id="right" style="float:right;">
         <span>Mostrar&nbsp;</span>
         <asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged">
-            <asp:ListItem Text="-" Value="0" Selected="True" ></asp:ListItem>
+            <asp:ListItem Text="-" Value="10" Selected="True" ></asp:ListItem>
             <asp:ListItem Text="25" Value="25"  ></asp:ListItem>
             <asp:ListItem Text="50" Value="50"></asp:ListItem>
             <asp:ListItem Text="Todos" Value="75"></asp:ListItem>
