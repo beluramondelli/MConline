@@ -219,6 +219,7 @@ public partial class pedido2 : System.Web.UI.Page
                     {
                         ban = false;
                         return ban;
+                        txtCantidad.ForeColor = System.Drawing.Color.Red;
                     }
                 }
                 else

@@ -40,7 +40,7 @@
     </asp:ScriptManager>
     <asp:Panel ID="Panel1" runat="server" 
                                     
-    BackImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" Height="566px" 
+    BackImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" Height="1329px" 
                                     Width="1337px">
     <%--<asp:Image ID="Image1" runat="server" Height="584px" 
                     ImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" style="margin-left: 0px" 
@@ -95,16 +95,16 @@
      <table 
         style="position: static; visibility: visible; height: 371px; width: 1308px;">
          <tr>
-             <td class="style4">
+             <td class="style4" align="center">
                  
                  <asp:GridView ID="gvProductos" runat="server" AllowPaging="True" 
                      CellPadding="2" Font-Bold="True" ForeColor="#FFCC00" 
                      onpageindexchanged="gvProductos_PageIndexChanged" 
                      onpageindexchanging="gvProductos_PageIndexChanging" 
-                     style="margin-right: 0px" Width="1297px" 
+                     style="margin-right: 135px; margin-left: 100px;" Width="710px" 
                      onselectedindexchanged="gvProductos_SelectedIndexChanged" 
                      AutoGenerateColumns="False" EnablePersistedSelection="True" 
-                     Font-Names="Verdana">
+                     Font-Names="Verdana" HorizontalAlign="Center">
                      <AlternatingRowStyle BackColor="White" HorizontalAlign="Center" Wrap="True" />
                      <Columns>
                          <asp:TemplateField>
@@ -159,20 +159,19 @@
                 <td>
                     <asp:Button ID="btnConfirmar" runat="server" onclick="btnConfirmar_Click" 
                         Text="Confirmar Pedido" BackColor="Red" Font-Bold="True" 
-                        Font-Names="Verdana" ForeColor="#FFCC00" />
+                        Font-Names="Verdana" ForeColor="#FFCC00" Height="36px" />
                     <cc1:RoundedCornersExtender ID="btnConfirmar_RoundedCornersExtender" 
                         runat="server" BehaviorID="btnConfirmar_RoundedCornersExtender" 
                         TargetControlID="btnConfirmar" />
                     <asp:Label ID="lblCant" runat="server" Text="Label" Visible="False" 
-                        Font-Bold="True" Font-Names="Verdana" Font-Size="Medium"></asp:Label>
+                        Font-Bold="True" Font-Names="Verdana" Font-Size="Medium" ForeColor="Red"></asp:Label>
                 </td>
             </tr>
         </table>
         <br />
 
     </asp:Panel>
-    <p>
-        &nbsp;</p>
+   
    
     <br />
     </asp:Content>
