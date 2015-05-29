@@ -8,6 +8,12 @@ using McDAO;
 using Entidades;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Web.UI.Design;
+
+
+
+
 
 
 
@@ -63,6 +69,10 @@ public partial class pedido2 : System.Web.UI.Page
             }
         }
     }
+   
+    
+
+
     private void CargarGrilla()
     {
         try
@@ -73,9 +83,29 @@ public partial class pedido2 : System.Web.UI.Page
             gvProductos.DataKeyNames = new string[] { "id_producto" };
 
             gvProductos.DataBind();
-          
+            
+            gvProductos.BackColor = System.Drawing.Color.Transparent;
             custPager.TotalPages = totalPages % gvProductos.PageSize == 0 ? totalPages / gvProductos.PageSize : totalPages / gvProductos.PageSize + 1;
 
+            foreach (GridViewRow row in gvProductos.Rows)
+            {
+                row.Cells[0].BackColor = System.Drawing.Color.Transparent;
+                row.Cells[1].BackColor = System.Drawing.Color.Transparent;
+                row.Cells[2].BackColor = System.Drawing.Color.Transparent;
+                row.Cells[3].BackColor = System.Drawing.Color.Transparent;
+                row.Cells[4].BackColor = System.Drawing.Color.Transparent;
+                
+                //row.Cells[0].BorderColor = System.Drawing.Color.Transparent;
+                //row.Cells[1].BorderColor = System.Drawing.Color.Transparent;
+                //row.Cells[2].BorderColor = System.Drawing.Color.Transparent;
+                //row.Cells[3].BorderColor = System.Drawing.Color.Transparent;
+                //row.Cells[4].BorderColor = System.Drawing.Color.Transparent;
+                row.Cells[3].Font.Bold = false;
+            }
+           
+
+
+ 
             //gvProductos.DataBind();
 
             gvProductos.HeaderRow.Cells[2].Text = " Producto";
@@ -365,3 +395,4 @@ public partial class pedido2 : System.Web.UI.Page
     }
 
 }
+

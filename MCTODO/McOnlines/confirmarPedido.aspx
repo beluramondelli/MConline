@@ -54,7 +54,8 @@
         <asp:GridView ID="dgvCompra" runat="server" BackColor="#CC0000" CellPadding="4" 
             Font-Bold="True" Font-Names="Verdana" ForeColor="#333333" GridLines="Vertical" 
             onselectedindexchanged="dgvCompra_SelectedIndexChanged" 
-            style="margin-left: 256px; margin-top: 0px" Width="565px">
+            style="margin-left: 256px; margin-top: 0px" Width="565px" 
+            BackImageUrl="~/Imagenes/McDonaldAGUA.jpg">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <%--  <asp:TemplateField HeaderText="Preferencias">
