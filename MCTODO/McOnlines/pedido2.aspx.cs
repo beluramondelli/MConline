@@ -84,16 +84,16 @@ public partial class pedido2 : System.Web.UI.Page
 
             gvProductos.DataBind();
             
-            gvProductos.BackColor = System.Drawing.Color.Transparent;
+            //gvProductos.BackColor = System.Drawing.Color.Transparent;
             custPager.TotalPages = totalPages % gvProductos.PageSize == 0 ? totalPages / gvProductos.PageSize : totalPages / gvProductos.PageSize + 1;
-
+            
             foreach (GridViewRow row in gvProductos.Rows)
             {
-                row.Cells[0].BackColor = System.Drawing.Color.Transparent;
-                row.Cells[1].BackColor = System.Drawing.Color.Transparent;
-                row.Cells[2].BackColor = System.Drawing.Color.Transparent;
-                row.Cells[3].BackColor = System.Drawing.Color.Transparent;
-                row.Cells[4].BackColor = System.Drawing.Color.Transparent;
+                //row.Cells[0].BackColor = System.Drawing.Color.Transparent;
+                //row.Cells[1].BackColor = System.Drawing.Color.Transparent;
+                //row.Cells[2].BackColor = System.Drawing.Color.Transparent;
+                //row.Cells[3].BackColor = System.Drawing.Color.Transparent;
+                //row.Cells[4].BackColor = System.Drawing.Color.Transparent;
                 
                 //row.Cells[0].BorderColor = System.Drawing.Color.Transparent;
                 //row.Cells[1].BorderColor = System.Drawing.Color.Transparent;

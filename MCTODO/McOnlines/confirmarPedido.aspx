@@ -18,7 +18,7 @@
         }
         .style16
         {
-            width: 380px;
+            width: 246px;
         }
         .style19
         {
@@ -38,6 +38,15 @@
         {
             width: 245px;
         }
+        .style23
+        {
+            width: 245px;
+            height: 21px;
+        }
+        .style24
+        {
+            height: 21px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
@@ -52,11 +61,10 @@
         <br />
         <br />
         <asp:GridView ID="dgvCompra" runat="server" BackColor="#CC0000" CellPadding="4" 
-            Font-Bold="True" Font-Names="Verdana" ForeColor="#333333" GridLines="Vertical" 
+            Font-Bold="True" Font-Names="Verdana" ForeColor="#CC0000" GridLines="Vertical" 
             onselectedindexchanged="dgvCompra_SelectedIndexChanged" 
             style="margin-left: 256px; margin-top: 0px" Width="565px" 
-            BackImageUrl="~/Imagenes/McDonaldAGUA.jpg">
-            <AlternatingRowStyle BackColor="White" />
+            >
             <Columns>
                 <%--  <asp:TemplateField HeaderText="Preferencias">
                 <ItemTemplate>
@@ -68,7 +76,7 @@
             <HeaderStyle BackColor="#CC0000" Font-Bold="True" Font-Names="Verdana" 
                 ForeColor="#FFCC00" />
             <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+            <RowStyle BackColor="#F3C15A" ForeColor="#CC0000" />
             <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
             <SortedAscendingCellStyle BackColor="#FDF5AC" />
             <SortedAscendingHeaderStyle BackColor="#4D0000" />
@@ -87,7 +95,7 @@
             <td class="style21">
                 <br />
                 <asp:TextBox ID="txtPreferencias" runat="server" TextMode="MultiLine" 
-                    Width="357px" ontextchanged="txtPreferencias_TextChanged" Height="104px"></asp:TextBox>
+                    Width="249px" ontextchanged="txtPreferencias_TextChanged" Height="128px"></asp:TextBox>
                 <br />
             </td>
         </tr>
@@ -112,18 +120,18 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td class="style22">
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
+            <td class="style23">
+                </td>
+            <td class="style24">
+                </td>
+            <td class="style24">
+                </td>
         </tr>
     </table>
     <br />
     <table class="style13">
         <tr>
-            <td class="style16">
+            <td class="style22">
                 &nbsp;</td>
             <td>
                 <asp:Label ID="Label1" runat="server" Text="Total" Font-Bold="True" 

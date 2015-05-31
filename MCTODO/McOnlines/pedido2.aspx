@@ -137,14 +137,15 @@
              <td class="style4" align="center">
                  
                  <asp:GridView ID="gvProductos" runat="server" AllowPaging="True" 
-                     CellPadding="2" Font-Bold="True" ForeColor="#FFCC00" 
+                     CellPadding="2" Font-Bold="True" ForeColor="#333333" 
                      onpageindexchanged="gvProductos_PageIndexChanged" 
                      onpageindexchanging="gvProductos_PageIndexChanging" 
                      style="margin-right: 135px; margin-left: 100px;" Width="650px" 
                      onselectedindexchanged="gvProductos_SelectedIndexChanged" 
                      AutoGenerateColumns="False" EnablePersistedSelection="True" 
                      Font-Names="Verdana" HorizontalAlign="Center" 
-                     background-color="Transparent" BorderColor="#666666" BorderStyle="Double">
+                     background-color="Transparent" BorderColor="#666666" BorderStyle="Double" 
+                     BackColor="#F3C15A">
                      <AlternatingRowStyle HorizontalAlign="Center" Wrap="True" />
                      <Columns>
                          <asp:TemplateField>
@@ -177,8 +178,8 @@
                      </EmptyDataTemplate>
                      <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                      <HeaderStyle BackColor="#CC0000" Font-Bold="True" ForeColor="#FFFF66" />
-                     <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                     <RowStyle ForeColor="Maroon" Width="50px" 
+                     <PagerStyle BackColor="#CC0000" ForeColor="#FFCC00" HorizontalAlign="Center" />
+                     <RowStyle ForeColor="#CC0000" Width="50px" 
                          HorizontalAlign="Center" Wrap="True" BorderStyle="None" />
                      <SelectedRowStyle Font-Bold="True" ForeColor="Navy" />
                      <SortedAscendingCellStyle BackColor="#FDF5AC" />
