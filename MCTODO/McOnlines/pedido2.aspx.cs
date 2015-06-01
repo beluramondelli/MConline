@@ -137,42 +137,36 @@ public partial class pedido2 : System.Web.UI.Page
 
     protected void btnConfirmar_Click(object sender, EventArgs e)
     {
+        mantenerSeleccionado();
         lblCant.Visible = false;
         bool validar = validarCantidad();
         if (validar == true)
         {
-
-            foreach (GridViewRow dgi in gvProductos.Rows)
+            List<ProductoXpedido> prodInfo = Session["ProdInfo"] as List<ProductoXpedido>;
+            foreach (var item in prodInfo)
             {
-                CheckBox myCheckBox = dgi.Cells[0].Controls[1] as CheckBox;
-                if (myCheckBox.Checked == true)
-                {
-                    TextBox txtCantidad = dgi.Cells[1].Controls[1] as TextBox;
-                    int id_producto = (int.Parse(gvProductos.DataKeys[dgi.RowIndex].Value.ToString()));
+                ProductoXpedido pxp = new ProductoXpedido();
+                pxp.id_producto = item.id_producto;
+                pxp.cantidad = item.cantidad;
 
-                    ProductoXpedido pxp = new ProductoXpedido();
-                    pxp.cantidad = int.Parse(txtCantidad.Text);
+                string nom = ProductoDAO.ObtenerProductoPorId(pxp.id_producto);
+                int precio = ProductoDAO.obtenerPrecioProducto(pxp.id_producto);
+                int subtotal = (precio * pxp.cantidad);
 
-                    string nom = ProductoDAO.ObtenerProductoPorId(id_producto);
-                    int precio = ProductoDAO.obtenerPrecioProducto(id_producto);
-                    int cantidad = (int.Parse(txtCantidad.Text.ToString()));
-                    int subtotal = (precio * cantidad);
+                pxp.precio = subtotal;
+                pxp.id_tamaño = 3;
 
-                    pxp.precio = subtotal;
-                    pxp.id_producto = id_producto;
-                    pxp.id_tamaño = 3;
-
-                    listProdXped.Add(pxp);
-                    dt.Columns[0].ColumnName = "Producto";
-                    dt.Columns[1].ColumnName = "Cantidad";
-                    dt.Columns[2].ColumnName = "Subtotal";
-                    dt.Rows.Add(nom, pxp.cantidad, subtotal);
+                listProdXped.Add(pxp);
+                dt.Columns[0].ColumnName = "Producto";
+                dt.Columns[1].ColumnName = "Cantidad";
+                dt.Columns[2].ColumnName = "Subtotal";
+                dt.Rows.Add(nom, pxp.cantidad, subtotal);
 
 
-                    CalcularTotal();
-                    lblCant.Visible = false;
-                }
+                CalcularTotal();
+                lblCant.Visible = false;
             }
+
             Session["dataTable"] = dt;
             Session["lista"] = listProdXped;
             Session["total"] = txtTotal.Text;
@@ -226,7 +220,6 @@ public partial class pedido2 : System.Web.UI.Page
                     {
                         ban = false;
                         return ban;
-                        txtCantidad.BackColor = System.Drawing.Color.Red;
                     }
                 }
                 else
@@ -281,10 +274,9 @@ public partial class pedido2 : System.Web.UI.Page
         foreach (GridViewRow dgi in gvProductos.Rows)
         {
             CheckBox myCheckBox = dgi.Cells[0].Controls[1] as CheckBox;
-            if (myCheckBox.Checked == true)
+            TextBox txtCantidad = dgi.Cells[1].Controls[1] as TextBox;
+            if (myCheckBox.Checked == true && txtCantidad.Text!="")
             {
-                TextBox txtCantidad = dgi.Cells[1].Controls[1] as TextBox;
-
                 ProductoXpedido pxp = new ProductoXpedido();
                 pxp.id_producto = (int.Parse(gvProductos.DataKeys[dgi.RowIndex].Value.ToString()));
                 pxp.cantidad = int.Parse(txtCantidad.Text);
