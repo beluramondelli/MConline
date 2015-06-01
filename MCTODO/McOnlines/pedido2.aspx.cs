@@ -12,12 +12,6 @@ using System.Drawing;
 using System.Web.UI.Design;
 
 
-
-
-
-
-
-
 public partial class pedido2 : System.Web.UI.Page
 {
     public static DataTable dt;
@@ -59,8 +53,8 @@ public partial class pedido2 : System.Web.UI.Page
                 dt.Columns.Add("Subtotal");
                 listProdXped = new List<ProductoXpedido>();
 
-                DropDownList ddlPageSize = (DropDownList)custPager.FindControl("ddlPageSize");
-                custPager.CurrentPageSize = Convert.ToInt32(ddlPageSize.SelectedItem.Value);
+                DropDownList ddlPageSize = (DropDownList)Pager1.FindControl("ddlPageSize");
+                Pager1.CurrentPageSize = Convert.ToInt32(ddlPageSize.SelectedItem.Value);
                 gvProductos.PageIndex = 1;
                 CargarGrilla();
 
@@ -85,7 +79,7 @@ public partial class pedido2 : System.Web.UI.Page
             gvProductos.DataBind();
             
             //gvProductos.BackColor = System.Drawing.Color.Transparent;
-            custPager.TotalPages = totalPages % gvProductos.PageSize == 0 ? totalPages / gvProductos.PageSize : totalPages / gvProductos.PageSize + 1;
+            Pager1.TotalPages = totalPages % gvProductos.PageSize == 0 ? totalPages / gvProductos.PageSize : totalPages / gvProductos.PageSize + 1;
             
             foreach (GridViewRow row in gvProductos.Rows)
             {
@@ -120,9 +114,13 @@ public partial class pedido2 : System.Web.UI.Page
 
     protected void custPager_PageChanged(object sender, CustomPageChangeArgs e)
     {
+        if (Session["ProdInfo"] == null)
+            mantenerSeleccionado();
+
         gvProductos.PageSize = e.CurrentPageSize;
         gvProductos.PageIndex = e.CurrentPageNumber;
         CargarGrilla();
+        marcarSeleccionados();
     }
     protected void btnAgregarCarrito_Click(object sender, EventArgs e)
     {
@@ -137,18 +135,6 @@ public partial class pedido2 : System.Web.UI.Page
         gv.DataBind();
     }
 
-
-    protected void gvProductos_PageIndexChanged(object sender, EventArgs e)
-    {
-        RestoreProductInfo((GridView)sender);
-    }
-
-    protected void gvProductos_PageIndexChanging(object sender, GridViewPageEventArgs e)
-    {
-        KeepSelection((GridView)sender);
-        gvProductos.PageIndex = e.NewPageIndex;
-        CargarGrilla();
-    }
     protected void btnConfirmar_Click(object sender, EventArgs e)
     {
         lblCant.Visible = false;
@@ -210,16 +196,6 @@ public partial class pedido2 : System.Web.UI.Page
         txtTotal.Text = total.ToString();
     }
 
-    //public bool validarDescripcion()
-    //{
-    //    txtDescripcion.MaxLength = 100;
-    //    if (txtDescripcion.Text.Length < txtDescripcion.MaxLength)
-    //        return true;
-    //    else
-    //        return false;
-    //}
-
-
     protected void chek1_CheckedChanged(object sender, EventArgs e)
     {
 
@@ -263,104 +239,6 @@ public partial class pedido2 : System.Web.UI.Page
         return ban;
     }
 
-    public static void KeepSelection(GridView grid)
-    {
-        //
-        // se obtienen los id de producto checkeados de la pagina actual
-        //
-
-        var checkedProd = from item in grid.Rows.Cast<GridViewRow>()
-                          let check = (CheckBox)item.FindControl("Chek1")
-                          let cantidad = (TextBox)item.FindControl("txtCantidad")
-                          where (check.Checked && (!string.IsNullOrWhiteSpace(cantidad.Text)))
-                          select new ProductInfo()
-                          {
-                              id_prod = Convert.ToInt32(grid.DataKeys[item.RowIndex].Value),
-                              cant = Convert.ToInt32(cantidad.Text),
-                              //id_tam=ProductoDAO.buscarIdTamaño(grid.Rows[item.RowIndex].Cells)
-                          };
-
-        //
-        // se recupera de session la lista de seleccionados previamente
-        //
-        List<ProductInfo> prodInfo = HttpContext.Current.Session["ProdInfo"] as List<ProductInfo>;
-
-
-        if (prodInfo == null)
-            prodInfo = new List<ProductInfo>();
-        //
-        // se cruzan todos los ingresados en la pagina actual, con los previamente conservados 
-        // en Session, devolviendo solo aquellos donde no hay coincidencia
-        //
-        prodInfo = (from item in prodInfo
-                    join item2 in checkedProd
-                       on item.id_prod equals item2.id_prod into g
-                    where !g.Any()
-                    select item).ToList();
-
-        //
-        // se agregan la actualizacion realizada por el usuario
-        //
-        prodInfo.AddRange(checkedProd);
-
-        HttpContext.Current.Session["ProdInfo"] = prodInfo;
-
-    }
-
-
-    public static void RestoreProductInfo(GridView grid)
-    {
-
-        List<ProductInfo> prodInfo = HttpContext.Current.Session["ProdInfo"] as List<ProductInfo>;
-
-        if (prodInfo == null)
-            return;
-
-        //
-        // se comparan los registros de la pagina del grid con los recuperados de la Session
-        // los coincidentes se devuelven para ser seleccionados
-        //
-        var result = (from item in grid.Rows.Cast<GridViewRow>()
-                      join item2 in prodInfo
-                          on Convert.ToInt32(grid.DataKeys[item.RowIndex].Value) equals item2.id_prod into g
-                      where g.Any()
-                      select new
-                      {
-                          gridrow = item,
-                          prodonfo = g.First()
-                      }).ToList();
-
-
-        //
-        // se recorre cada item para asignar la informacion 
-        //
-        result.ForEach(x =>
-        {
-            ((CheckBox)x.gridrow.FindControl("Chek1")).Checked = true;
-            ((TextBox)x.gridrow.FindControl("txtCantidad")).Text = Convert.ToString(x.prodonfo.cant);
-
-        });
-    }
-    internal class ProductInfo
-    {
-        public int id_prod { get; set; }
-        public int cant { get; set; }
-        public int id_tam { get; set; }
-    }
-
-
-    //private void dataGridView1_CellContentClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
-    //{
-    //    if (gvProductos.Columns[e.ColumnIndex].Name == "IsSelected" && gvProductos.CurrentCell is DataGridViewCheckBoxCell)
-    //    {
-    //        bool isChecked = (bool)gvProductos[e.ColumnIndex, e.RowIndex].EditedFormattedValue;
-    //        if (isChecked == false)
-    //        {
-    //            gvProductos.Rows[e.RowIndex].Cells["Status"].Value = "";
-    //        }
-    //        gvProductos.EndEdit();
-    //    }
-    //}
     protected void btnFiltrar_Click(object sender, EventArgs e)
     {
         int sand = 0, beb = 0, guarn = 0, postre = 0, caf = 0, combo = 0;
@@ -391,6 +269,51 @@ public partial class pedido2 : System.Web.UI.Page
         catch
         {
 
+        }
+    }
+        public void mantenerSeleccionado()
+    {
+        List<ProductoXpedido> prodInfo = Session["ProdInfo"] as List<ProductoXpedido>;
+
+        if (prodInfo == null)
+            prodInfo = new List<ProductoXpedido>();
+
+        foreach (GridViewRow dgi in gvProductos.Rows)
+        {
+            CheckBox myCheckBox = dgi.Cells[0].Controls[1] as CheckBox;
+            if (myCheckBox.Checked == true)
+            {
+                TextBox txtCantidad = dgi.Cells[1].Controls[1] as TextBox;
+
+                ProductoXpedido pxp = new ProductoXpedido();
+                pxp.id_producto = (int.Parse(gvProductos.DataKeys[dgi.RowIndex].Value.ToString()));
+                pxp.cantidad = int.Parse(txtCantidad.Text);
+                prodInfo.Add(pxp);
+            }
+
+        }
+        Session["ProdInfo"] = prodInfo;
+    }
+
+
+    public void marcarSeleccionados()
+    {
+        List<ProductoXpedido> prodInfo = Session["ProdInfo"] as List<ProductoXpedido>;
+
+        foreach (var item in prodInfo)
+        {
+            int id = item.id_producto;
+            int cant = item.cantidad;
+            foreach (GridViewRow dgi in gvProductos.Rows)
+            {
+                if(int.Parse(gvProductos.DataKeys[dgi.RowIndex].Value.ToString())== id)
+                {
+                    CheckBox myCheckBox = dgi.Cells[0].Controls[1] as CheckBox;
+                    myCheckBox.Checked = true;
+                    TextBox txtCantidad = dgi.Cells[1].Controls[1] as TextBox;
+                    txtCantidad.Text = Convert.ToString(cant);
+                }
+            }
         }
     }
 

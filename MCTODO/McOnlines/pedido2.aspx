@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="pedido2.aspx.cs" Inherits="pedido2" %>
 
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
-<%@ Register Src="~/Pager.ascx" TagPrefix="custom" TagName="Pager" %>
+<%@ Register src="Pager.ascx" tagname="Pager" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <style type="text/css">
         .style4
@@ -57,11 +57,7 @@
         {
             width: 231px;
         }
-        .style20
-        {
-            width: 232px;
-        }
-    </style>
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -120,13 +116,9 @@
                                     Text="Buscar" />
                             </td>
                         </tr>
-                        <tr>
-                            <td class="style11">
-                                &nbsp;</td>
-                            <td>
-                                &nbsp;</td>
-                        </tr>
                     </table>
+                    <br />
+                    <uc1:Pager ID="Pager1" runat="server" OnPageChanged="custPager_PageChanged"/>
                 </td>
             </tr>
         </table>
@@ -137,9 +129,7 @@
              <td class="style4" align="center">
                  
                  <asp:GridView ID="gvProductos" runat="server" AllowPaging="True" 
-                     CellPadding="2" Font-Bold="True" ForeColor="#333333" 
-                     onpageindexchanged="gvProductos_PageIndexChanged" 
-                     onpageindexchanging="gvProductos_PageIndexChanging" 
+                     CellPadding="2" Font-Bold="True" ForeColor="#333333"  
                      style="margin-right: 135px; margin-left: 100px;" Width="650px" 
                      onselectedindexchanged="gvProductos_SelectedIndexChanged" 
                      AutoGenerateColumns="False" EnablePersistedSelection="True" 
@@ -188,7 +178,6 @@
                      <SortedDescendingHeaderStyle BackColor="#820000" />
                  </asp:GridView>
              </td>
-             <custom:Pager ID="custPager" runat="server" OnPageChanged="custPager_PageChanged" />
              </td>
          </tr>
                 
