@@ -85,7 +85,7 @@ namespace Unit_Test
             List<ProductoXpedido> listProdXped = new List<ProductoXpedido>(); // TODO: Inicializar en un valor adecuado
             ProductoXpedido pxp = new ProductoXpedido();
             pxp.cantidad = 1;
-            pxp.id_producto = 1;
+            //pxp.id_producto = 1;
             pxp.id_tamaño = 3;
             pxp.precio = 50;
 
