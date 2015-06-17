@@ -1,0 +1,11 @@
+﻿Html
+{
+    height:100%;
+}
+body 
+{
+    background-image: url( '~/Imagenes/mcdonalds-art-7AGUA.jpg' ) ;
+    background-repeat: no-repeat;
+    background-attachment: fixed   ;
+    
+}

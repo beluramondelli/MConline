@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="4afb36a1-ead9-4f94-8924-6397cc9c4be5" name="Vale@VALE-PC 2015-05-26 17:24:31" runUser="Vale-PC\Vale" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="01a899d6-b98a-4f8a-8b0b-4493fbbca751">
+    <Description>Esta es la configuración de pruebas predeterminada para una ejecución de pruebas local.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Vale_VALE-PC 2015-05-26 17_24_31">
+      <DeploymentItem filename="C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\Entidades\bin\Debug\Entidades.dll" />
+      <DeploymentItem filename="C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\McDAO\bin\Debug\McDAO.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2015-05-26T17:24:31.3792863-03:00" queuing="2015-05-26T17:24:40.9648345-03:00" start="2015-05-26T17:24:41.2608515-03:00" finish="2015-05-26T17:24:51.0214098-03:00" />
+  <ResultSummary outcome="Inconclusive">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="1" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="verificarUsuarioTest" storage="c:\users\vale\documents\github\mconline\mctodo\mconlines\unit test\bin\debug\unit test.dll" id="7212ea0f-41f2-1986-493c-9a9455a67896">
+      <Execution id="3ce62cef-0ca0-41fd-9588-de9c186242b7" />
+      <TestMethod codeBase="C:/Users/Vale/Documents/GitHub/MConline/MCTODO/McOnlines/Unit Test/bin/Debug/Unit Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Unit_Test.Login1DAOTest, Unit Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="verificarUsuarioTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Resultados que no están en la lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos los resultados cargados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="7212ea0f-41f2-1986-493c-9a9455a67896" executionId="3ce62cef-0ca0-41fd-9588-de9c186242b7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="3ce62cef-0ca0-41fd-9588-de9c186242b7" testId="7212ea0f-41f2-1986-493c-9a9455a67896" testName="verificarUsuarioTest" computerName="VALE-PC" duration="00:00:03.7978363" startTime="2015-05-26T17:24:41.3638574-03:00" endTime="2015-05-26T17:24:49.3193124-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3ce62cef-0ca0-41fd-9588-de9c186242b7">
+      <Output>
+        <ErrorInfo>
+          <Message>Error de Assert.Inconclusive. Compruebe la exactitud de este método de prueba.</Message>
+          <StackTrace>   en Unit_Test.Login1DAOTest.verificarUsuarioTest() en C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnlines\Unit Test\Login1DAOTest.cs:línea 78
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

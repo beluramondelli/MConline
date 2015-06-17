@@ -1,0 +1,24 @@
+D:\Usuarios\Agustina\Mis Documentos\McOnline\Entidades\bin\Debug\Entidades.dll
+D:\Usuarios\Agustina\Mis Documentos\McOnline\Entidades\bin\Debug\Entidades.pdb
+D:\Usuarios\Agustina\Mis Documentos\McOnline\Entidades\obj\Debug\Entidades.dll
+D:\Usuarios\Agustina\Mis Documentos\McOnline\Entidades\obj\Debug\Entidades.pdb
+D:\Usuarios\Agustina\Mis Documentos\McOnline\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\Entidades\bin\Debug\Entidades.dll
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.dll
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.pdb
+D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\Entidades\bin\Debug\Entidades.dll
+D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\Entidades\bin\Debug\Entidades.pdb
+D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.dll
+D:\Usuarios\Agustina\Escritorio\GitHub\MCOnline 16-4\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Vale\Documents\GitHub\MCOnline 16-04\MConline\MCTODO\McOnline\Entidades\bin\Debug\Entidades.dll
+C:\Users\Vale\Documents\GitHub\MCOnline 16-04\MConline\MCTODO\McOnline\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Vale\Documents\GitHub\MCOnline 16-04\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.dll
+C:\Users\Vale\Documents\GitHub\MCOnline 16-04\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Vale\Documents\GitHub\MCOnline 16-04\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Documents\GitHub\MConline16-04\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\Entidades\bin\Debug\Entidades.dll
+C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.dll
+C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.pdb
