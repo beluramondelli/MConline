@@ -31,7 +31,7 @@
                                             <asp:Image ID="Image6" runat="server" Height="74px" 
                                            ImageUrl="~/Imagenes/que bueno que viniste.jpg" Width="431px" />
                                    <asp:Image runat="server" ImageUrl="~/Imagenes/principal.jpg" 
-                                           Height="623px" Width="1334px" 
+                                           Height="651px" Width="1334px" 
                                            
                                            />
                                       <%-- <asp:Panel ID="Panel1" runat="server"  

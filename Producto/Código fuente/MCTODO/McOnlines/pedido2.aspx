@@ -57,14 +57,24 @@
         {
             width: 231px;
         }
+        .style23
+        {
+            width: 71%;
+            height: 688px;
+        }
+        .style24
+        {
+            width: 100%;
+            height: 688px;
+        }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <asp:Panel ID="Panel1" runat="server" 
-                                    
-    BackImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" Height="1329px" 
+                                 
+    BackImageUrl="~/Imagenes/principalagua.jpg"   Height="1329px" 
                                     Width="1337px">
    
         <table class="style8">
@@ -124,18 +134,20 @@
         </table>
         
      <table 
-        style="position: static; visibility: visible; height: 371px; width: 1308px;">
+        style="position: static; visibility: visible; height: 371px; width: 1098px;">
+                
+        
+       
+                
          <tr>
-             <td class="style4" align="center">
-                 
+             <td align="center" class="style23">
                  <asp:GridView ID="gvProductos" runat="server" AllowPaging="True" 
-                     CellPadding="2" Font-Bold="True" ForeColor="#333333"  
-                     style="margin-right: 135px; margin-left: 100px;" Width="650px" 
+                     AutoGenerateColumns="False" BackColor="#F3C15A" background-color="Transparent" 
+                     BorderColor="#666666" BorderStyle="Double" CellPadding="2" 
+                     EnablePersistedSelection="True" Font-Bold="True" Font-Names="Verdana" 
+                     ForeColor="#333333" HorizontalAlign="Center" 
                      onselectedindexchanged="gvProductos_SelectedIndexChanged" 
-                     AutoGenerateColumns="False" EnablePersistedSelection="True" 
-                     Font-Names="Verdana" HorizontalAlign="Center" 
-                     background-color="Transparent" BorderColor="#666666" BorderStyle="Double" 
-                     BackColor="#F3C15A">
+                     style="margin-right: 135px; margin-left: 172px;" Width="663px">
                      <AlternatingRowStyle HorizontalAlign="Center" Wrap="True" />
                      <Columns>
                          <asp:TemplateField>
@@ -144,22 +156,18 @@
                                      oncheckedchanged="chek1_CheckedChanged" />
                              </ItemTemplate>
                          </asp:TemplateField>
-                         <asp:TemplateField HeaderText="Cantidad "  ItemStyle-HorizontalAlign="center">
+                         <asp:TemplateField HeaderText="Cantidad " ItemStyle-HorizontalAlign="center">
                              <ItemTemplate>
-                                 <asp:TextBox ID="txtCantidad" runat="server" Columns="5" Width="50px" ></asp:TextBox>
+                                 <asp:TextBox ID="txtCantidad" runat="server" Columns="5" Width="50px"></asp:TextBox>
                                  <asp:CompareValidator ID="CompareValidator1" runat="server" 
-                                     ControlToValidate="txtCantidad" 
-                                     ErrorMessage="Ingrese una cantidad válida" Operator="DataTypeCheck" 
-                                     Type="Integer" Font-Size="XX-Small"></asp:CompareValidator>
+                                     ControlToValidate="txtCantidad" ErrorMessage="Ingrese una cantidad válida" 
+                                     Font-Size="XX-Small" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
                              </ItemTemplate>
                              <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="10px" />
                          </asp:TemplateField>
-                         <asp:BoundField DataField="nombre" HeaderText="Producto" >
-                         </asp:BoundField>
-                         <asp:BoundField DataField="descripcion" HeaderText="Descripción" >
-                         </asp:BoundField>
-                         <asp:BoundField DataField="precio" HeaderText="Precio" >
-                         </asp:BoundField>
+                         <asp:BoundField DataField="nombre" HeaderText="Producto" />
+                         <asp:BoundField DataField="descripcion" HeaderText="Descripción" />
+                         <asp:BoundField DataField="precio" HeaderText="Precio" />
                      </Columns>
                      <EmptyDataTemplate>
                          <asp:CheckBox ID="check1" runat="server" />
@@ -169,8 +177,8 @@
                      <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                      <HeaderStyle BackColor="#CC0000" Font-Bold="True" ForeColor="#FFFF66" />
                      <PagerStyle BackColor="#CC0000" ForeColor="#FFCC00" HorizontalAlign="Center" />
-                     <RowStyle ForeColor="#CC0000" Width="50px" 
-                         HorizontalAlign="Center" Wrap="True" BorderStyle="None" />
+                     <RowStyle BorderStyle="None" ForeColor="#CC0000" HorizontalAlign="Center" 
+                         Width="50px" Wrap="True" />
                      <SelectedRowStyle Font-Bold="True" ForeColor="Navy" />
                      <SortedAscendingCellStyle BackColor="#FDF5AC" />
                      <SortedAscendingHeaderStyle BackColor="#4D0000" />
@@ -178,8 +186,17 @@
                      <SortedDescendingHeaderStyle BackColor="#820000" />
                  </asp:GridView>
              </td>
-             
+             <td align="center" class="style24">
+                 <asp:Button ID="btnConfirmar0" runat="server" BackColor="#CC0000" 
+                     Font-Bold="True" Font-Names="Verdana" ForeColor="#FFFF66" Height="36px" 
+                     onclick="btnConfirmar_Click" Text="Confirmar Pedido" />
+                 <cc1:RoundedCornersExtender ID="btnConfirmar0_RoundedCornersExtender" 
+                     runat="server" BehaviorID="btnConfirmar_RoundedCornersExtender" 
+                     TargetControlID="btnConfirmar0" />
+             </td>
          </tr>
+         
+       
                 
         </table>
         
@@ -192,8 +209,6 @@
                         ForeColor="#CC0000" Text="Total   " Visible="False"></asp:Label>
                     <asp:TextBox ID="txtTotal" runat="server" Enabled="False" Visible="False"></asp:TextBox>
                 </td>
-                <td class="style19">
-                    &nbsp;</td>
                 <td>
                     <asp:Label ID="lblCant" runat="server" Font-Bold="True" Font-Names="Verdana" 
                         Font-Size="Medium" ForeColor="Red" Text="Label" Visible="False"></asp:Label>

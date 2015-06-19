@@ -52,9 +52,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     
    
-    <asp:Panel ID="Panel1" runat="server" BackImageUrl="~/Imagenes/mcdonalds-art-7AGUA.jpg" Height="600px" Width="100%">
+    <asp:Panel ID="Panel1" runat="server" BackImageUrl="~/Imagenes/principalagua.jpg" Height="600px" Width="100%">
  <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
+     <asp:Image ID="Image4" runat="server" Height="74px" 
+                                           ImageUrl="~/Imagenes/que bueno que viniste.jpg" Width="431px" />
+                                       <asp:Image ID="Image5" runat="server" Height="74px" 
+                                           ImageUrl="~/Imagenes/que bueno que viniste.jpg" Width="431px" />
+                                            <asp:Image ID="Image6" runat="server" Height="74px" 
+                                           ImageUrl="~/Imagenes/que bueno que viniste.jpg" Width="431px" />
         <br />
         <br />
         <br />
@@ -90,7 +96,7 @@
             <td class="style20">
                 <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Verdana" 
                     Text="Preferencias con respecto a cada producto del pedido" 
-                    ForeColor="#990000"></asp:Label>
+                    ForeColor="#990000" Font-Size="Medium"></asp:Label>
             </td>
             <td class="style21">
                 <br />
@@ -135,8 +141,9 @@
                 &nbsp;</td>
             <td>
                 <asp:Label ID="Label1" runat="server" Text="Total" Font-Bold="True" 
-                    Font-Names="Verdana" Font-Size="Medium" ForeColor="Black"></asp:Label>
-                <asp:TextBox ID="txtTotal" runat="server" Enabled="False"></asp:TextBox>
+                    Font-Names="Verdana" Font-Size="Medium" ForeColor="#CC0000"></asp:Label>
+                <asp:TextBox ID="txtTotal" runat="server" Enabled="False" Height="33px" 
+                    Width="137px"></asp:TextBox>
             </td>
             <td>
                 &nbsp;</td>
@@ -150,7 +157,7 @@
             <td class="style15">
                 <asp:Button ID="btnAceptar" runat="server" onclick="btnAceptar_Click" 
                     style="text-align: center" Text="Aceptar" BackColor="Red" Font-Bold="True" 
-                    Font-Names="Verdana" ForeColor="#FFCC00" />
+                    Font-Names="Verdana" ForeColor="#FFCC00" Height="33px" Width="91px" />
                 <cc1:RoundedCornersExtender ID="btnAceptar_RoundedCornersExtender" 
                     runat="server" BehaviorID="btnAceptar_RoundedCornersExtender" 
                     TargetControlID="btnAceptar">
@@ -159,7 +166,7 @@
             <td>
                 <asp:Button ID="btnCancelar" runat="server" onclick="btnCancelar_Click" 
                     Text="Cancelar" BackColor="Red" Font-Bold="True" Font-Names="Verdana" 
-                    ForeColor="#FFCC00" />
+                    ForeColor="#FFCC00" Height="32px" Width="100px" />
                 <cc1:RoundedCornersExtender ID="btnCancelar_RoundedCornersExtender" 
                     runat="server" BehaviorID="btnCancelar_RoundedCornersExtender" 
                     TargetControlID="btnCancelar">
