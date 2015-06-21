@@ -22,3 +22,8 @@ C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\Entidades\bin\Debug\Enti
 C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
 C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.dll
 C:\Users\Vale\Documents\GitHub\MConline\MCTODO\McOnline\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Vale\Documents\GitHub\MConline\Producto\Código fuente\MCTODO\McOnline\Entidades\bin\Debug\Entidades.dll
+C:\Users\Vale\Documents\GitHub\MConline\Producto\Código fuente\MCTODO\McOnline\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Vale\Documents\GitHub\MConline\Producto\Código fuente\MCTODO\McOnline\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Vale\Documents\GitHub\MConline\Producto\Código fuente\MCTODO\McOnline\Entidades\obj\Debug\Entidades.dll
+C:\Users\Vale\Documents\GitHub\MConline\Producto\Código fuente\MCTODO\McOnline\Entidades\obj\Debug\Entidades.pdb
